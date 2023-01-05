@@ -17,5 +17,11 @@
             <input type="submit" class="btn btn-primary" value="Logar">
             <p>Não tem conta?&nbsp;<a href="{{@route('cadastrar')}}" class="text-decoration-none">cadastre-se</a>
         </form>
+        
+        @if (Session::has('message'))
+            <x-toast.toast title="Sucesso" info="conta cadastrada com sucesso" type="success" />
+        @elseif($errors->any())
+            <x-toast.toast title="Credencias inválidas" info="Não foi possível realizar o login" type="error" />
+        @endif
     </div>
 @endsection

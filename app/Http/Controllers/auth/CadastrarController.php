@@ -10,5 +10,7 @@ class CadastrarController extends Controller
 {
     public function store(UserCreateRequest $request, User $user){
         $user->create($request->all());
+
+        return back()->with('message','Sucesso');
     }
 }

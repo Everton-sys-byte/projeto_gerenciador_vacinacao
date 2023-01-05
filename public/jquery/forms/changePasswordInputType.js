@@ -11,3 +11,5 @@ function changeInputType(inputTypeText) {
     //    $(this).prop("type",inputTypeValue)
     //})
 }
+
+

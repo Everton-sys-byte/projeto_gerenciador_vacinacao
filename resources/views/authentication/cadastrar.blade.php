@@ -21,7 +21,7 @@
             <div class="form-group">
                 <label for="cpf">CPF</label>
                 <input type="text" class="form-control @error('cpf') is-invalid @enderror" name="cpf" id="cpf"
-                    value="@old('cpf')">
+                    value="{{ @old('cpf') }}">
                 {{-- MELHOR FORMA DE FAZER (SE ESTÁ DENTRO DE @ERROR posso imprimir só a message do error) --}}
                 @error('cpf')
                     <span class="text-danger">
@@ -62,13 +62,13 @@
             <div class="row row-cols-1 row-cols-md-2">
                 <div class="form-group col">
                     <label for="password">Senha</label>
-                    <input type="password" name="password" id="password" 
-                    class="form-control @if($errors->has('password') || $errors->has('c_password')) is-invalid @endif">
+                    <input type="password" name="password" id="password"
+                        class="form-control @if ($errors->has('password') || $errors->has('c_password')) is-invalid @endif">
                 </div>
                 <div class="form-group col">
                     <label for="c_password">Confirmar senha</label>
-                    <input type="password" name="c_password" id="c_password" 
-                    class="form-control @if($errors->has('password') || $errors->has('c_password')) is-invalid @endif">
+                    <input type="password" name="c_password" id="c_password"
+                        class="form-control @if ($errors->has('password') || $errors->has('c_password')) is-invalid @endif">
                 </div>
             </div>
             <div class="container-fluid d-flex flex-column p-0">
@@ -90,16 +90,11 @@
             <input type="submit" class="btn btn-primary" value="Cadastrar">
             <a href="{{ @route('logar') }}" class="btn btn-danger">Voltar</a>
         </form>
-        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <img src="..." class="rounded me-2" alt="...">
-                <strong class="me-auto">Bootstrap</strong>
-                <small class="text-muted">11 mins ago</small>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-                Hello, world! This is a toast message.
-            </div>
-        </div>
+
+        @if (Session::has('message'))
+            <x-toast.toast title="Sucesso" info="conta cadastrada com sucesso" type="success" />
+        @elseif($errors->any())
+            <x-toast.toast title="Erro" info="Não foi possível cadastrar sua conta" type="error" />
+        @endif
     </div>
 @endsection
