@@ -20,4 +20,8 @@ class Lote extends Model
     public function registros(){
         return $this->hasMany(Registro::class);
     }
+
+    public function vacina(){
+        return $this->belongsTo(Vacina::class);
+    }
 }
