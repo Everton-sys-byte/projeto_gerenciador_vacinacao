@@ -1,0 +1,6 @@
+<div class="container-fluid row">
+    <div class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus aliquam cum error facere consectetur labore maxime consequuntur id exercitationem, soluta obcaecati quis repellat illo minus recusandae incidunt quas minima hic.</div>
+    <div class="col">Deleniti, doloremque aperiam, tempora vitae modi praesentium eum blanditiis ratione soluta ex voluptas, molestias aliquam? Vero ipsum sit porro voluptatem, reiciendis ullam, iste, obcaecati magni corrupti consequuntur at eos maiores?</div>
+    <div class="col">Nulla, aut. Reiciendis temporibus natus alias quisquam in, expedita ratione cum. Perspiciatis, ipsum sapiente in architecto numquam asperiores error nostrum sit sequi enim molestias tempore voluptatum velit ipsam quae quod!</div>
+    <div class="col">Vel tempore quis, cupiditate dolor aliquam quas facere architecto quibusdam laboriosam sapiente minima asperiores in exercitationem voluptatibus. Nesciunt reprehenderit nihil, beatae quisquam iure facere aut libero repudiandae delectus distinctio corporis.</div>
+</div>

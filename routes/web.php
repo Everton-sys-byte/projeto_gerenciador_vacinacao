@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\auth\CadastrarController;
+use App\Http\Controllers\auth\LogarController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+//--------------------- FORMS VIEW ----------------------//
+Route::view('/','authentication/login')->name('logar');
+Route::view('/cadastrar','authentication/cadastrar')->name('cadastrar');
+
+//--------------------- FORMS SUBMIT --------------------//
+Route::post('/user/logar',[CadastrarController::class,'store'])->name('user.cadastrar');
+Route::post('/user/cadastrar',[LogarController::class,'autenticar'])->name('user.autenticar');
