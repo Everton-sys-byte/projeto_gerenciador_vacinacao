@@ -1,6 +1,24 @@
-<div class="container-fluid row">
-    <div class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus aliquam cum error facere consectetur labore maxime consequuntur id exercitationem, soluta obcaecati quis repellat illo minus recusandae incidunt quas minima hic.</div>
-    <div class="col">Deleniti, doloremque aperiam, tempora vitae modi praesentium eum blanditiis ratione soluta ex voluptas, molestias aliquam? Vero ipsum sit porro voluptatem, reiciendis ullam, iste, obcaecati magni corrupti consequuntur at eos maiores?</div>
-    <div class="col">Nulla, aut. Reiciendis temporibus natus alias quisquam in, expedita ratione cum. Perspiciatis, ipsum sapiente in architecto numquam asperiores error nostrum sit sequi enim molestias tempore voluptatum velit ipsam quae quod!</div>
-    <div class="col">Vel tempore quis, cupiditate dolor aliquam quas facere architecto quibusdam laboriosam sapiente minima asperiores in exercitationem voluptatibus. Nesciunt reprehenderit nihil, beatae quisquam iure facere aut libero repudiandae delectus distinctio corporis.</div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@yield('title')</title>
+
+    {{-- bootstrap5 --}}
+    @vite(['resources/js/app.js'])
+
+    {{-- Jquery --}}
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
+    {{-- PLUGIN JQUERY MASCARAS --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="{{ @asset('jquery/forms/masks/mask.js') }}" defer></script>
+
+    @stack('scripts')
+</head>
+<body>
+    @yield('content')
+</body>
+</html>

@@ -20,5 +20,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        //povoando o banco de dados com as roles (papeis) do usuário no sistema
+        $this->call([
+            RoleSeeder::class,
+        ]);
     }
 }

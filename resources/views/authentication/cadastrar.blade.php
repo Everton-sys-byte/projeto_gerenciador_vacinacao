@@ -52,7 +52,7 @@
             <div class="form-group">
                 <label for="data_nascimento">Data de nascimento</label>
                 <input type="date" class="form-control @error('data_nascimento') is-invalid @enderror"
-                    name="data_nascimento" id="data_nascimento">
+                    name="data_nascimento" id="data_nascimento" value="{{@old('data_nascimento')}}">
                 @error('data_nascimento')
                     <span class="text-danger">
                         {{ $message }}
