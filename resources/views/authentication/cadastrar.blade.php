@@ -5,7 +5,7 @@
     <div class="page container-fluid p-3 d-flex justify-content-center align-items-center"
         style="width:100%; height:100vh; background: var(--bs-blue); background-size: 100px 50px;">
         <form action="{{ @route('user.cadastrar') }}" method="POST"
-            class="bg-white py-3 px-4 rounded shadow-lg d-flex flex-column justify-content-center gap-3"
+            class="bg-white py-2 px-4 rounded shadow-lg d-flex flex-column justify-content-center gap-2"
             style="min-width: 450px;">
             @csrf
             <div class="form-group">
@@ -62,24 +62,26 @@
             <div class="row row-cols-1 row-cols-md-2">
                 <div class="form-group col">
                     <label for="password">Senha</label>
-                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password"
-                        id="password">
-                    @error('password')
-                        <span class="text-danger">
-                            {{ $message }}
-                        </span>
-                    @enderror
+                    <input type="password" name="password" id="password" 
+                    class="form-control @if($errors->has('password') || $errors->has('c_password')) is-invalid @endif">
                 </div>
                 <div class="form-group col">
                     <label for="c_password">Confirmar senha</label>
-                    <input type="password" class="form-control @error('c_password') is-invalid @enderror" name="c_password"
-                        id="c_password">
-                    @error('c_password')
-                        <span class="text-danger">
-                            {{ $message }}
-                        </span>
-                    @enderror
+                    <input type="password" name="c_password" id="c_password" 
+                    class="form-control @if($errors->has('password') || $errors->has('c_password')) is-invalid @endif">
                 </div>
+            </div>
+            <div class="container-fluid d-flex flex-column p-0">
+                @error('password')
+                    <span class="text-danger col">
+                        {{ $message }}
+                    </span>
+                @enderror
+                @error('c_password')
+                    <span class="text-danger col">
+                        {{ $message }}
+                    </span>
+                @enderror
             </div>
             <div class="form-group">
                 <input type="checkbox" class="check_password">
@@ -88,5 +90,16 @@
             <input type="submit" class="btn btn-primary" value="Cadastrar">
             <a href="{{ @route('logar') }}" class="btn btn-danger">Voltar</a>
         </form>
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="...">
+                <strong class="me-auto">Bootstrap</strong>
+                <small class="text-muted">11 mins ago</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Hello, world! This is a toast message.
+            </div>
+        </div>
     </div>
 @endsection
