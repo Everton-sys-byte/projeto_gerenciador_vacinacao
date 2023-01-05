@@ -13,8 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('registros', function (Blueprint $table) {
+        Schema::create('lotes', function (Blueprint $table) {
             $table->id();
+            $table->foreign('vacina_id')->references('id')->on('vacinas');
+            $table->string('codigo')->unique();
+            $table->string('tecnologia');
+            $table->bigInteger('quantidade');
+            $table->date('data_vencimento');
+            $table->string('status')->default('ok');
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('registros');
+        Schema::dropIfExists('lotes');
     }
 };

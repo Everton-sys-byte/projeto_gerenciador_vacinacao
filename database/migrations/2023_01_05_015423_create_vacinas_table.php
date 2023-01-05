@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('vacinas', function (Blueprint $table) {
             $table->id();
+            $table->string('nome');
+            $table->string('laboratorio');
+            $table->text('descricao');
+            $table->integer('idade_minima')->nullable();
             $table->timestamps();
         });
     }

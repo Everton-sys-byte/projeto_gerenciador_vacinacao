@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('ceps', function (Blueprint $table) {
             $table->id();
-            $table->char('cep',9);
-            $table->string('cidade');
-            $table->string('logradouro');
-            $table->string('bairro');
+            $table->char('cep',9)->unique();
             $table->char('uf',2);
+            $table->string('cidade');
+            $table->string('bairro');
+            $table->string('logradouro');
             $table->timestamps();
         });
     }

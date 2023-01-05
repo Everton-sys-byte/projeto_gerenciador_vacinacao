@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('enderecos', function (Blueprint $table) {
+        Schema::create('registros', function (Blueprint $table) {
             $table->id();
-            $table->integer('numero');
-            $table->string('complemento');
+            $table->foreign('imunizado_id')->references('id')->on('users');
+            $table->foreign('profissional_id')->references('cns')->on('users');
+            $table->foreign('lote_id')->references('id')->on('lotes');
+            $table->date('data_vacinacao');
+            $table->string('CNES');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('enderecos');
+        Schema::dropIfExists('registros');
     }
 };
