@@ -18,7 +18,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nome_completo',
+        'cns',
+        'cpf',
+        'celular',
+        'data_nascimento',
         'email',
         'password',
     ];
@@ -41,4 +45,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function roles(){
+        return $this->belongsToMany(Role::class);
+    } 
+
+    public function endereco(){
+        return $this->hasOne(Endereco::class);
+    }
+
+    public function registros(){
+        return $this->hasMany(Registro::class);
+    }
 }
