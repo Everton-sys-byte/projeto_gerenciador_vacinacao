@@ -3,6 +3,7 @@
 use App\Http\Controllers\auth\CadastrarController;
 use App\Http\Controllers\auth\AutenticarController;
 use App\Http\Controllers\views\LoginController;
+use App\Http\Controllers\views\PerfilController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,4 +30,5 @@ Route::post('/user/logar',[AutenticarController::class,'autenticar'])->name('use
 
 Route::middleware(['auth'])->prefix('usuario')->name('user.')->group(function(){
     Route::view('/home','usuario.home')->name('home');
+    Route::get('/perfil',[PerfilController::class, 'view'])->name('profile');
 });
