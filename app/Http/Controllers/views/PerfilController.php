@@ -3,15 +3,21 @@
 namespace App\Http\Controllers\views;
 
 use App\Http\Controllers\Controller;
+use App\Models\Endereco;
 use App\Models\User;
+use Illuminate\Contracts\Auth\Authenticatable;
 
 class PerfilController extends Controller
 {
     public function view(User $user)
     {
-        $userInformations = $user->find(auth()->id())->with('endereco')->get([
-            "nome_completo",
+ 
+        $endereco = $user->find(auth()->id())->endereco;
+        $cep = $endereco->cep;
+
+        return view('usuario.perfil', [
+            'endereco' => $endereco,
+            'cep' => $cep
         ]);
-        return view('usuario.perfil', $userInformations);
     }
 }

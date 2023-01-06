@@ -1,8 +1,8 @@
-<nav class="side-bar absolute left-0 start-0 h-100 rounded bg-primary p-2" style="width: 20%;">
+<nav class="side-bar absolute left-0 start-0 h-100 bg-primary p-2">
     <div class="logo container-fluid container-fluid " style="height: 80px"></div>
     <ul class="nav_group text-center list-unstyled mt-2 d-flex flex-column gap-1">
-        <li class="p-2 rounded active">
-            <a href="#"
+        <li class="p-2 rounded {{request()->segment(2) == 'home' ? 'active' : '' }}">
+            <a href="{{@route('user.home')}}"
                 class="text-decoration-none text-white fw-bold w-auto d-flex flex-row align-items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                     class="absolute start-0" class="bi bi-house" viewBox="0 0 16 16">
@@ -12,7 +12,7 @@
                 <span>Home</span>
             </a>
         </li>
-        <li class="p-2 rounded ">
+        <li class="p-2 rounded {{request()->segment(2) == 'perfil' ? 'active' : '' }} ">
             <a href="{{@route('user.profile')}}"
                 class="text-decoration-none text-white fw-bold w-auto d-flex flex-row align-items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
@@ -39,6 +39,18 @@
             <a href="#"
                 class="text-decoration-none text-white fw-bold w-auto d-flex flex-row align-items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                    class="bi bi-door-closed" viewBox="0 0 16 16">
+                    <path
+                        d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2zm1 13h8V2H4v13z" />
+                    <path d="M9 9a1 1 0 1 0 2 0 1 1 0 0 0-2 0z" />
+                </svg>
+                <span>Carteirinha</span>
+            </a>
+        </li>
+        <li class="p-2 rounded ">
+            <a href="#"
+                class="text-decoration-none text-white fw-bold w-auto d-flex flex-row align-items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                     class="bi bi-gear" viewBox="0 0 16 16">
                     <path
                         d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
@@ -49,7 +61,7 @@
             </a>
         </li>
         <li class="p-2 rounded ">
-            <a href="#"
+            <a href="{{@route('user.logout')}}"
                 class="text-decoration-none text-white fw-bold w-auto d-flex flex-row align-items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                     class="bi bi-door-closed" viewBox="0 0 16 16">

@@ -57,4 +57,11 @@ class User extends Authenticatable
     public function registros(){
         return $this->hasMany(Registro::class);
     }
+
+    public function hasRole($role){
+        if(is_string($role))
+            return $this->roles->contains("tipo",$role);
+        
+        return !! $role->intersect($this->roles)->count();
+    }
 }

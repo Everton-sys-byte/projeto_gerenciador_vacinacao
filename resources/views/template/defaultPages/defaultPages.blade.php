@@ -22,13 +22,18 @@
     @stack('style')
 
     {{-- SCRIPTS --}}
-    <script src="{{@asset('jquery/navbar/activeLi.js')}}" defer></script>
     @stack('scripts')
+    <script src="{{@asset('jquery/sidebar/sidebar.js')}}" defer></script>
 </head>
 
-<body class="d-flex flex-direction-row p-1 vh-100">
+<body class="d-flex flex-direction-row vh-100">
     <x-Sidebar.Sidebar/>
-    <main>
+    <main class="page px-1 bg-danger">
+        <div class="burger-button relative d-flex flex-column justify-content-around" role="button">
+            <div class="linha bg-primary rounded"></div>
+            <div class="linha bg-primary rounded"></div>
+            <div class="linha bg-primary rounded"></div>
+        </div>
         @yield('content')
     </main>
 </body>

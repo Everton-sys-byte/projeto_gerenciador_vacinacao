@@ -5,7 +5,24 @@ main {
 }
 
 
+/* --- BURGUER BUTTON --- */
+.burger-button {
+    width: 35px;
+    height: 35px;
+}
+
+.burger-button > .linha {
+    width: 100%;
+    height: 5px;
+}
+
 /* ----------- NAV BAR --------- */
+
+.side-bar {
+    transition: all 1s;
+    transform: translateX(0%);
+    width: 20%;
+}
 
 .side-bar > ul > li:hover {
     background-color: #0a58cf;
@@ -14,6 +31,10 @@ main {
 .active {
     background-color: #0a58cf;
     box-shadow: 1px 1px 2px rgb(22, 22, 22);
+}
+
+.side-bar-inactive {
+    transform: translateX(-100%); 
 }
 
 /* ------------------------------ */
