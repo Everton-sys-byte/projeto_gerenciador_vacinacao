@@ -1,5 +1,5 @@
-<nav class="side-bar absolute left-0 start-0 h-100 bg-primary p-2">
-    <div class="logo container-fluid container-fluid " style="height: 80px"></div>
+<nav class="side-bar position-absolute h-100 bg-primary p-2">
+    {{-- <div class="logo container-fluid container-fluid " style="height: 80px"></div> --}}
     <ul class="nav_group text-center list-unstyled mt-2 d-flex flex-column gap-1">
         <li class="p-2 rounded {{request()->segment(2) == 'home' ? 'active' : '' }}">
             <a href="{{@route('user.home')}}"

@@ -17,27 +17,19 @@ class AutenticarController extends Controller
 
         if(Auth::check()) {
             $user = auth()->user();
-             foreach($user->roles()->get() as $role);
-                $request->roles == $role->id ? $hasPermission = true : $hasPermission = false; 
 
-            $role = $request->roles;
-
-            $filteredArray = Arr::where($user->roles()->get()->toArray(), function($value, $key) use($role) {
-                return $value["id"] == $role;
-            });
-            
-            if(!$filteredArray)
+            if(!$user->hasRole($request->role))
             {
                 Auth::logout();
                 return redirect()->route('logar')->with('permission','Você não tem a permissão necessária para efetuar login com este tipo de usuário.');    
             }
                 
-
-            if($request->roles == 1)
+   
+            if($request->role == "comum")
                 return redirect()->route('user.home');
-            else if ($request->roles == 2)
+            else if ($request->role == "profissional")
                 return redirect()->route('profissional.home');
-            else if( $request->roles == 3)
+            else if( $request->role == "admin")
                 return redirect()->route('admin.home');
         }
         

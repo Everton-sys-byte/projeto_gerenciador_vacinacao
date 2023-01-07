@@ -26,14 +26,16 @@
     <script src="{{@asset('jquery/sidebar/sidebar.js')}}" defer></script>
 </head>
 
-<body class="d-flex flex-direction-row vh-100">
-    <x-Sidebar.Sidebar/>
-    <main class="page px-1 bg-danger">
-        <div class="burger-button relative d-flex flex-column justify-content-around" role="button">
-            <div class="linha bg-primary rounded"></div>
-            <div class="linha bg-primary rounded"></div>
-            <div class="linha bg-primary rounded"></div>
+<body>
+    <header class="container-fluid bg-primary p-2">
+        <div class="burger-button d-flex flex-column justify-content-around p-1" role="button">
+            <div class="linha bg-white rounded"></div>
+            <div class="linha bg-white rounded"></div>
+            <div class="linha bg-white rounded"></div>
         </div>
+    </header>
+    <x-Sidebar.Sidebar/>
+    <main class="page w-100 min-vh-100">
         @yield('content')
     </main>
 </body>

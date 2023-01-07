@@ -1,5 +1,5 @@
 
 $('.burger-button').click(()=>{
-    $('.side-bar').toggleClass('side-bar-inactive')
+    $('.side-bar').toggleClass('side-bar-active')
 
 })

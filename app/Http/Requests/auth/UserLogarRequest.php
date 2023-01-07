@@ -24,7 +24,7 @@ class UserLogarRequest extends FormRequest
     public function rules()
     {
         return [
-            'roles' => 'required',
+            'role' => 'required',
             'email' => 'required|email',
             'password' => 'required',
         ];

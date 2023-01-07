@@ -11,7 +11,6 @@ class PerfilController extends Controller
 {
     public function view(User $user)
     {
- 
         $endereco = $user->find(auth()->id())->endereco;
         $cep = $endereco->cep;
 

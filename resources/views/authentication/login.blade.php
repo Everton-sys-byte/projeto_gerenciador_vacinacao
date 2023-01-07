@@ -10,7 +10,7 @@
             @csrf
             <div class="form-group">
                 <label for="roles">Selecione o tipo de usuario</label>
-                <x-input.select name="roles" :options="$roles" />
+                <x-input.select name="role" :options="$roles" />
             </div>
             <div class="form-group">
                 <label for="email">Email</label>

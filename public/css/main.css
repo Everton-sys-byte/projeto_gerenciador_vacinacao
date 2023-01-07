@@ -1,40 +1,38 @@
 /* --- INFORMATION CONTAINER --- */
+.page {
+    background-color: white;
+} 
 
-main {
-    min-width: calc(100vw - 20%);
-}
-
+/* --- HEADER --- */
 
 /* --- BURGUER BUTTON --- */
 .burger-button {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
+    z-index: 10;
 }
 
 .burger-button > .linha {
     width: 100%;
-    height: 5px;
-}
+    height: 2px;
+} 
 
-/* ----------- NAV BAR --------- */
-
+/* ----------- SIDE BAR --------- */
 .side-bar {
+    z-index: 10;
     transition: all 1s;
-    transform: translateX(0%);
+    transform: translateX(-100%);
     width: 20%;
 }
 
-.side-bar > ul > li:hover {
-    background-color: #0a58cf;
+.side-bar > ul > li:hover, .active {
+    background-color: #0b5bd4;
+    box-shadow: 1px 1px 2px rgb(22, 22, 22); 
 }
 
-.active {
-    background-color: #0a58cf;
-    box-shadow: 1px 1px 2px rgb(22, 22, 22);
-}
-
-.side-bar-inactive {
-    transform: translateX(-100%); 
+.side-bar-active {
+    box-shadow: 2px 2px 2px rgb(66, 66, 66);
+    transform: translateX(0%); 
 }
 
 /* ------------------------------ */

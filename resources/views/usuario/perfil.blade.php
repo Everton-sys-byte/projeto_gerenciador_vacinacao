@@ -6,7 +6,7 @@
         <header class="text-center fs-1">Perfil</header>
         {{auth()->user()->cpf}}
         {{auth()->user()->email}}
-        {{auth()->user()->data_nascimento}}
+        {{auth()->user()->getDataNascimento()}}
         {{auth()->user()->celular}}
     </div>
 @endsection

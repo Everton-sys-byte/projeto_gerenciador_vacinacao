@@ -58,10 +58,17 @@ class User extends Authenticatable
         return $this->hasMany(Registro::class);
     }
 
-    public function hasRole($role){
-        if(is_string($role))
-            return $this->roles->contains("tipo",$role);
-        
-        return !! $role->intersect($this->roles)->count();
+    public function hasRole($rolename){
+        foreach($this->roles()->get() as $role)
+        {
+            if($role->tipo == $rolename)
+                return true;
+        }
+        return false;
+    }
+
+    public function getDataNascimento(){
+        $data_formatada = \Carbon\Carbon::parse($this->data_nascimento)->format('d/m/Y');
+        return $data_formatada;
     }
 }
