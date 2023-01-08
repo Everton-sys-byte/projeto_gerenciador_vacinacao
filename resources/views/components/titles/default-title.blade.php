@@ -1,4 +1,4 @@
 <div>
     <!-- Life is available only in the present moment. - Thich Nhat Hanh -->
-    <header class="text-center fs-1">{{$title}}</header>
+    <span {{$attributes->merge(['class' => "text-center fs-1 d-block"])}}>{{$title}}</span>
 </div>

@@ -1,21 +1,19 @@
 <?php
 
-namespace App\View\Components\Titles;
+namespace App\View\Components\List;
 
 use Illuminate\View\Component;
 
-class BannerTitle extends Component
+class List extends Component
 {
-
-    public $title;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title)
+    public function __construct()
     {
-        $this->title = $title;
+        //
     }
 
     /**
@@ -25,6 +23,6 @@ class BannerTitle extends Component
      */
     public function render()
     {
-        return view('components.titles.banner-title');
+        return view('components.list.list');
     }
 }
