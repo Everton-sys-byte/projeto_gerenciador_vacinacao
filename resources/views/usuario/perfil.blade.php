@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="information container-fluid">
-        <header class="text-center fs-1">Perfil</header>
+        <x-titles.default-title title="Perfil"/>
         {{auth()->user()->cpf}}
         {{auth()->user()->email}}
         {{auth()->user()->getDataNascimento()}}

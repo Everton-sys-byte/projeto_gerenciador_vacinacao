@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\auth\CadastrarController;
 use App\Http\Controllers\auth\AutenticarController;
+use App\Http\Controllers\user\UserController;
 use App\Http\Controllers\views\LoginController;
-use App\Http\Controllers\views\LogoutController;
-use App\Http\Controllers\views\PerfilController;
+use App\Http\Controllers\vaccines\VacinaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +30,10 @@ Route::post('/user/logar',[AutenticarController::class,'autenticar'])->name('use
 //--------------------- USER (COMUM) -------------//
 Route::middleware(['auth'])->prefix('usuario')->name('user.')->group(function(){
     Route::view('/home','usuario.home')->name('home');
-    Route::get('/perfil',[PerfilController::class, 'view'])->name('profile');
-    Route::get('/logout',[LogoutController::class, 'logout'])->name('logout');
+    Route::view('/perfil','usuario.perfil')->name('profile');
+    Route::get('/logout',[UserController::class, 'logout'])->name('logout');
+});
+
+Route::middleware(['auth'])->prefix('vacinas')->name('vaccines.')->controller(VacinaController::class)->group(function(){
+    Route::get('/disponiveis','view')->name('available');
 });

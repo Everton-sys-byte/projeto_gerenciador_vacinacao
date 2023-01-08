@@ -17,10 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('nome_completo');
             $table->string('email')->unique();
-            $table->char('cpf',14)->unique();
+            $table->char('cpf', 14)->unique();
             $table->string('cns')->unique()->nullable();
-            $table->char('celular',15);
+            $table->char('celular', 15);
             $table->date('data_nascimento');
+            $table->string('status')->default('ativo');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

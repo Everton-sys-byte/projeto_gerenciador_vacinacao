@@ -23,11 +23,12 @@
 
     {{-- SCRIPTS --}}
     @stack('scripts')
+    <script src="{{@asset('jquery/opencontent/opencontent.js')}}"></script>
     <script src="{{@asset('jquery/sidebar/sidebar.js')}}" defer></script>
 </head>
 
 <body>
-    <header class="container-fluid bg-primary p-2">
+    <header class="container-fluid bg-primary p-2 position-sticky top-0" style="z-index: 10">
         <div class="burger-button d-flex flex-column justify-content-around p-1" role="button">
             <div class="linha bg-white rounded"></div>
             <div class="linha bg-white rounded"></div>
@@ -35,7 +36,7 @@
         </div>
     </header>
     <x-Sidebar.Sidebar/>
-    <main class="page w-100 min-vh-100">
+    <main class="page w-100 min-vh-100" id="page">
         @yield('content')
     </main>
 </body>
