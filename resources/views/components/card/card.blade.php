@@ -15,7 +15,14 @@
                         <h5 class="card-title">{{ $cardType }}</h5>
                         <h5 class="card-subtitle">{{ $cardSubTitle }}</h5>
                         <p class="card-text overflow-auto">{{ $cardInformation }}</p>
-                        <a href="#" class="btn btn-primary">Editar</a>
+                        @if ($cardType == 'Vacina')
+                            @can('editar-vacina')
+                                <a href="{{@route('package.available', ['vacina' => $cardId])}}" class="btn btn-success">Visualizar Lotes</a>
+                            @endcan
+                        @endif
+                        @can('editar-vacina')
+                            <a href="#" class="btn btn-primary">Editar</a>
+                        @endcan
                     </div>
                 </div>
             </div>

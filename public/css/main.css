@@ -47,7 +47,20 @@
 
 .user-container > .drop-down-user-menu {
     top: calc(100% + 10px);
-    width: 80px;
+    width: 100px;
+}
+
+.user-container > .drop-down-user-menu > ul > li:hover {
+    background: var(--bs-blue);
+}
+
+.user-container > .drop-down-user-menu > ul > li:hover a {
+    color: white;
+}
+
+.user-container > .drop-down-user-menu > ul > li > a > img {
+    width: 25px;
+    height: 25px;
 }
 
 .user-container > .drop-down-user-menu::before {
@@ -84,6 +97,11 @@
     transition: all 1s;
     transform: translateX(-100%);
     width: 20%;
+}
+
+.side-bar > ul > li > a > img {
+    width: 30px;
+    height: 30px;
 }
 
 .side-bar>ul>li:hover,

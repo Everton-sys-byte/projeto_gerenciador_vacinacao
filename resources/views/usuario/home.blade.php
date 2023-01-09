@@ -25,7 +25,7 @@
                         Similique est molestias quidem eveniet vero.</p>
                     <a href="#" class="btn btn-light text-primary">Saiba mais</a>
                 </div>
-                <img id="Home_Banner_Illustration" src="{{ @asset('Images/Illustrations/Goingoffline.svg') }}" alt=""
+                <img id="Home_Banner_Illustration" src="{{ @asset('Images/svgs/Illustrations/Goingoffline.svg') }}" alt=""
                     width="600" height="600" />
             </div>
         </div>
