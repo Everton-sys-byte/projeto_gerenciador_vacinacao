@@ -12,9 +12,10 @@
             <x-anchor.anchor route="{{-- {{ @route('vaccines.available') }} --}}" svg="{{ @asset('images/svgs/list/house.svg') }}"
                 type="Carteirinha" />
         </li>
-        <li class="p-2 rounded ">
-            <x-anchor.anchor route="{{-- {{ @route('vaccines.available') }} --}}" svg="{{ @asset('images/svgs/list/gear.svg') }}"
+       {{--  <li class="p-2 rounded ">
+            <x-anchor.anchor route=" {{ @route('vaccines.available') }} " svg="{{ @asset('images/svgs/list/gear.svg') }}"
                 type="Configurações" />
-        </li>
+        </li> 
+        --}}
     </ul>
 </nav>

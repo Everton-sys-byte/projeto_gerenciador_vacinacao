@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->string('avatar')->default('defaultAvatar.png');
             $table->string('nome_completo');
             $table->string('email')->unique();
             $table->char('cpf', 14)->unique();

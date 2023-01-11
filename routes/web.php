@@ -32,6 +32,7 @@ Route::post('/user/logar', [AutenticarController::class, 'autenticar'])->name('u
 Route::middleware(['auth'])->prefix('usuario')->name('user.')->group(function () {
     Route::view('/home', 'usuario.home')->name('home');
     Route::view('/perfil', 'usuario.perfil')->name('profile');
+    Route::view('/configurar/perfil','usuario.configurar')->name('configuration.profile');
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 });
 

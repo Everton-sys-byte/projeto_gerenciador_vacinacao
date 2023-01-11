@@ -1,10 +1,10 @@
 <?php
 
-namespace App\View\Components\Listgroup;
+namespace App\View\Components\Form;
 
 use Illuminate\View\Component;
 
-class ListGroup extends Component
+class DefaultForm extends Component
 {
     /**
      * Create a new component instance.
@@ -13,6 +13,7 @@ class ListGroup extends Component
      */
     public function __construct()
     {
+        //
     }
 
     /**
@@ -22,6 +23,6 @@ class ListGroup extends Component
      */
     public function render()
     {
-        return view('components.listgroup.list-group');
+        return view('components.form.default-form');
     }
 }

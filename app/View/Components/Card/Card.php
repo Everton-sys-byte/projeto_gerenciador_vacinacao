@@ -7,20 +7,19 @@ use Illuminate\View\Component;
 class Card extends Component
 {
     public $cardId;
-    public $cardType;
+    public $cardTitle;
     public $cardSubTitle;
-    public $cardInformation;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($cardId, $cardType, $cardSubTitle, $cardInformation)
+    public function __construct($cardId, $cardTitle, $cardSubTitle)
     {
         $this->cardId = $cardId;
-        $this->cardType = $cardType;
+        $this->cardTitle = $cardTitle;
         $this->cardSubTitle = $cardSubTitle;
-        $this->cardInformation = $cardInformation;
     }
 
     /**
