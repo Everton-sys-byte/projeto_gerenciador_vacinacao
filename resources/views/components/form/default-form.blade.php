@@ -1,3 +1,4 @@
-<div>
-    <!-- It is quality rather than quantity that matters. - Lucius Annaeus Seneca -->
-</div>
+<form action="{{$action}}" method="{{$method}}" enctype="{{$encType}}">
+    @csrf
+    {{$slot}}
+</form>
