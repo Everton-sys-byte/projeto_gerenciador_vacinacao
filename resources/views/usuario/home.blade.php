@@ -2,11 +2,12 @@
 @section('title', 'home')
 
 @section('content')
+    {{-- @dd(session()->get('role')) --}}
     <div class="information container-fluid p-0">
         <div class="home-banner w-100 mx-auto position-relative">
             <div class="wrapper h-100 d-flex flex-row justify-content bg-primary">
                 <div class="container w-50 align-self-center text-light">
-                    <x-titles.default-title title="Era uma vez" /> 
+                    <x-titles.default-title title="Era uma vez" />
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, asperiores quibusdam! Nemo
                         excepturi
                         molestiae vel, omnis assumenda facere placeat blanditiis eos harum suscipit non voluptatum, magnam
@@ -25,8 +26,8 @@
                         Similique est molestias quidem eveniet vero.</p>
                     <a href="#" class="btn btn-light text-primary">Saiba mais</a>
                 </div>
-                <img id="Home_Banner_Illustration" src="{{ @asset('Images/svgs/Illustrations/Goingoffline.svg') }}" alt=""
-                    width="600" height="600" />
+                <img id="Home_Banner_Illustration" src="{{ @asset('Images/svgs/Illustrations/Goingoffline.svg') }}"
+                    alt="" width="600" height="600" />
             </div>
         </div>
         <div class="teste container-fluid bg-success">

@@ -13,7 +13,7 @@ class AutenticarController extends Controller
 {
     public function autenticar(UserLogarRequest $request, User $user){
 
-        Auth::attempt(['email' => $request->email, 'password' => $request->password],false);
+        Auth::attempt(['email' => $request->email, 'password' => $request->password], false);
 
         if(Auth::check()) {
             $user = auth()->user();
@@ -24,13 +24,8 @@ class AutenticarController extends Controller
                 return redirect()->route('logar')->with('permission','Você não tem a permissão necessária para efetuar login com este tipo de usuário.');    
             }
                 
-   
-            if($request->role == "comum")
-                return redirect()->route('user.home');
-            else if ($request->role == "profissional")
-                return redirect()->route('profissional.home');
-            else if( $request->role == "admin")
-                return redirect()->route('admin.home');
+            $request->session()->put('role', $request->role);
+            return redirect()->route('user.home');
         }
         
         return redirect()->route('logar')->with('credentials','Usuario ou senha inválidos.');

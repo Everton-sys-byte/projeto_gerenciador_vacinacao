@@ -6,19 +6,19 @@ use Illuminate\View\Component;
 
 class DefaultForm extends Component
 {
-    public $action;
-    public $encType;
-    public $method;
+    public $formAction;
+    public $formMethod;
+    public $formEncType;
     /**
      * Create a new component instance.
      *
      * @return void 
      */
-    public function __construct($action, $encType = "", $method)
+    public function __construct($formAction, $formMethod, $formEncType = false)
     {
-        $this->action = $action;
-        $this->encType = $encType;
-        $this->method = $method;
+        $this->formAction = $formAction;
+        $this->formMethod = $formMethod;
+        $this->formEncType = $formEncType;
     }
 
     /**
