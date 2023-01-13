@@ -15,8 +15,9 @@
                         <h5 class="card-title">{{ $cardTitle }}</h5>
                         <h5 class="card-subtitle">{{ $cardSubTitle }}</h5>
                         <p class="card-text overflow-auto">
-                            {{ $slot }}
+                            {{ $card_information }}
                         </p>
+                        {{ $card_buttons }}
                     </div>
                 </div>
             </div>

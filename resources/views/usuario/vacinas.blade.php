@@ -7,7 +7,15 @@
         <x-list-group.list-group>
             @foreach ($vacinas as $vacina)
                 <x-card.card :cardId="$vacina->id" cardTitle="Vacina" :cardSubTitle="$vacina->nome">
-                    {{$vacina->descricao}}
+                    <x-slot name="card_information">
+                        {{ $vacina->descricao }}
+                    </x-slot>
+                    @if (session()->get('role') != 'comum')
+                        <x-slot name="card_buttons">
+                            <a href="{{ @route('package.available', ['vacina' => $vacina->id]) }}" class="btn btn-primary">Ver
+                                lotes</a>
+                        </x-slot>
+                    @endif
                 </x-card.card>
             @endforeach
         </x-list-group.list-group>
