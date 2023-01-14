@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Address\EnderecoController;
 use App\Http\Controllers\auth\CadastrarController;
 use App\Http\Controllers\auth\AutenticarController;
 use App\Http\Controllers\package\LoteController;
@@ -33,7 +34,9 @@ Route::middleware(['auth'])->prefix('usuario')->name('user.')->group(function ()
     Route::view('/home', 'usuario.home')->name('home');
     Route::view('/perfil', 'usuario.perfil')->name('profile');
     Route::view('/configurar/perfil','usuario.configurarPerfil')->name('configuration.profile');
+    Route::view('/configurar/endereco', 'usuario.configurarEndereco')->name('configuration.address');
     Route::put('/editar/perfil', [UserController::class, 'update'])->name('update.profile');
+    Route::put('/editar/endereco', [EnderecoController::class,'create'])->name('update.address');
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 });
 

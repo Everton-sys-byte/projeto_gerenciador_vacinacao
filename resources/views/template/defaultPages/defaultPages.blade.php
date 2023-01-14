@@ -23,8 +23,8 @@
 
     {{-- SCRIPTS --}}
     @stack('scripts')
-    <script src="{{@asset('jquery/opencontent/opencontent.js')}}"></script>
     <script src="{{@asset('jquery/sidebar/sidebar.js')}}" defer></script>
+    <script src="{{@asset('jquery/apis/via_cep.js')}}" defer></script>
 </head>
 
 <body>

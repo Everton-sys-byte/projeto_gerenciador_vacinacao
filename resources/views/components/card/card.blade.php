@@ -17,7 +17,9 @@
                         <p class="card-text overflow-auto">
                             {{ $card_information }}
                         </p>
-                        {{ $card_buttons }}
+                        @if (session()->get('role') != 'comum')
+                            {{ $card_buttons }}
+                        @endif
                     </div>
                 </div>
             </div>

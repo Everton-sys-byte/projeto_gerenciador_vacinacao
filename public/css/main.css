@@ -19,7 +19,7 @@
 
 /* --- USER IMAGE AND DROP DOWN MENU --- */
 .user-container {
-    width: 55px;
+   /*  width: 55px; */
    /*  height: 55px;  */
     overflow: hidden;
 }
@@ -47,7 +47,7 @@
 
 .user-container > .drop-down-user-menu {
     top: calc(100% + 10px);
-    width: 100px;
+    width: 100%;
 }
 
 .user-container > .drop-down-user-menu > ul > li:hover {
