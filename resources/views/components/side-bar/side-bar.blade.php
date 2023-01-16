@@ -13,7 +13,7 @@
                 type="Carteirinha" />
         </li>
         @if (session()->get('role') == 'admin')
-            <li class="p-2 rounded ">
+            <li class="p-2 rounded {{ request()->segment(2) == 'gerenciar' ? 'active' : ''}}">
                 <x-anchor.anchor route=" {{ @route('admin.manage.users') }} "
                     svg="{{ @asset('images/svgs/list/gear.svg') }}" type="Gerenciar usuários" />
             </li>
