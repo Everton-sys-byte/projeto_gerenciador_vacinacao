@@ -10,6 +10,7 @@
                     <th>#</th>
                     <th>Avatar</th>
                     <th>CPF</th>
+                    <th>Papéis</th>
                     <th>Nome Completo</th>
                     <th>Data de nascimento</th>
                     <th>Status</th>
@@ -23,6 +24,13 @@
                         <td><img src="/images/avatar/{{ $user->avatar }}" alt="Avatar usuario" width="40" height="40"
                                 class="rounded-circle">
                         <td>{{ $user->cpf }}</td>
+                        <td>
+                            <ul>
+                                @foreach ($user->roles()->get() as $role)
+                                    <li> {{$role->tipo}} </li>
+                                @endforeach
+                            </ul>
+                        </td>
                         <td>{{ $user->nome_completo }}</td>
                         <td>{{ $user->getDataNascimento() }}</td>
                         <td>{{ $user->status }}</td>
