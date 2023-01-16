@@ -16,7 +16,7 @@ class Modal extends Component
      *
      * @return void
      */
-    public function __construct($modalId,$modalTitle,$modalType,$modalFormId)
+    public function __construct($modalId,$modalTitle,$modalType,$modalFormId="")
     {
         $this->modalId = $modalId;
         $this->modalTitle = $modalTitle;
