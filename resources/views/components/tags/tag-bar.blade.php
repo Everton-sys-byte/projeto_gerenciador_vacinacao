@@ -1,4 +1,4 @@
-<nav class="nav nav-tabs px-5">
+<nav class="nav nav-tabs px-5 mb-3">
     <a class="nav-link {{ request()->segment(3) == 'perfil' ? 'active' : '' }}" aria-current="page"
         href="{{ @route('user.configuration.profile') }}">Perfil</a>
     <a class="nav-link

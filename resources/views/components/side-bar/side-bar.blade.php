@@ -12,10 +12,12 @@
             <x-anchor.anchor route="{{-- {{ @route('vaccines.available') }} --}}" svg="{{ @asset('images/svgs/list/house.svg') }}"
                 type="Carteirinha" />
         </li>
-       {{--  <li class="p-2 rounded ">
-            <x-anchor.anchor route=" {{ @route('vaccines.available') }} " svg="{{ @asset('images/svgs/list/gear.svg') }}"
-                type="Configurações" />
-        </li> 
-        --}}
+        @if (session()->get('role') == 'admin')
+            <li class="p-2 rounded ">
+                <x-anchor.anchor route=" {{ @route('admin.manage.users') }} "
+                    svg="{{ @asset('images/svgs/list/gear.svg') }}" type="Gerenciar usuários" />
+            </li>
+        @endif
+
     </ul>
 </nav>

@@ -6,7 +6,7 @@
         <x-titles.default-title title="Configurar Endereço" />
         <x-tags.tag-bar />
         <x-form.default-form formAction="{{ @route('user.update.address') }}" formMethod="POST" formEncType=true
-            class="mx-auto">
+            class="mx-auto" style="width: 500px">
             @method('PUT')
             <x-form.form-group label_name="CEP" inputType="text" inputName="cep" :inputValue="isset(auth()->user()->endereco) ? auth()->user()->endereco->cep->cep : ''" />
             <div class="row row-cols-1 row-cols-md-3">

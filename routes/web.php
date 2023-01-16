@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\Address\EnderecoController;
+use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\auth\CadastrarController;
 use App\Http\Controllers\auth\AutenticarController;
 use App\Http\Controllers\package\LoteController;
 use App\Http\Controllers\user\UserController;
 use App\Http\Controllers\views\LoginController;
 use App\Http\Controllers\vaccines\VacinaController;
+use App\Http\Controllers\views\GerenciarUsuariosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,8 +44,13 @@ Route::middleware(['auth'])->prefix('usuario')->name('user.')->group(function ()
 
 
 //--------------------- USER (PROFISSIONAL) -------------//
-
 Route::middleware(['check.is.profissional'])->prefix('profissional')->name('professional.')->group(function () {
+});
+
+//--------------------- USER (ADMINISTRADOR) -------------//
+Route::middleware(['check.is.administrador'])->prefix('administrador')->name('admin.')->group(function () {
+    Route::get('/gerenciar/usuarios',[GerenciarUsuariosController::class, 'view'])->name('manage.users');
+    Route::post('/admin/criar/usuario', [AdminController::class, 'createUser'])->name('create.user');
 });
 
 //-------------------- ROTA PARA AS VACINAS --------------- //

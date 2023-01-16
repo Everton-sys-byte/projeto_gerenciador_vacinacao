@@ -25,6 +25,7 @@
     @stack('scripts')
     <script src="{{@asset('jquery/sidebar/sidebar.js')}}" defer></script>
     <script src="{{@asset('jquery/apis/via_cep.js')}}" defer></script>
+    <script src="{{@asset('jquery/forms/changeRoleSelect.js')}}" defer></script>
 </head>
 
 <body>

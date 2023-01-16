@@ -22,7 +22,7 @@ class FormControl extends Component
         $this->inputName = $inputName;
         $this->inputType = $inputType;
         $this->inputValue = $inputValue;
-        $this->inputReadOnly = $inputReadOnly
+        $this->inputReadOnly = $inputReadOnly;
     }
 
     /**

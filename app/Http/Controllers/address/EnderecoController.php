@@ -4,6 +4,7 @@ namespace App\Http\Controllers\address;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cep;
+use App\Models\Endereco;
 use Illuminate\Http\Request;
 
 
@@ -21,11 +22,21 @@ class EnderecoController extends Controller
             ]
         );
 
-        /* if($cep)
-            $endereco = $cep->enderecos->create([
+        /* $endereco = new Endereco([
+            'numero' => request('numero'),
+            'complemento' => request('complemento')
+        ]); */
+
+        $endereco = Endereco::where('user_id', auth()->id())->get();
+
+        if ($endereco)
+            $cep->enderecos()->create([
                 'numero' => request('numero'),
                 'complemento' => request('complemento')
-            ]); */
-            return $cep;
+            ]);
+
+
+        return $cep->enderecos()->get();
+        return redirect() - route('user.configuration.address');
     }
 }

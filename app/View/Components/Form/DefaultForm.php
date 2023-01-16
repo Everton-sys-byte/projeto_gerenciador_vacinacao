@@ -6,6 +6,7 @@ use Illuminate\View\Component;
 
 class DefaultForm extends Component
 {
+    public $formId;
     public $formAction;
     public $formMethod;
     public $formEncType;
@@ -14,8 +15,9 @@ class DefaultForm extends Component
      *
      * @return void 
      */
-    public function __construct($formAction, $formMethod, $formEncType = false)
+    public function __construct($formId="", $formAction, $formMethod, $formEncType = false)
     {
+        $this->formId = $formId;
         $this->formAction = $formAction;
         $this->formMethod = $formMethod;
         $this->formEncType = $formEncType;

@@ -17,7 +17,7 @@ class Cep extends Model
         'logradouro'
     ];
 
-    public function endereco(){
-        return $this->belongsTo(Endereco::class);
+    public function enderecos(){
+        return $this->hasMany(Endereco::class);
     }
 }
