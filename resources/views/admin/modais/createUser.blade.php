@@ -1,4 +1,4 @@
-<x-Modal.Modal modalFormId="adminCreateUser" modalId="criarUsuario" modalTitle="Criar novo usuário" modalType="criar">
+<x-Modal.Modal modalFormId="adminCreateUser" modalId="criarUsuario" modalTitle="Criar novo usuário" modalType="create">
     <x-form.default-form formId="adminCreateUser" formAction="{{ @route('admin.create.user') }}" formMethod="POST">
         <x-form.form-group label_name="Nome Completo" inputType="text" inputName="nome_completo" inputValue="{{@old('nome_completo')}}" />
         <x-form.form-group label_name="CPF" inputType="text" inputName="cpf" inputValue="{{@old('cpf')}}" />

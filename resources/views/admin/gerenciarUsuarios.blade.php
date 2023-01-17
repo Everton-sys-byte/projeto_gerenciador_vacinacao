@@ -4,8 +4,13 @@
     <div class="information container-fluid">
         <x-titles.default-title title="Gerenciar Usuários" />
         <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#criarUsuario">Criar usuario</button>
+        @if (session()->has('errors'))
+            <x-Alert.Alert class="alert-danger" alertMessage="Não foi possível realizar sua ação" />
+        @elseif(session()->has('success'))
+            <x-Alert.Alert class="alert-success" :alertMessage="session()->get('success')" />
+        @endif
         <table class="table">
-            <thead>
+            <thead class="table-primary">
                 <tr>
                     <th>#</th>
                     <th>Avatar</th>
@@ -19,7 +24,7 @@
             </thead>
             <tbody>
                 @php
-                    $contador = 1
+                    $contador = 1;
                 @endphp
                 @foreach ($users as $user)
                     <tr>
@@ -44,15 +49,16 @@
                                     <img src="/images/svgs/dropdown/threedots.svg" alt="Tres pontinhos">
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#maisInformacoes">Mais informações</a></li>
+                                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                            data-bs-target="#maisInformacoes">Mais informações</a></li>
                                     <li><a class="dropdown-item" href="#">Editar</a></li>
                                 </ul>
                             </div>
                         </td>
                     </tr>
 
-                    @php 
-                        $contador++
+                    @php
+                        $contador++;
                     @endphp
                 @endforeach
             </tbody>

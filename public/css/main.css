@@ -33,6 +33,10 @@
     animation: animateDropDownUserMenu .5s ease-in forwards;
 }
 
+.user-container:hover .drop-down-user-menu::before {
+    display: block; 
+}
+
 .user-image {
     width: 55px;
     height: 55px;
@@ -46,7 +50,7 @@
 }
 
 .user-container > .drop-down-user-menu {
-    top: calc(100% + 10px);
+    top: 100%;
     width: 100%;
 }
 
@@ -74,6 +78,7 @@
     left: 50%;
     background-color: rgb(255, 255, 255);
     z-index: -10;
+    display: none;
 }
 
 @keyframes animateDropDownUserMenu {
@@ -191,3 +196,13 @@
 .profile a {
     width: fit-content;
 }
+
+/*------------ BREAKPOINTS ---------- */
+
+@media (min-width: 576px) {
+  /*   .side-bar {
+        width: 80%;
+    } */
+}
+
+

@@ -23,6 +23,6 @@ class AdminController extends Controller
         if(request('role') == 'profissional')
             $user->roles()->attach(2);
 
-        return redirect()->route('admin.manage.users');
+        return redirect()->route('admin.manage.users')->with('success','Usuário criado com sucesso');
     }
 }

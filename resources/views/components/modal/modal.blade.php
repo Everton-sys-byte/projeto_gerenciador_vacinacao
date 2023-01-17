@@ -11,9 +11,9 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                @if ($modalType == 'criar')
+                @if ($modalType == 'create')
                     <input type="submit" value="Criar" class="btn btn-primary" form="{{$modalFormId}}">
-                @else
+                @elseif($modalType == 'update')
                     <button type="button" class="btn btn-primary">Salvar alterações</button>
                 @endif
             </div>
