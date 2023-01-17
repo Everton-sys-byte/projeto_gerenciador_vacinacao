@@ -50,8 +50,10 @@
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                            data-bs-target="#maisInformacoes">Mais informações</a></li>
-                                    <li><a class="dropdown-item" href="#">Editar</a></li>
+                                            data-bs-target="#maisInformacoes" user="{{ $user }}">
+                                            Mais informações</a></li>
+                                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                        data-bs-target="#editUserModal">Editar</a></li>
                                 </ul>
                             </div>
                         </td>
