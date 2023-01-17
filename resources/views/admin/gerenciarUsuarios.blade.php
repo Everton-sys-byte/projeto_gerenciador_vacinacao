@@ -52,8 +52,10 @@
                                     <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
                                             data-bs-target="#maisInformacoes" user="{{ $user }}">
                                             Mais informações</a></li>
-                                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#editUserModal">Editar</a></li>
+                                    @if (!$user->hasRole('admin'))
+                                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                                data-bs-target="#editUser">Editar</a></li>
+                                    @endif
                                 </ul>
                             </div>
                         </td>
@@ -67,5 +69,6 @@
         </table>
     </div>
     @include('admin.modais.createUser')
+    @include('admin.modais.editUser')
     @include('admin.modais.moreInformation')
 @endsection

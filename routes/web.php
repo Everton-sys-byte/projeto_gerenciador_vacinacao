@@ -50,7 +50,8 @@ Route::middleware(['check.is.profissional'])->prefix('profissional')->name('prof
 //--------------------- USER (ADMINISTRADOR) -------------//
 Route::middleware(['check.is.administrador'])->prefix('administrador')->name('admin.')->group(function () {
     Route::get('/gerenciar/usuarios',[GerenciarUsuariosController::class, 'view'])->name('manage.users');
-    Route::post('/admin/criar/usuario', [AdminController::class, 'createUser'])->name('create.user');
+    Route::post('/criar/usuario', [AdminController::class, 'createUser'])->name('create.user');
+    Route::put('/editar/usuario', [AdminController::class,'editUser'])->name('edit.user');
 });
 
 //-------------------- ROTA PARA AS VACINAS --------------- //

@@ -14,7 +14,7 @@
                 @if ($modalType == 'create')
                     <input type="submit" value="Criar" class="btn btn-primary" form="{{$modalFormId}}">
                 @elseif($modalType == 'update')
-                    <button type="button" class="btn btn-primary">Salvar alterações</button>
+                    <input type="submit" value="Salvar alterações" class="btn btn-primary" form="{{$modalFormId}}">
                 @endif
             </div>
         </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\admin\AdminCreateUserRequest;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -24,5 +25,9 @@ class AdminController extends Controller
             $user->roles()->attach(2);
 
         return redirect()->route('admin.manage.users')->with('success','Usuário criado com sucesso');
+    }
+
+    public function editUser(Request $request){
+        return $request;
     }
 }
