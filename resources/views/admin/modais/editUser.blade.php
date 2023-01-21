@@ -1,12 +1,12 @@
 <x-Modal.Modal modalFormId="adminUpdateUser" modalId="editUser" modalTitle="Editar usuário" modalType="update">
     <x-form.default-form formId="adminUpdateUser" formAction="{{ @route('admin.edit.user') }}" formMethod="POST">
         @method('PUT')
+        <input type="hidden" name="id" id="id">
         <x-form.form-group label_name="Nome Completo" inputType="text" inputName="e_nome_completo" />
         <x-form.form-group label_name="CPF" inputType="text" inputName="e_cpf" />
-        <x-form.form-group label_name="Email" inputType="email" inputName="e_email"/>
         <div class="form-group">
-            <select name="e_role" id="role" class="form-select @error('role') is-invalid @enderror">
-                <option value="">Selecione o tipo de conta que deseja criar</option>
+            <select name="e_role" id="e_role" class="form-select @error('e_role') is-invalid @enderror">
+                <option value="">Selecione o tipo de conta que você deseja</option>
                 <option value="comum">Comum</option>
                 <option value="profissional">Profissional</option>
             </select>
@@ -17,6 +17,15 @@
         <x-form.form-group label_name="CNS" inputType="text" inputName="e_cns" class="cns d-none" />
         <x-form.form-group label_name="Celular" inputType="text" inputName="e_celular" />
         <x-form.form-group label_name="Data de nascimento" inputType="date" inputName="e_data_nascimento" />
-        <x-form.form-group label_name="Senha" inputType="password" inputName="e_password" />
+        <div class="form-group">
+            <select name="e_status" id="e_status" class="form-select @error('e_status') is-invalid @enderror">
+                <option value="">Selecione o status do usuário</option>
+                <option value="ativo">Ativo</option>
+                <option value="bloqueado">Bloqueado</option>
+            </select>
+            @error('e_status')
+                <span class="text-danger"> {{ $message }}</span>
+            @enderror
+        </div>
     </x-form.default-form>
 </x-Modal.Modal>

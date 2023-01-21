@@ -54,7 +54,7 @@
                                             Mais informações</a></li>
                                     @if (!$user->hasRole('admin'))
                                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#editUser">Editar</a></li>
+                                                data-bs-target="#editUser" user="{{ $user }}">Editar</a></li>
                                     @endif
                                 </ul>
                             </div>

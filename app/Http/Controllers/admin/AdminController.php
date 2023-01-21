@@ -4,8 +4,8 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\admin\AdminCreateUserRequest;
+use App\Http\Requests\admin\AdminUpdateUserRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -27,7 +27,29 @@ class AdminController extends Controller
         return redirect()->route('admin.manage.users')->with('success','Usuário criado com sucesso');
     }
 
-    public function editUser(Request $request){
-        return $request;
+    public function editUser(AdminUpdateUserRequest $request){
+
+        $user = User::find($request->id);
+
+        $user->update([
+            'nome_completo' => request("e_nome_completo"),
+            'cpf' => request("e_cpf"),
+            'data_nascimento' => request("e_data_nascimento"),
+            'celular' => request('e_celular'),
+            'status' => request('e_status'),
+            'cns' => request('e_cns')
+        ]);
+
+        if(!$user->hasRole('profissional') && request('e_role') == 'profissional')
+            $user->roles()->attach(2);
+        else if($user->hasRole('profissional') && request('e_role') == 'comum' ) {
+            $user->roles()->detach(2);
+            $user->update([
+                'cns' => null
+            ]);
+        }
+    
+
+        return redirect()->route('admin.manage.users')->with('success','Usuário atualizado com sucesso');
     }
 }
