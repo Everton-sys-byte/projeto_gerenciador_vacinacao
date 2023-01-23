@@ -13,7 +13,7 @@
         @include('template.defaultSessionAlert.alert')
         <x-list-group.list-group>
             @foreach ($vacinas as $vacina)
-                <x-card.card :cardId="$vacina->id" cardTitle="Vacina" :cardSubTitle="$vacina->nome">
+                <x-card.card cardType="vacina" cardTitle="Vacina" :cardSubTitle="$vacina->nome">
                     <x-slot name="card_information">
                             {{ $vacina->descricao }} 
                     </x-slot>

@@ -6,7 +6,7 @@ use Illuminate\View\Component;
 
 class Card extends Component
 {
-    public $cardId;
+    public $cardType;
     public $cardTitle;
     public $cardSubTitle;
 
@@ -15,9 +15,9 @@ class Card extends Component
      *
      * @return void
      */
-    public function __construct($cardId, $cardTitle, $cardSubTitle)
+    public function __construct($cardType, $cardTitle, $cardSubTitle)
     {
-        $this->cardId = $cardId;
+        $this->cardType = $cardType;
         $this->cardTitle = $cardTitle;
         $this->cardSubTitle = $cardSubTitle;
     }
