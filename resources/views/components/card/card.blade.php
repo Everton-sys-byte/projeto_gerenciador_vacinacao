@@ -1,5 +1,5 @@
 <div class="col">
-    <div class="card mx-auto">
+    <div class="card">
         <div class="card-body">
             <div class="row h-100">
                 <div class="col-3 d-none d-xxl-block align-self-center">
