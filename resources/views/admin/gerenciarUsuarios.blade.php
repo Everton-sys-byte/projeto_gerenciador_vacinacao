@@ -4,11 +4,7 @@
     <div class="information container-fluid">
         <x-titles.default-title title="Gerenciar Usuários" />
         <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#criarUsuario">Criar usuario</button>
-        @if (session()->has('errors'))
-            <x-Alert.Alert class="alert-danger" alertMessage="Não foi possível realizar sua ação" />
-        @elseif(session()->has('success'))
-            <x-Alert.Alert class="alert-success" :alertMessage="session()->get('success')" />
-        @endif
+        @include('template.defaultSessionAlert.alert')
         <table class="table">
             <thead class="table-primary">
                 <tr>
@@ -68,7 +64,10 @@
             </tbody>
         </table>
     </div>
-    @include('admin.modais.createUser')
-    @include('admin.modais.editUser')
-    @include('admin.modais.moreInformation')
+
+    @can('criar-usuario'/*  || 'editar-usuario' */)
+        @include('admin.modais.user.createUser')
+        @include('admin.modais.user.editUser')
+    @endcan
+    @include('admin.modais.user.moreInformation')
 @endsection

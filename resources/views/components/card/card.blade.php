@@ -1,7 +1,7 @@
 <div class="col">
-    <div class="card">
+    <div class="card mx-auto">
         <div class="card-body">
-            <div class="row">
+            <div class="row h-100">
                 <div class="col-3 d-none d-xxl-block align-self-center">
                     {{-- <img src="" alt=""> --}}
                     <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" fill="#0d6efd"
@@ -14,11 +14,13 @@
                     <div class="card-content container-fluid p-0">
                         <h5 class="card-title">{{ $cardTitle }}</h5>
                         <h5 class="card-subtitle">{{ $cardSubTitle }}</h5>
-                        <p class="card-text overflow-auto">
+                        <div class="card-description">
                             {{ $card_information }}
-                        </p>
+                        </div>
                         @if (session()->get('role') != 'comum')
-                            {{ $card_buttons }}
+                            <div class="button-wrapper position-absolute bottom-0 py-2 d-flex flex-row gap-1">
+                                {{ $card_buttons }}
+                            </div>
                         @endif
                     </div>
                 </div>

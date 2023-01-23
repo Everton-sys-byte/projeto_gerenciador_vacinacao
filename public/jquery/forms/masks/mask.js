@@ -6,6 +6,9 @@ $('#celular').mask("(00) 00000-0000")
 $('#cep').mask('00000-000')
 $('#numero').mask('00000')
 
-// ADMIN EDITAR USUÁRIO
+// ADMIN MODAL EDITAR USUÁRIO
 $('#e_cpf').mask("000.000.000-00")
 $('#e_celular').mask("(00) 00000-0000")
+
+// MÁSCARA MODAL VACINAS
+$('#idade_minima').mask("00")

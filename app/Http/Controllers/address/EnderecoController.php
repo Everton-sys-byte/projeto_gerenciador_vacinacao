@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class EnderecoController extends Controller
 {
-    public function create(Request $request)
+    public function store(Request $request)
     {
         $cep = Cep::firstOrCreate(
             ['cep' => request('cep')],
@@ -22,21 +22,20 @@ class EnderecoController extends Controller
             ]
         );
 
-        /* $endereco = new Endereco([
-            'numero' => request('numero'),
-            'complemento' => request('complemento')
-        ]); */
+        $authUser = auth()->user();
+        
+        if($authUser->endereco){
+            $endereco = $authUser->endereco;
+            $endereco->numero = request('numero');
+            $endereco->complemento = request('complemento');
+        }
+        else{
+            $endereco = new Endereco($request->all());
+            $endereco->user()->associate($authUser);
+        }
 
-        $endereco = Endereco::where('user_id', auth()->id())->get();
-
-        if ($endereco)
-            $cep->enderecos()->create([
-                'numero' => request('numero'),
-                'complemento' => request('complemento')
-            ]);
-
-
-        return $cep->enderecos()->get();
-        return redirect() - route('user.configuration.address');
+        $endereco->cep()->associate($cep);
+        $endereco->save(); 
+        return redirect()->route('user.configuration.address');
     }
 }

@@ -24,7 +24,7 @@ class AdminController extends Controller
         if(request('role') == 'profissional')
             $user->roles()->attach(2);
 
-        return redirect()->route('admin.manage.users')->with('success','Usuário criado com sucesso');
+        return redirect()->route('admin.manage.users')->with('message','Usuário criado com sucesso');
     }
 
     public function editUser(AdminUpdateUserRequest $request){
@@ -50,6 +50,6 @@ class AdminController extends Controller
         }
     
 
-        return redirect()->route('admin.manage.users')->with('success','Usuário atualizado com sucesso');
+        return redirect()->route('admin.manage.users')->with('message','Usuário atualizado com sucesso');
     }
 }

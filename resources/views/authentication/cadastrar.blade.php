@@ -4,93 +4,28 @@
 @section('content')
     <div class="page container-fluid p-3 d-flex justify-content-center align-items-center"
         style="width:100%; height:100vh; background: var(--bs-blue); background-size: 100px 50px;">
-        <form action="{{ @route('user.cadastrar') }}" method="POST"
-            class="bg-white py-2 px-4 rounded shadow-lg d-flex flex-column justify-content-center gap-2"
-            style="min-width: 450px;">
-            @csrf
-            <div class="form-group">
-                <label for="nome_completo">Nome completo</label>
-                <input type="text" class="form-control @error('nome_completo') is-invalid  @enderror" name="nome_completo"
-                    id="nome_completo" value="{{ @old('nome_completo') }}">
-                @error('nome_completo')
-                    <span class="text-danger">
-                        {{ $message }}
-                    </span>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="cpf">CPF</label>
-                <input type="text" class="form-control @error('cpf') is-invalid @enderror" name="cpf" id="cpf"
-                    value="{{ @old('cpf') }}">
-                {{-- MELHOR FORMA DE FAZER (SE ESTÁ DENTRO DE @ERROR posso imprimir só a message do error) --}}
-                @error('cpf')
-                    <span class="text-danger">
-                        {{ $message }}
-                    </span>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control @error('email') is-invalid  @enderror" name="email"
-                    id="email" value="{{ @old('email') }}">
-                @error('email')
-                    <span class="text-danger">
-                        {{ $message }}
-                    </span>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="celular">Celular</label>
-                <input type="text" class="form-control @error('celular') is-invalid @enderror" name="celular"
-                    id="celular" value="{{ @old('celular') }}">
-                @error('celular')
-                    <span class="text-danger">
-                        {{ $message }}
-                    </span>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="data_nascimento">Data de nascimento</label>
-                <input type="date" class="form-control @error('data_nascimento') is-invalid @enderror"
-                    name="data_nascimento" id="data_nascimento" value="{{@old('data_nascimento')}}">
-                @error('data_nascimento')
-                    <span class="text-danger">
-                        {{ $message }}
-                    </span>
-                @enderror
-            </div>
+
+        <x-form.default-form formAction="{{ @route('user.cadastrar') }}" formMethod="POST" class="px-4 py-2"
+            style="min-width: 450px">
+            <x-form.form-group labelName="Nome completo" inputName="nome_completo" inputType="text"
+                inputValue="{{ @old('nome_completo') }}" />
+            <x-form.form-group labelName="CPF" inputName="cpf" inputType="text" inputValue="{{ @old('cpf') }}" />
+            <x-form.form-group labelName="Email" inputName="email" inputType="email" inputValue="{{ @old('email') }}" />
+            <x-form.form-group labelName="Celular" inputName="celular" inputType="text" inputValue="{{ @old('celular') }}" />
+            <x-form.form-group labelName="Data de nascimento" inputName="data_nascimento" inputType="date"
+            inputValue="{{ @old('data_nascimento') }}" />
             <div class="row row-cols-1 row-cols-md-2">
-                <div class="form-group col">
-                    <label for="password">Senha</label>
-                    <input type="password" name="password" id="password"
-                        class="form-control @if ($errors->has('password') || $errors->has('c_password')) is-invalid @endif">
-                </div>
-                <div class="form-group col">
-                    <label for="c_password">Confirmar senha</label>
-                    <input type="password" name="c_password" id="c_password"
-                        class="form-control @if ($errors->has('password') || $errors->has('c_password')) is-invalid @endif">
-                </div>
-            </div>
-            <div class="container-fluid d-flex flex-column p-0">
-                @error('password')
-                    <span class="text-danger col">
-                        {{ $message }}
-                    </span>
-                @enderror
-                @error('c_password')
-                    <span class="text-danger col">
-                        {{ $message }}
-                    </span>
-                @enderror
+                <x-form.form-group labelName="Senha" inputName="password" inputType="password" inputValue="{{ @old('password') }}" />
+                <x-form.form-group labelName="Confirmar Senha" inputName="c_password" inputType="password" inputValue="{{ @old('c_password') }}" />
             </div>
             <div class="form-group">
                 <input type="checkbox" class="check_password">
                 Mostrar senha
             </div>
             <input type="submit" class="btn btn-primary" value="Cadastrar">
-            <a href="{{ @route('logar') }}" class="btn btn-danger">Voltar</a>
-        </form>
-
+            <p>Já possui uma conta?&nbsp;<a href="{{route('logar')}}" class="text-decoration-none">Efetuar login</a></p>
+        </x-form.default-form>
+        
         @if (Session::has('message'))
             <x-toast.toast title="Sucesso" info="conta cadastrada com sucesso" type="success" />
         @elseif($errors->any())

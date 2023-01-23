@@ -35,23 +35,25 @@ Route::post('/user/logar', [AutenticarController::class, 'autenticar'])->name('u
 Route::middleware(['auth'])->prefix('usuario')->name('user.')->group(function () {
     Route::view('/home', 'usuario.home')->name('home');
     Route::view('/perfil', 'usuario.perfil')->name('profile');
-    Route::view('/configurar/perfil','usuario.configurarPerfil')->name('configuration.profile');
+    Route::view('/configurar/perfil', 'usuario.configurarPerfil')->name('configuration.profile');
     Route::view('/configurar/endereco', 'usuario.configurarEndereco')->name('configuration.address');
     Route::put('/editar/perfil', [UserController::class, 'update'])->name('update.profile');
-    Route::put('/editar/endereco', [EnderecoController::class,'create'])->name('update.address');
+    Route::put('/editar/endereco', [EnderecoController::class, 'store'])->name('update.address');
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 });
 
-
 //--------------------- USER (PROFISSIONAL) -------------//
 Route::middleware(['check.is.profissional'])->prefix('profissional')->name('professional.')->group(function () {
+    Route::post('/criar/vacina', [VacinaController::class, 'create'])->name('create.vaccine');
+    Route::put('/editar/vacina', [VacinaController::class, 'update'])->name('update.vaccine');
 });
 
 //--------------------- USER (ADMINISTRADOR) -------------//
 Route::middleware(['check.is.administrador'])->prefix('administrador')->name('admin.')->group(function () {
-    Route::get('/gerenciar/usuarios',[GerenciarUsuariosController::class, 'view'])->name('manage.users');
+    Route::get('/gerenciar/usuarios', [GerenciarUsuariosController::class, 'view'])->name('manage.users');
     Route::post('/criar/usuario', [AdminController::class, 'createUser'])->name('create.user');
-    Route::put('/editar/usuario', [AdminController::class,'editUser'])->name('edit.user');
+    Route::put('/editar/usuario', [AdminController::class, 'editUser'])->name('edit.user');
+    Route::delete('/excluir/vacina', [VacinaController::class, 'delete'])->name('delete.vaccine');
 });
 
 //-------------------- ROTA PARA AS VACINAS --------------- //
@@ -62,5 +64,5 @@ Route::middleware(['auth'])->prefix('vacinas')->name('vaccines.')->controller(Va
 //-------------------- ROTA PARA OS LOTES --------------- //
 Route::middleware(['check.is.profissional'])->prefix('vacinas')->name('package.')->controller(LoteController::class)
     ->group(function () {
-        Route::get('/{vacina}/lotes','view')->name('available');
+        Route::get('/{vacina}/lotes', 'view')->name('available');
     });

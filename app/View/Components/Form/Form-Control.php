@@ -16,7 +16,7 @@ class FormControl extends Component
      *
      * @return void
      */
-    public function __construct($labelName, $inputName, $inputType, $inputValue, $inputReadOnly)
+    public function __construct($labelName, $inputName, $inputType, $inputValue, $inputReadOnly = null)
     {
         $this->labelName = $labelName;
         $this->inputName = $inputName;

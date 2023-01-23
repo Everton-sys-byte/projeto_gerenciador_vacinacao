@@ -13,7 +13,7 @@ class Alert extends Component
      *
      * @return void
      */
-    public function __construct($alertMessage)
+    public function __construct($alertMessage = null)
     {
         $this->alertMessage = $alertMessage;
     }

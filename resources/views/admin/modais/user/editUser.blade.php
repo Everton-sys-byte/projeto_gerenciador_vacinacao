@@ -2,8 +2,8 @@
     <x-form.default-form formId="adminUpdateUser" formAction="{{ @route('admin.edit.user') }}" formMethod="POST">
         @method('PUT')
         <input type="hidden" name="id" id="id">
-        <x-form.form-group label_name="Nome Completo" inputType="text" inputName="e_nome_completo" />
-        <x-form.form-group label_name="CPF" inputType="text" inputName="e_cpf" />
+        <x-form.form-group labelName="Nome Completo" inputType="text" inputName="e_nome_completo" />
+        <x-form.form-group labelName="CPF" inputType="text" inputName="e_cpf" />
         <div class="form-group">
             <select name="e_role" id="e_role" class="form-select @error('e_role') is-invalid @enderror">
                 <option value="">Selecione o tipo de conta que você deseja</option>
@@ -14,9 +14,9 @@
                 <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
-        <x-form.form-group label_name="CNS" inputType="text" inputName="e_cns" class="cns d-none" />
-        <x-form.form-group label_name="Celular" inputType="text" inputName="e_celular" />
-        <x-form.form-group label_name="Data de nascimento" inputType="date" inputName="e_data_nascimento" />
+        <x-form.form-group labelName="CNS" inputType="text" inputName="e_cns" class="cns d-none" />
+        <x-form.form-group labelName="Celular" inputType="text" inputName="e_celular" />
+        <x-form.form-group labelName="Data de nascimento" inputType="date" inputName="e_data_nascimento" />
         <div class="form-group">
             <select name="e_status" id="e_status" class="form-select @error('e_status') is-invalid @enderror">
                 <option value="">Selecione o status do usuário</option>

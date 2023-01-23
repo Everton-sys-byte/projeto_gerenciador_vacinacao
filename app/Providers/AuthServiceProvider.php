@@ -34,5 +34,22 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('editar-vacina', function(User $user) {
             return $user->hasRole('profissional');
         });
+
+        // GATES DO ADMINISTRADOR //
+
+        //USUÁRIOS
+        Gate::define('criar-usuario', function(User $user) {
+            return $user->hasRole('admin');
+        });
+
+        Gate::define('editar-usuario', function(User $user){
+            return $user->hasRole('admin');
+        });
+
+        //VACINAS
+        Gate::define('excluir-vacina', function(User $user) {
+            return $user->hasRole('admin');
+        });
+
     }
 }
