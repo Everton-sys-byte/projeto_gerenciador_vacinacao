@@ -34,6 +34,6 @@ class VacinaController extends Controller
 
     public function delete(Request $request){
         Vacina::find($request->delete_vacina_id)->delete();
-        return redirect()->route('vaccines.available')->with('message','Vacina deletada com sucesso');
+        return redirect()->route('vaccines.available')->with('message','Vacina excluida com sucesso');
     }
 }

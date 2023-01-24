@@ -44,12 +44,22 @@ $('#editUser').on('show.bs.modal', (e) => {
 $('#excluirVacina').on('show.bs.modal', (e) =>{
     var opener = e.relatedTarget
 
-    vacina_id = $(opener).attr('vacina_id')
-    vacina_nome = $(opener).attr('vacina_nome')
+    let vacina_nome = $(opener).attr('vacina_nome')
+    let vacina_id = $(opener).attr('vacina_id')
 
     $('#vacina_nome').text(vacina_nome)
     $('#delete_vacina_id').val(vacina_id)
 })
+
+//MODAL PARA O ADMINISTRAR DELETAR LOTE
+$('#excluirLote').on('show.bs.modal', (e)=>{
+    var opener = e.relatedTarget
+    let lote_codigo = $(opener).attr('lote_codigo')
+    let lote_id = $(opener).attr('lote_id')
+    $('#lote_codigo').text(lote_codigo)
+    $('#delete_lote_id').val(lote_id)
+}) 
+
 
 // ------------------ MODAIS DO PROFISSIONAL ----------------------//
 
@@ -64,5 +74,19 @@ $('#editarVacina').on('show.bs.modal', (e) => {
     $('#e_laboratorio').val(vacina.laboratorio)
     $('#e_descricao').val(vacina.descricao)
     $('#e_idade_minima').val(vacina.idade_minima)
+})
+
+//MODAL PARA O PROFISSIONAL EDITAR O LOTE
+$('#editarLote').on('show.bs.modal', (e)=>{
+    var opener = e.relatedTarget
+
+    let lote = JSON.parse($(opener).attr('lote'))
+
+    $('#lote_id').val(lote.id)
+    $('#e_codigo').val(lote.codigo)
+    $('#e_tecnologia').val(lote.tecnologia)
+    $('#e_quantidade').val(lote.quantidade)
+    $('#e_data_vencimento').val(lote.data_vencimento)
+    console.log(lote)
 })
 

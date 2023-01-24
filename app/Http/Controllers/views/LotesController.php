@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\package;
+namespace App\Http\Controllers\views;
 
 use App\Http\Controllers\Controller;
 use App\Models\Vacina;
 
-class LoteController extends Controller
+class LotesController extends Controller
 {
     public function view(Vacina $vacina) {
 

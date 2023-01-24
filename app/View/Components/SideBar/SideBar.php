@@ -25,4 +25,17 @@ class SideBar extends Component
     {
         return view('components.side-bar.side-bar');
     }
+
+    public function lists() {
+        return [
+            [
+                'image' => 'image',
+                'name' => 'Inicio'
+            ],
+            [
+                'image' => 'image2',
+                'name' => 'Vacinas disponíveis'
+            ]
+        ];
+    }
 }

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('lotes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('vacina_id');
-            $table->foreign('vacina_id')->references('id')->on('vacinas');
+            $table->foreign('vacina_id')->references('id')->on('vacinas')->onDelete('cascade');
             $table->string('codigo')->unique();
             $table->string('tecnologia');
             $table->bigInteger('quantidade');

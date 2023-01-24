@@ -24,4 +24,9 @@ class Lote extends Model
     public function vacina(){
         return $this->belongsTo(Vacina::class);
     }
+
+    public function getDataVencimento(){
+        $data_formatada = \Carbon\Carbon::parse($this->data_vencimento)->format('d/m/Y');
+        return $data_formatada;
+    }
 }

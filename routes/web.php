@@ -4,11 +4,12 @@ use App\Http\Controllers\Address\EnderecoController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\auth\CadastrarController;
 use App\Http\Controllers\auth\AutenticarController;
-use App\Http\Controllers\package\LoteController;
+use App\Http\Controllers\batchs\LoteController;
 use App\Http\Controllers\user\UserController;
 use App\Http\Controllers\views\LoginController;
 use App\Http\Controllers\vaccines\VacinaController;
 use App\Http\Controllers\views\GerenciarUsuariosController;
+use App\Http\Controllers\views\LotesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,6 +55,7 @@ Route::middleware(['check.is.administrador'])->prefix('administrador')->name('ad
     Route::post('/criar/usuario', [AdminController::class, 'createUser'])->name('create.user');
     Route::put('/editar/usuario', [AdminController::class, 'editUser'])->name('edit.user');
     Route::delete('/excluir/vacina', [VacinaController::class, 'delete'])->name('delete.vaccine');
+    Route::delete('/excluir/lote', [LoteController::class,'delete'])->name('delete.batch');
 });
 
 //-------------------- ROTA PARA AS VACINAS --------------- //
@@ -62,7 +64,9 @@ Route::middleware(['auth'])->prefix('vacinas')->name('vaccines.')->controller(Va
 });
 
 //-------------------- ROTA PARA OS LOTES --------------- //
-Route::middleware(['check.is.profissional'])->prefix('vacinas')->name('package.')->controller(LoteController::class)
+Route::middleware(['check.is.profissional'])->prefix('vacinas')->name('batch.')->controller(LotesController::class)
     ->group(function () {
         Route::get('/{vacina}/lotes', 'view')->name('available');
+        Route::post('{vacina}/criar/lote', [LoteController::class, 'store'])->name('create');
+        Route::put('/editar/lote', [LoteController::class,'update'])->name('update');
     });

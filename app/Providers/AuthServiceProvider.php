@@ -27,6 +27,8 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         // GATES DO PROFISSIONAL //
+
+        //VACINAS
         Gate::define('adicionar-vacina', function(User $user) {
             return $user->hasRole('profissional');
         });
@@ -35,8 +37,16 @@ class AuthServiceProvider extends ServiceProvider
             return $user->hasRole('profissional');
         });
 
-        // GATES DO ADMINISTRADOR //
+        //LOTES
+        Gate::define('adicionar-lote', function(User $user) {
+            return $user->hasRole('profissional');
+        });
 
+        Gate::define('editar-lote', function(User $user) {
+            return $user->hasRole('profissional');
+        });
+
+        // GATES DO ADMINISTRADOR //
         //USUÁRIOS
         Gate::define('criar-usuario', function(User $user) {
             return $user->hasRole('admin');
@@ -51,5 +61,9 @@ class AuthServiceProvider extends ServiceProvider
             return $user->hasRole('admin');
         });
 
+        //LOTES
+        Gate::define('excluir-lote', function(User $user) {
+            return $user->hasRole('admin');
+        });
     }
 }

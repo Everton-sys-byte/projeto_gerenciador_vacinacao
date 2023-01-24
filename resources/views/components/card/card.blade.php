@@ -6,7 +6,7 @@
                     @if ($cardType == 'vacina')
                         <img src="{{@asset('images/svgs/list/vaccines.svg')}}" alt="Vacina">
                     @elseif($cardType == 'lote')
-                        <img src="{{@asset('images/svgs/list/package.svg')}}" alt="Lote">
+                        <img src="{{@asset('images/svgs/list/batch.svg')}}" alt="Lote">
                     @endif
                 </div>
                 <div class="col-auto col-xxl-9">
