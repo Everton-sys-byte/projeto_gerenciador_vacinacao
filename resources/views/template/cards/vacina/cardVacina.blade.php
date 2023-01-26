@@ -1,7 +1,14 @@
 <x-card.card cardType="vacina" cardTitle="Vacina" :cardSubTitle="$vacina->nome">
     <x-slot name="card_information">
         <div class="laboratorio"><strong>Laboratório: </strong> {{ $vacina->laboratorio }}</div>
-        <div class="descricao"><strong>Descrição: </strong>{{ $vacina->descricao }}</div>
+        <div class="descricao"><strong>Descrição: </strong> {{ $vacina->descricao }}</div>
+        <div class="idade-minima"><strong>Idade minima: </strong>
+            @if (!$vacina->idade_minima)
+                N/A
+            @else
+                {{ $vacina->idade_minima }}
+            @endif
+        </div>
     </x-slot>
 
     <x-slot name="card_buttons">
@@ -10,8 +17,8 @@
 
         @if (session()->get('role') == 'profissional')
             @can('editar-vacina')
-                <button class="btn btn-success" vacina="{{ $vacina }}" role="button"
-                    data-bs-toggle="modal" data-bs-target="#editarVacina">Editar vacina</button>
+                <button class="btn btn-success" vacina="{{ $vacina }}" role="button" data-bs-toggle="modal"
+                    data-bs-target="#editarVacina">Editar vacina</button>
             @endcan
         @endif
 

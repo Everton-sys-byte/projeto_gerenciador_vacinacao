@@ -8,6 +8,7 @@ use App\Http\Controllers\batchs\LoteController;
 use App\Http\Controllers\user\UserController;
 use App\Http\Controllers\views\LoginController;
 use App\Http\Controllers\vaccines\VacinaController;
+use App\Http\Controllers\views\AplicarVacinacaoController;
 use App\Http\Controllers\views\GerenciarUsuariosController;
 use App\Http\Controllers\views\LotesController;
 use Illuminate\Support\Facades\Route;
@@ -47,6 +48,9 @@ Route::middleware(['auth'])->prefix('usuario')->name('user.')->group(function ()
 Route::middleware(['check.is.profissional'])->prefix('profissional')->name('professional.')->group(function () {
     Route::post('/criar/vacina', [VacinaController::class, 'create'])->name('create.vaccine');
     Route::put('/editar/vacina', [VacinaController::class, 'update'])->name('update.vaccine');
+
+    //ROTA PARA O PROFISSIONAL APLICAR A VACINA
+    Route::get('/aplicar/vacinacao', [AplicarVacinacaoController::class, 'view'])->name('apply.vacination');
 });
 
 //--------------------- USER (ADMINISTRADOR) -------------//

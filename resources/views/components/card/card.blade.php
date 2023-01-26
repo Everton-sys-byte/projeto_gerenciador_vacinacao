@@ -9,7 +9,7 @@
                         <img src="{{@asset('images/svgs/list/batch.svg')}}" alt="Lote">
                     @endif
                 </div>
-                <div class="col-auto col-xxl-9">
+                <div class="col-12 col-xxl-9">
                     <div class="card-content container-fluid p-0">
                         <h5 class="card-title">{{ $cardTitle }}</h5>
                         <h5 class="card-subtitle">{{ $cardSubTitle }}</h5>
