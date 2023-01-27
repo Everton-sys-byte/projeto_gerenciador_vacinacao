@@ -57,7 +57,7 @@ class User extends Authenticatable
     }
 
     public function registros(){
-        return $this->hasMany(Registro::class);
+        return $this->hasMany(Registro::class, 'imunizado_id', 'id');
     }
 
     public function hasRole($rolename){

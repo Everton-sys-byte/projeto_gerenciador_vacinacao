@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('registros', function (Blueprint $table) {
-            $table->id();
+            //UUID como identificador
+            $table->uuid()->primary();
             $table->unsignedBigInteger('imunizado_id');
             $table->foreign('imunizado_id')->references('id')->on('users');
             $table->char('profissional_id',14);

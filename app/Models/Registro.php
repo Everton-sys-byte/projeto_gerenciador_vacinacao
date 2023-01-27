@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Registro extends Model
 {
-    use HasFactory;
+    use HasFactory, HasUuids;
+
+    protected $primaryKey = 'uuid';
 
     protected $fillable = [
         'data_vacinacao',
@@ -15,14 +18,14 @@ class Registro extends Model
     ];
 
     public function imunizado(){
-        return $this->belongsTo(User::class,'user_id','imunizado_id');
+        return $this->belongsTo(User::class,'imunizado_id', 'id');
     }
 
     public function profissional(){
-        return $this->belongsTo(User::class,'user_id','profissional_id');
+        return $this->belongsTo(User::class,'profissional_id', 'cns');
     }
 
     public function lote(){
-        return $this->hasOne(Lote::class);
+        return $this->belongsTo(Lote::class);
     }
 }

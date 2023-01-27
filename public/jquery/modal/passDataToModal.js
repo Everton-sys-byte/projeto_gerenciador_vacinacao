@@ -9,8 +9,7 @@ $('#maisInformacoes').on('show.bs.modal', (e) => {
     $('#userEmail').text(`Email: ${user.email}`)
     $('#dataUsuarioCriado').text(`Data de criação do usuário: ${user.created_at}`)
 
-    if(!user.cns)
-    {
+    if (!user.cns) {
         $('#userCNS').addClass('d-none')
         return
     }
@@ -41,7 +40,7 @@ $('#editUser').on('show.bs.modal', (e) => {
 })
 
 //MODAL PARA O ADMINISTRADOR DELETAR VACINA
-$('#excluirVacina').on('show.bs.modal', (e) =>{
+$('#excluirVacina').on('show.bs.modal', (e) => {
     var opener = e.relatedTarget
 
     let vacina_nome = $(opener).attr('vacina_nome')
@@ -52,13 +51,13 @@ $('#excluirVacina').on('show.bs.modal', (e) =>{
 })
 
 //MODAL PARA O ADMINISTRAR DELETAR LOTE
-$('#excluirLote').on('show.bs.modal', (e)=>{
+$('#excluirLote').on('show.bs.modal', (e) => {
     var opener = e.relatedTarget
     let lote_codigo = $(opener).attr('lote_codigo')
     let lote_id = $(opener).attr('lote_id')
     $('#lote_codigo').text(lote_codigo)
     $('#delete_lote_id').val(lote_id)
-}) 
+})
 
 
 // ------------------ MODAIS DO PROFISSIONAL ----------------------//
@@ -77,7 +76,7 @@ $('#editarVacina').on('show.bs.modal', (e) => {
 })
 
 //MODAL PARA O PROFISSIONAL EDITAR O LOTE
-$('#editarLote').on('show.bs.modal', (e)=>{
+$('#editarLote').on('show.bs.modal', (e) => {
     var opener = e.relatedTarget
 
     let lote = JSON.parse($(opener).attr('lote'))
@@ -90,3 +89,47 @@ $('#editarLote').on('show.bs.modal', (e)=>{
     console.log(lote)
 })
 
+//MODAL PARA O PROFISSIONAL VISUALIZAR REGISTRO
+$('#maisInformacoesRegistro').on('show.bs.modal', (e) => {
+    var opener = e.relatedTarget
+
+    let registro = JSON.parse($(opener).attr('registro'))
+
+    $('#registroId').text(`Registro ID: ${registro.uuid}`)
+
+    //--------------------------------- INFORMAÇÕES ---------------------------------------------------//
+
+    //IMUNIZADO
+    $('#imunizadoNomeCompleto').text(`Nome completo: ${registro.imunizado.nome_completo}`)
+    $('#imunizadoCPF').text(`CPF: ${registro.imunizado.cpf}`)
+    $('#imunizadoCelular').text(`Celular: ${registro.imunizado.celular}`)
+
+    //ENDEREÇO
+    if (registro.imunizado.endereco){    
+        let completo = $('#imunizadoComplemento')
+
+        $('.imunizado-endereco').removeClass('d-none')
+        $('#imunizadoCEP').text(`CEP: ${registro.imunizado.endereco.cep.cep}`)
+        $('#imunizadoUF').text(`UF: ${registro.imunizado.endereco.cep.uf}`)
+        $('#imunizadoCidade').text(`Cidade: ${registro.imunizado.endereco.cep.cidade}`)
+        $('#imunizadoBairro').text(`Bairro: ${registro.imunizado.endereco.cep.bairro}`)
+        $('#imunizadoLogradouro').text(`Bairro: ${registro.imunizado.endereco.cep.logradouro}`)
+        $('#imunizadoNumero').text(`Numero: ${registro.imunizado.endereco.numero}`)
+        if(registro.imunizado.endereco.complemento)
+            completo.text(`Complemento: ${registro.imunizado.endereco.complemento}`)
+        else
+            completo.text(`N/A`)
+    }
+    else
+        $('.imunizado-endereco').addClass('d-none')
+
+    //VACINA
+    $('#vacinaNome').text(`Nome: ${registro.lote.vacina.nome}`)
+    $('#vacinaLaboratorio').text(`Laboratorio: ${registro.lote.vacina.laboratorio}`)
+    $('#loteCodigo').text(`Código do lote: ${registro.lote.codigo}`)
+
+    //LOTE
+    $('#loteTecnologia').text(`Tecnologia: ${registro.lote.tecnologia}`)
+    $('#loteDataVencimento').text(`Data de vencimento: ${registro.lote.data_vencimento}`)
+    console.log(registro)
+})

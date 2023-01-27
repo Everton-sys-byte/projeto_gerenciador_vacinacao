@@ -5,12 +5,14 @@ use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\auth\CadastrarController;
 use App\Http\Controllers\auth\AutenticarController;
 use App\Http\Controllers\batchs\LoteController;
+use App\Http\Controllers\profissional\RegistroController;
 use App\Http\Controllers\user\UserController;
 use App\Http\Controllers\views\LoginController;
 use App\Http\Controllers\vaccines\VacinaController;
 use App\Http\Controllers\views\AplicarVacinacaoController;
 use App\Http\Controllers\views\GerenciarUsuariosController;
 use App\Http\Controllers\views\LotesController;
+use App\Http\Controllers\views\VisualizarHistoricoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +53,8 @@ Route::middleware(['check.is.profissional'])->prefix('profissional')->name('prof
 
     //ROTA PARA O PROFISSIONAL APLICAR A VACINA
     Route::get('/aplicar/vacinacao', [AplicarVacinacaoController::class, 'view'])->name('apply.vacination');
+    Route::post('/efetuar/registro', [RegistroController::class,'store'])->name('perform.register');
+    Route::get('/visualizar/historico',[VisualizarHistoricoController::class , 'view'])->name('view.historic');
 });
 
 //--------------------- USER (ADMINISTRADOR) -------------//

@@ -3,15 +3,13 @@
 @section('content')
     <div class="information container-fluid">
         <x-titles.default-title title="Lotes disponíveis" />
-        <div class="nav-wrapper container-fluid p-0 fs-4">
-            <a href="{{ @route('vaccines.available') }}" class="text-decoration-none">Vacinas disponíveis</a>
-            <img src="{{ @asset('images/svgs/list/chevron.svg') }}" alt="Chevron">
-            <a href="#">Lotes</a>
-        </div>
+
+        {{-- HORIZONTAL NAV BAR --}}
+        @include('template.horizontalNavBar.vacinas_lotes')
 
         @if (session()->get('role') == 'profissional')
             @can('adicionar-vacina')
-                <button class="btn btn-primary my-3" role="button" data-bs-toggle="modal" data-bs-target="#criarLote">Registrar
+                <button class="btn btn-primary my-1" role="button" data-bs-toggle="modal" data-bs-target="#criarLote">Registrar
                     Lotes </button>
             @endcan
         @endif
