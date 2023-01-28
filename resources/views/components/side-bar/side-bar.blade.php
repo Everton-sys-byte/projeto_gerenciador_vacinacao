@@ -10,12 +10,12 @@
         </li>
         @if (session()->get('role') == 'comum')
             <li class="p-2 rounded ">
-                <x-anchor.anchor route="{{ @route('vaccines.available') }} "
+                <x-anchor.anchor route="{{ @route('user.register') }} "
                     svg="{{ @asset('images/svgs/list/house.svg') }}" type="Carteirinha" />
             </li>
         @endif
         @if (session()->get('role') == 'profissional')
-            <li class="p-2 rounded ">
+            <li class="p-2 rounded {{ request()->segment(3) == 'vacinacao' ? 'active' : ''}}">
                 <x-anchor.anchor route="{{ @route('professional.apply.vacination') }} "
                     svg="{{ @asset('images/svgs/list/house.svg') }}" type="Aplicar vacinação" />
             </li>

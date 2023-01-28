@@ -9,7 +9,7 @@
 
         @include('template.defaultSessionAlert.alert')
         <x-form.default-form formAction="{{@route('professional.perform.register')}}" formMethod="POST" class="mx-auto" style="max-width: 500px">
-            <x-form.form-group labelName="CPF do imunizado" inputType="text" inputName="cpf"/>
+            <x-form.form-group labelName="CPF do imunizado*" inputType="text" inputName="cpf" inputValue="{{@old('cpf')}}"/>
             <select name="vacina" id="vacina" class="form-select">
                 <option value="">Selecione uma vacina</option>
                 @foreach($vacinas as $vacina)
@@ -17,8 +17,8 @@
                 @endforeach
             </select>
             <select name="lote" id="lote" class="form-select"></select>
-            <x-form.form-group labelName="Data da vacinação" inputType="date" inputName="data_vacinacao"/>
-            <x-form.form-group labelName="CNES" inputType="text" inputName="CNES"/>
+            <x-form.form-group labelName="Data da vacinação*" inputType="date" inputName="data_vacinacao" inputValue="{{@old('data_vacinacao')}}"/>
+            <x-form.form-group labelName="CNES*" inputType="text" inputName="CNES" inputValue="{{@old('CNES')}}"/>
             <input type="submit" class="btn btn-primary" value="Efetuar registro da vacinação">
         </x-form.default-form>
     </div>

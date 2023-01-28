@@ -6,7 +6,7 @@
         <x-titles.default-title title="Vacinas Disponíveis" />
         @if (session()->get('role') == 'profissional')
             @can('adicionar-vacina')
-                <button class="btn btn-primary mb-3" role="button" data-bs-toggle="modal" data-bs-target="#criarVacina">Registrar
+                <button class="btn btn-primary my-1" role="button" data-bs-toggle="modal" data-bs-target="#criarVacina">Registrar
                     Vacina</button>
             @endcan
         @endif

@@ -28,4 +28,9 @@ class Registro extends Model
     public function lote(){
         return $this->belongsTo(Lote::class);
     }
+
+    public function dataVacinacao(){
+        $data_formatada = \Carbon\Carbon::parse($this->data_vacinacao)->format('d/m/Y');
+        return $data_formatada;
+    }
 }

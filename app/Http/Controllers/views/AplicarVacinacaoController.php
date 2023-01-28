@@ -10,7 +10,7 @@ class AplicarVacinacaoController extends Controller
 {
     public function view(){
         $vacinas = Vacina::all();
-        $lotes = Lote::all();
+        $lotes = Lote::where('quantidade','>',0)->get();
 
         return view('profissional.aplicarVacinacao',[
             'vacinas' => $vacinas,

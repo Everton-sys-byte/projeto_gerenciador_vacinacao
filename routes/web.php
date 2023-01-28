@@ -41,6 +41,8 @@ Route::middleware(['auth'])->prefix('usuario')->name('user.')->group(function ()
     Route::view('/perfil', 'usuario.perfil')->name('profile');
     Route::view('/configurar/perfil', 'usuario.configurarPerfil')->name('configuration.profile');
     Route::view('/configurar/endereco', 'usuario.configurarEndereco')->name('configuration.address');
+    Route::get('/carteirinha',[RegistroController::class, 'view'])->name('register');
+    Route::get('/carteirinha/registro/{registro}',[RegistroController::class, 'moreInformation'])->name('register.more.information');
     Route::put('/editar/perfil', [UserController::class, 'update'])->name('update.profile');
     Route::put('/editar/endereco', [EnderecoController::class, 'store'])->name('update.address');
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
