@@ -24,6 +24,8 @@ class RegistroController extends Controller
     public function moreInformation(Registro $registro)
     {
         $registro = Registro::where('uuid', $registro->uuid)->with(['profissional', 'lote.vacina'])->first();
+
+        //CONSUMINDO API 
         $response = Http::get('https://apidadosabertos.saude.gov.br/cnes/estabelecimentos/' . $registro->CNES)->json();
         $enderecoEstabelecimento = null;
 

@@ -3,7 +3,7 @@
 @section('content')
     <div class="information container-fluid">
         <x-titles.default-title title="Gerenciar Usuários" />
-        <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#criarUsuario">Criar usuario</button>
+        <button class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#criarUsuario">Criar usuario</button>
         @include('template.defaultSessionAlert.alert')
         <table class="table">
             <thead class="table-primary">

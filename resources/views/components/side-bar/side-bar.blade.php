@@ -5,25 +5,25 @@
                 type="Home" />
         </li>
         <li class="p-2 rounded {{ request()->segment(1) == 'vacinas' ? 'active' : '' }} ">
-            <x-anchor.anchor route="{{ @route('vaccines.available') }}" svg="{{ @asset('images/svgs/list/house.svg') }}"
+            <x-anchor.anchor route="{{ @route('vaccines.available') }}" svg="{{ @asset('images/svgs/list/vaccines.svg') }}"
                 type="Vacinas disponíveis" />
         </li>
         @if (session()->get('role') == 'comum')
-            <li class="p-2 rounded ">
+            <li class="p-2 rounded {{request()->segment(2) == 'carteirinha' ? 'active' : ''}}">
                 <x-anchor.anchor route="{{ @route('user.register') }} "
-                    svg="{{ @asset('images/svgs/list/house.svg') }}" type="Carteirinha" />
+                    svg="{{ @asset('images/svgs/list/clipboard.svg') }}" type="Carteirinha" />
             </li>
         @endif
         @if (session()->get('role') == 'profissional')
             <li class="p-2 rounded {{ request()->segment(3) == 'vacinacao' ? 'active' : ''}}">
                 <x-anchor.anchor route="{{ @route('professional.apply.vacination') }} "
-                    svg="{{ @asset('images/svgs/list/house.svg') }}" type="Aplicar vacinação" />
+                    svg="{{ @asset('images/svgs/list/clipboard.svg') }}" type="Aplicar vacinação" />
             </li>
         @endif
         @if (session()->get('role') == 'admin')
             <li class="p-2 rounded {{ request()->segment(2) == 'gerenciar' ? 'active' : '' }}">
                 <x-anchor.anchor route=" {{ @route('admin.manage.users') }} "
-                    svg="{{ @asset('images/svgs/list/gear.svg') }}" type="Gerenciar usuários" />
+                    svg="{{ @asset('images/svgs/list/people.svg') }}" type="Gerenciar usuários" />
             </li>
         @endif
     </ul>

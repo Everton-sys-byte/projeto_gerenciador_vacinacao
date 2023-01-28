@@ -9,8 +9,8 @@
     <x-slot name="card_buttons">
         @if (session()->get('role') == 'profissional')
             @can('editar-lote')
-                <button class="btn btn-success" lote="{{ $lote }}" role="button"
-                    data-bs-toggle="modal" data-bs-target="#editarLote">Editar lote</button>
+                <button class="btn btn-success" lote="{{ $lote }}" role="button" data-bs-toggle="modal"
+                    data-bs-target="#editarLote">Editar lote</button>
             @endcan
         @endif
 
