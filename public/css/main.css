@@ -196,6 +196,12 @@
     width: fit-content;
 }
 
+/*------------ Avatar Image ------------*/
+/* .user_avatar {
+    width: 200px;
+    height: 200px;
+}
+ */
 /*------------ BREAKPOINTS ---------- */
 
 @media screen and (min-width: 1200px) {

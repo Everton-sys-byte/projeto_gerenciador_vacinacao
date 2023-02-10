@@ -2,9 +2,10 @@
 @section('title', 'Configurar Perfil')
 
 @section('content')
-    <div class="information container-fluid p-0 pb-1">
+    <div class="information container-fluid px-5">
         <x-titles.default-title title="Configurar Perfil" />
-        <x-tags.tag-bar/>
+        {{-- @include('template.horizontalNavBar.perfil_configurar') --}}
+        <x-tags.tag-bar class="mt-3"/>
         <x-form.default-form formAction="{{ @route('user.update.profile') }}" formMethod="POST" formEncType=true
             class="mx-auto" style="width: 500px">
             @method('PUT')

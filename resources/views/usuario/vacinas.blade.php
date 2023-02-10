@@ -2,7 +2,7 @@
 @section('title', 'vacinas disponíveis')
 
 @section('content')
-    <div class="information container-fluid">
+    <div class="information container-fluid px-5">
         <x-titles.default-title title="Vacinas Disponíveis" />
         @if (session()->get('role') == 'profissional')
             @can('adicionar-vacina')

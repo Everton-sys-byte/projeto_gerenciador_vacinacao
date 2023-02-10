@@ -2,32 +2,49 @@
 @section('title', 'Perfil')
 
 @section('content')
-    <div class="information profile container-fluid">
+    <div class="information profile container-fluid px-5">
         <x-titles.default-title title="Perfil" />
-        <x-anchor.anchor route="{{@route('user.configuration.profile')}}" type="Configurar" class="btn btn-primary mb-3"
-            svg="{{ @asset('images/svgs/list/gear.svg') }}" />
-
-        <div class="row row-cols-1 row-cols-md-2 fs-4">
-            <div class="col">
-                <img src="/images/avatar/{{ auth()->user()->avatar }}" alt="" class="rounded-circle"
-                    style="width: 80px; height:80px">
-                <span class="d-block">Nome completo: {{ auth()->user()->nome_completo }}</span>
-                <span class="d-block">CPF: {{ auth()->user()->cpf }}</span>
-                <span class="d-block">Email: {{ auth()->user()->email }}</span>
-                <span class="d-block">Data de nascimento:{{ auth()->user()->getDataNascimento() }}</span>
-                <span class="d-block">Celular:{{ auth()->user()->celular }}</span>
+        @include('template.horizontalNavBar.perfil_configurar')
+        <div class="row mt-3">
+            <div class="col-lg-2">
+                <img src="/images/avatar/{{ auth()->user()->avatar }}" alt="userAvatar" style="width: 200px; height:200px"
+                    class="rounded" />
             </div>
-            @if (!is_null(auth()->user()->endereco))
-                <div class="col">
-                    <span class="d-block">CEP: {{ auth()->user()->endereco->cep->cep }}</span>
-                    <span class="d-block">Estado: {{ auth()->user()->endereco->cep->uf }}</span>
-                    <span class="d-block">Cidade: {{ auth()->user()->endereco->cep->cidade }}</span>
-                    <span class="d-block">Bairro: {{ auth()->user()->endereco->cep->bairro }}</span>
-                    <span class="d-block">Logradouro: {{ auth()->user()->endereco->cep->logradouro }}</span>
-                    <span class="d-block">Numero: {{ auth()->user()->endereco->numero }}</span>
-                    <span class="d-block">Complemento: {{ auth()->user()->endereco->complemento }}</span>
+            <div class="col">
+                <div class="wrapper">
+                    <div class="user-information bg-light mb-1 shadow-lg ps-1">
+                        <span class="fs-3 d-block">Informações Pessoais</span>
+                        <div class="nome_completo"><strong>Nome completo:</strong> {{ auth()->user()->nome_completo }}</div>
+                        <div class="cpf"><strong>CPF: </strong>{{ auth()->user()->cpf }}</div>
+                        <div class="email"><strong>Email:</strong> {{ auth()->user()->email }}</div>
+                        <div class="data_nascimento"><strong>Data de nascimento:
+                            </strong>{{ auth()->user()->getDataNascimento() }}
+                        </div>
+                        <div class="celular"><strong>Celular: </strong>{{ auth()->user()->celular }}</div>
+                    </div>
+                    @if (!is_null(auth()->user()->endereco))
+                        <div class="user-address bg-light mb-1 shadow-lg ps-1">
+                            <span class="fs-3 d-block">Endereço</span>
+                            <div class="cep"><strong>CEP: </strong>{{ auth()->user()->endereco->cep->cep }}</div>
+                            <div class="estado"><strong>Estado: </strong>{{ auth()->user()->endereco->cep->uf }}</div>
+                            <div class="cidade"><strong>Cidade: </strong>{{ auth()->user()->endereco->cep->cidade }}</div>
+                            <div class="bairro"><strong>Bairro: </strong>{{ auth()->user()->endereco->cep->bairro }}</div>
+                            <div class="logradouro"><strong>Logradouro:
+                                </strong>{{ auth()->user()->endereco->cep->logradouro }}</div>
+                            <div class="numero"><strong>Numero: </strong>{{ auth()->user()->endereco->numero }}</div>
+                            <div class="complemento"><strong>Complemento:
+                                </strong>{{ auth()->user()->endereco->complemento }}
+                            </div>
+                        </div>
+                        <div class="user-permissions bg-light shadow-lg ps-1">
+                            <span class="fs-3 d-block">Permissões no sistema</span>
+                            @foreach (auth()->user()->roles()->get() as $role)
+                                <div class="{{ $role->tipo }}">{{ $role->tipo }}</div>
+                            @endforeach
+                        </div>
+                    @endif
                 </div>
-            @endif
+            </div>
         </div>
     </div>
 @endsection

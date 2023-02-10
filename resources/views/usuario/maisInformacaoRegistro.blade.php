@@ -2,7 +2,7 @@
 @section('title', 'Mais informações')
 
 @section('content')
-    <div class="information container-fluid">
+    <div class="information container-fluid px-5">
         <x-titles.default-title title="Mais informações" />
         {{-- HORIZONTAL NAV BAR --}}
         @include('template.horizontalNavBar.registro_maisInformacao')

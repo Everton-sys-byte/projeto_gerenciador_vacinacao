@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\user\PasswordUpdateRequest;
 use App\Http\Requests\UserUpdateRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -13,7 +15,6 @@ class UserController extends Controller
         if($request->hasFile('avatar')){
             $avatar = $request->avatar;
             $fileName = time(). '.' . $avatar->getClientOriginalExtension();
-            /* dd($fileName); */
             $avatar->move(public_path('images/avatar'), $fileName);
             auth()->user()->update([
                 'avatar' => isset($fileName) ? $fileName : "defaultAvatar.png",
@@ -28,6 +29,13 @@ class UserController extends Controller
         ]);
 
         return redirect()->route('user.configuration.profile');
+    }
+
+    public function updatePassword(PasswordUpdateRequest $request){
+        $user = auth()->user();
+        $user->password = bcrypt(request('novaSenha'));
+        $user->save();
+        return redirect()->back()->with('message', 'Senha atualizada com sucesso');
     }
 
     public function logout(){

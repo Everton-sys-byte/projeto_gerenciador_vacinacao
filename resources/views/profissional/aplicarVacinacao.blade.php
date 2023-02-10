@@ -1,7 +1,7 @@
 @extends('template.defaultPages.defaultPages')
 @section('title', 'Aplicar vacinação')
 @section('content')
-    <div class="information container-fluid">
+    <div class="information container-fluid px-5">
         <x-titles.default-title title="Aplicar vacinação" />
 
         {{-- ITEMS DO HORIZONTAL NAVBAR --}}
