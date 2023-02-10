@@ -7,7 +7,7 @@
 
         <x-form.default-form formAction="{{@route('user.autenticar')}}" formMethod="POST" class="py-3 px-4" style="min-width: 300px">
             <x-input.select labelName="Selecione o tipo de usuário" inputName="role" :options="$roles" />
-            <x-form.form-group labelName="Email" inputName="email" inputType="text" inputValue="{{@old('email')}}"/>
+            <x-form.form-group labelName="Email" inputName="email" inputType="text" :inputValue="@old('email')"/>
             <x-form.form-group labelName="Senha" inputName="password" inputType="password"/>
             <input type="submit" class="btn btn-primary" value="Logar">
             <p>Não tem conta?&nbsp;<a href="{{ @route('cadastrar') }}" class="text-decoration-none">cadastre-se</a>
