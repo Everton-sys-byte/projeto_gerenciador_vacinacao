@@ -4,8 +4,8 @@
 @section('content')
     <div class="information container-fluid px-5">
         <x-titles.default-title title="Configurar Endereço" />
-        {{-- @include('template.horizontalNavBar.perfil_configurar') --}}
         <x-tags.tag-bar class="mt-3" />
+        @include('template.defaultSessionAlert.alert')
         <x-form.default-form formAction="{{ @route('user.update.address') }}" formMethod="POST" formEncType=true
             class="mx-auto" style="width: 500px">
             @method('PUT')

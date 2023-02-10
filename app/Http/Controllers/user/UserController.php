@@ -28,7 +28,7 @@ class UserController extends Controller
             'data_nascimento' => $request->data_nascimento
         ]);
 
-        return redirect()->route('user.configuration.profile');
+        return redirect()->route('user.configuration.profile')->with('message', 'Perfil atualizado com sucesso');
     }
 
     public function updatePassword(PasswordUpdateRequest $request){

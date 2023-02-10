@@ -36,6 +36,6 @@ class EnderecoController extends Controller
 
         $endereco->cep()->associate($cep);
         $endereco->save(); 
-        return redirect()->route('user.configuration.address');
+        return redirect()->route('user.configuration.address')->with('message', 'Endereco atualizado com sucesso');
     }
 }
