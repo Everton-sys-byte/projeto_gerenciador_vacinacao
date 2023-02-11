@@ -4,16 +4,13 @@
             inputValue="{{ @old('nome_completo') }}" />
         <x-form.form-group labelName="CPF" inputType="text" inputName="cpf" inputValue="{{ @old('cpf') }}" />
         <x-form.form-group labelName="Email" inputType="email" inputName="email" inputValue="{{ @old('email') }}" />
-        <div class="form-group">
-            <select name="role" id="role" class="form-select @error('role') is-invalid @enderror">
+        <x-input.select labelName="Tipo de usuário" inputName="role">
+            <x-slot name="options">
                 <option value="">Selecione o tipo de conta que deseja criar</option>
                 <option value="comum">Comum</option>
                 <option value="profissional">Profissional</option>
-            </select>
-            @error('role')
-                <span class="text-danger">{{ $message }}</span>
-            @enderror
-        </div>
+            </x-slot>
+        </x-input.select>
         <x-form.form-group labelName="CNS" inputType="text" inputName="cns" inputValue="{{ @old('cns') }}"
             class="cns d-none" />
         <x-form.form-group labelName="Celular" inputType="text" inputName="celular"

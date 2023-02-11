@@ -5,10 +5,17 @@
     <div class="page container-fluid p-3 d-flex justify-content-center align-items-center"
         style="width:100%; height:100vh; background: var(--bs-blue); background-size: 100px 50px;">
 
-        <x-form.default-form formAction="{{@route('user.autenticar')}}" formMethod="POST" class="py-3 px-4" style="min-width: 300px">
-            <x-input.select labelName="Selecione o tipo de usuário" inputName="role" :options="$roles" />
-            <x-form.form-group labelName="Email" inputName="email" inputType="text" :inputValue="@old('email')"/>
-            <x-form.form-group labelName="Senha" inputName="password" inputType="password"/>
+        <x-form.default-form formAction="{{ @route('user.autenticar') }}" formMethod="POST" class="py-3 px-4"
+            style="min-width: 300px">
+            <x-input.select labelName="Selecione o tipo de usuário" inputName="role">
+                <x-slot name="options">
+                    @foreach ($roles as $role)
+                        <option value="{{ $role->tipo }}">{{ $role->tipo }}</option>
+                    @endforeach
+                </x-slot>
+            </x-input.select>
+            <x-form.form-group labelName="Email" inputName="email" inputType="text" :inputValue="@old('email')" />
+            <x-form.form-group labelName="Senha" inputName="password" inputType="password" />
             <input type="submit" class="btn btn-primary" value="Logar">
             <p>Não tem conta?&nbsp;<a href="{{ @route('cadastrar') }}" class="text-decoration-none">cadastre-se</a>
         </x-form.default-form>

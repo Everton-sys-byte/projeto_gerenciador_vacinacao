@@ -7,7 +7,7 @@
         <x-tags.tag-bar class="mt-3"/>
         @include('template.defaultSessionAlert.alert')
         <x-form.default-form formAction="{{ @route('user.update.profile') }}" formMethod="POST" formEncType=true
-            class="mx-auto" style="width: 500px">
+            class="mx-auto" style="width: 100%">
             @method('PUT')
             <div class="d-flex flex-column align-items-center gap-1">
                 <img src="/images/avatar/{{ auth()->user()->avatar }}" alt="user avatar" width="120" height="120"

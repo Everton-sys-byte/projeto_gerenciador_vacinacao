@@ -8,17 +8,15 @@ class Select extends Component
 {
     public $labelName;
     public $inputName;
-    public $options;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($labelName=null, $inputName, $options)
+    public function __construct($labelName=null, $inputName)
     {
         $this->labelName = $labelName;
         $this->inputName = $inputName;
-        $this->options = $options;
     }
 
     /**

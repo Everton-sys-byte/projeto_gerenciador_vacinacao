@@ -25,7 +25,6 @@ class AdminUpdateUserRequest extends FormRequest
     {
         return [
             'e_nome_completo' => 'required',
-            'e_cpf' => 'required|unique:users,cpf,'.request()->get('id'),
             'e_role' => 'required',
             'e_cns' => 'required_if:e_role,=,profissional|nullable|unique:users,cns,'.request()->get('id'),
             'e_celular' => 'required',

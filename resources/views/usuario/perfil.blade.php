@@ -7,8 +7,7 @@
         @include('template.horizontalNavBar.perfil_configurar')
         <div class="row mt-3">
             <div class="col-lg-2">
-                <img src="/images/avatar/{{ auth()->user()->avatar }}" alt="userAvatar" style="width: 200px; height:200px"
-                    class="rounded" />
+                <img src="/images/avatar/{{ auth()->user()->avatar }}" alt="userAvatar" class="rounded img-fluid" />
             </div>
             <div class="col">
                 <div class="wrapper">
@@ -36,13 +35,14 @@
                                 </strong>{{ auth()->user()->endereco->complemento }}
                             </div>
                         </div>
-                        <div class="user-permissions bg-light shadow-lg ps-1">
-                            <span class="fs-3 d-block">Permissões no sistema</span>
-                            @foreach (auth()->user()->roles()->get() as $role)
-                                <div class="{{ $role->tipo }}">{{ $role->tipo }}</div>
-                            @endforeach
-                        </div>
                     @endif
+                    <div class="user-permissions bg-light shadow-lg ps-1">
+                        <span class="fs-3 d-block">Permissões no sistema</span>
+                        @foreach (auth()->user()->roles()->get() as $role)
+                            <div class="{{ $role->tipo }}">{{ $role->tipo }}</div>
+                        @endforeach
+                    </div>
+
                 </div>
             </div>
         </div>

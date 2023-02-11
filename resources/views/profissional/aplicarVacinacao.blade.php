@@ -8,17 +8,25 @@
         @include('template.horizontalNavBar.vacinacao_historico')
 
         @include('template.defaultSessionAlert.alert')
-        <x-form.default-form formAction="{{@route('professional.perform.register')}}" formMethod="POST" class="mx-auto" style="max-width: 500px">
-            <x-form.form-group labelName="CPF do imunizado*" inputType="text" inputName="cpf" inputValue="{{@old('cpf')}}"/>
-            <select name="vacina" id="vacina" class="form-select">
-                <option value="">Selecione uma vacina</option>
-                @foreach($vacinas as $vacina)
-                    <option value="{{$vacina->id}}">{{$vacina->nome}}</option>
-                @endforeach
-            </select>
-            <select name="lote" id="lote" class="form-select"></select>
-            <x-form.form-group labelName="Data da vacinação*" inputType="date" inputName="data_vacinacao" inputValue="{{@old('data_vacinacao')}}"/>
-            <x-form.form-group labelName="CNES*" inputType="text" inputName="CNES" inputValue="{{@old('CNES')}}"/>
+        <x-form.default-form formAction="{{ @route('professional.perform.register') }}" formMethod="POST" class="mx-auto"
+            style="max-width: 500px">
+            <x-form.form-group labelName="CPF do imunizado*" inputType="text" inputName="cpf"
+                inputValue="{{ @old('cpf') }}" />
+            <x-input.select labelName="Selecione uma vacina" inputName="vacina">
+                <x-slot name="options">
+                    <option value="">Selecione a vacina</option>
+                    @foreach ($vacinas as $vacina)
+                        <option value="{{ $vacina->id }}">{{ $vacina->nome }}</option>
+                    @endforeach
+                </x-slot>
+            </x-input.select>
+            <x-input.select labelName="Selecione um lote" inputName="lote">
+                <x-slot name="options">
+                </x-slot>
+            </x-input.select>
+            <x-form.form-group labelName="Data da vacinação*" inputType="date" inputName="data_vacinacao"
+                inputValue="{{ @old('data_vacinacao') }}" />
+            <x-form.form-group labelName="CNES*" inputType="text" inputName="CNES" inputValue="{{ @old('CNES') }}" />
             <input type="submit" class="btn btn-primary" value="Efetuar registro da vacinação">
         </x-form.default-form>
     </div>
@@ -28,7 +36,7 @@
         const vacinas = {{ Js::from($vacinas) }}
         const lotes = {{ Js::from($lotes) }}
 
-        $('#vacina').change((e)=>{
+        $('#vacina').change((e) => {
             //resetando o select de lotes sempre que o valor de vacinas muda
             $('#lote').empty()
 

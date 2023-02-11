@@ -33,7 +33,6 @@ class AdminController extends Controller
 
         $user->update([
             'nome_completo' => request("e_nome_completo"),
-            'cpf' => request("e_cpf"),
             'data_nascimento' => request("e_data_nascimento"),
             'celular' => request('e_celular'),
             'status' => request('e_status'),

@@ -186,13 +186,13 @@
 /*------------ PERFIL PAGE ---------- */
 
 /*------------ Tamanho da imagem SVG ---------- */
-.profile img {
+.profile > img {
     width: 30px;
     height: 30px;
 }
 
 /*------------ Tamanho do with do button configurar ---------- */
-.profile a {
+.profile > a {
     width: fit-content;
 }
 

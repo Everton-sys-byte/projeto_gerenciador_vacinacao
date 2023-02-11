@@ -36,6 +36,6 @@ class PasswordCheck implements Rule
      */
     public function message()
     {
-        return 'Senha atual inválida.';
+        return 'Senha atual incorreta.';
     }
 }

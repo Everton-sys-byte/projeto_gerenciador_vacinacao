@@ -24,7 +24,6 @@ $('#editUser').on('show.bs.modal', (e) => {
 
     $("#id").val(user.id)
     $("#e_nome_completo").val(user.nome_completo)
-    $("#e_cpf").val(user.cpf)
     $("#e_celular").val(user.celular)
     $("#e_data_nascimento").val(user.data_nascimento)
     $("#e_status").val(user.status)
