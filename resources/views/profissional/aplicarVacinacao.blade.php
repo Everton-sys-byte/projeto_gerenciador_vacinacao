@@ -2,7 +2,7 @@
 @section('title', 'Aplicar vacinação')
 @section('content')
     <div class="information container-fluid px-5">
-        <x-titles.default-title title="Aplicar vacinação" />
+        <x-titles.default-title title="Aplicar vacinação" class="text-center" />
 
         {{-- ITEMS DO HORIZONTAL NAVBAR --}}
         @include('template.horizontalNavBar.vacinacao_historico')

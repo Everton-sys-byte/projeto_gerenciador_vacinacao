@@ -2,7 +2,7 @@
 @section('title', 'Gerenciar Usuarios')
 @section('content')
     <div class="information container-fluid px-5">
-        <x-titles.default-title title="Gerenciar Usuários" />
+        <x-titles.default-title title="Gerenciar Usuários" class="text-center" />
         <button class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#criarUsuario">Criar usuario</button>
         @include('template.defaultSessionAlert.alert')
         <table class="table">

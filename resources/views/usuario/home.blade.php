@@ -35,7 +35,7 @@
             width="580" class="doctors d-none d-xl-block" >
             <div class="funcionalidades px-2">
                 <x-titles.default-title title="Para o profissional de saúde" />
-                <p class="text-dark">Nossa plataforma facilita o serviço do profissional de saúde, ela fornece 
+                <p class="text-dark">Nossa plataforma facilita o serviço, ela fornece 
                     o gerenciamento das vacinas e dos lotes atrelados a ela e até mesmo de registro de vacinação, também é possível 
                     visualizar todas as vacinas que foram aplicadas e quem foi o imunizado junto de suas informações como nome completo, endereço, entre outros.
                 </p>

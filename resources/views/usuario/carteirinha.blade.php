@@ -2,7 +2,7 @@
 @section('title', 'Carteinha')
 @section('content')
     <div class="information container-fluid px-5">
-        <x-titles.default-title title="Vacinas tomadas"/>
+        <x-titles.default-title title="Vacinas tomadas" class="text-center"/>
         <x-list-group.list-group>
             @foreach($registros as $registro)
                 @include('template.cards.registro.cardRegistro')
