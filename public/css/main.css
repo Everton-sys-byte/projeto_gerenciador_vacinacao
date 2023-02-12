@@ -12,15 +12,15 @@
     z-index: 10;
 }
 
-.burger-button > .linha {
+.burger-button>.linha {
     width: 100%;
     height: 2px;
 }
 
 /* --- USER IMAGE AND DROP DOWN MENU --- */
 .user-container {
-   /*  width: 55px; */
-   /*  height: 55px;  */
+    /*  width: 55px; */
+    /*  height: 55px;  */
     overflow: hidden;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .user-container:hover .drop-down-user-menu::before {
-    display: block; 
+    display: block;
 }
 
 .user-image {
@@ -44,30 +44,30 @@
     overflow: hidden;
 }
 
-.user-image img {
+.user-image > img {
     width: 100%;
     height: 100%;
 }
 
-.user-container > .drop-down-user-menu {
+.user-container>.drop-down-user-menu {
     top: 100%;
     width: 100%;
 }
 
-.user-container > .drop-down-user-menu > ul > li:hover {
+.user-container>.drop-down-user-menu>ul>li:hover {
     background: var(--bs-blue);
 }
 
-.user-container > .drop-down-user-menu > ul > li:hover a {
+.user-container>.drop-down-user-menu>ul>li:hover a {
     color: white;
 }
 
-.user-container > .drop-down-user-menu > ul > li > a > img {
+.user-container>.drop-down-user-menu>ul>li>a>img {
     width: 25px;
     height: 25px;
 }
 
-.user-container > .drop-down-user-menu::before {
+.user-container>.drop-down-user-menu::before {
     content: "";
     display: block;
     position: absolute;
@@ -85,15 +85,17 @@
     0% {
         transform: translateY(0px);
         opacity: .3;
-    } 
+    }
+
     50% {
         transform: translateY(1px);
         opacity: .5;
-    } 
+    }
+
     100% {
         transform: translateY(3px);
         opacity: 1
-    } 
+    }
 }
 
 /* ----------- SIDE BAR --------- */
@@ -104,7 +106,7 @@
     width: 90%;
 }
 
-.side-bar > ul > li > a > img {
+.side-bar>ul>li>a>img {
     width: 30px;
     height: 30px;
 }
@@ -142,6 +144,13 @@
     height: 600px;
 }
 
+.home-banner>.wrapper>.home-information {
+    max-height: 400px;
+    overflow: hidden;
+    width: 100%;
+}
+
+
 
 @keyframes animateWave {
     from {
@@ -152,6 +161,8 @@
         transform: translateX(-50%);
     }
 }
+
+
 
 /*------------ ILLUSTRATION ---- */
 
@@ -183,16 +194,47 @@
     }
 }
 
+
+/*------------ FUNCIONALIDADES --------*/
+
+.doctors {
+    position: relative;
+    opacity: 0;
+    left: -20px;
+}
+
+
+.funcionalidades {
+    width: 100%;
+    color: var(--bs-blue);
+    position: relative;
+    opacity: 0;
+    left:20px
+}
+
+
+@keyframes doctors {
+    from {
+        opacity: 0;
+        transform: translateX(-20px) ;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px) ;
+    }
+}
+
 /*------------ PERFIL PAGE ---------- */
 
 /*------------ Tamanho da imagem SVG ---------- */
-.profile > img {
+.profile>img {
     width: 30px;
     height: 30px;
 }
 
 /*------------ Tamanho do with do button configurar ---------- */
-.profile > a {
+.profile>a {
     width: fit-content;
 }
 
@@ -205,9 +247,16 @@
 /*------------ BREAKPOINTS ---------- */
 
 @media screen and (min-width: 1200px) {
-  .side-bar {
+    .side-bar {
         width: 20%;
-    } 
+    }
+
+    .home-banner>.wrapper>.home-information {
+        width: 50%;
+    }
+    
+    .funcionalidades {
+        width: 600px;
+    }
+    
 }
-
-
