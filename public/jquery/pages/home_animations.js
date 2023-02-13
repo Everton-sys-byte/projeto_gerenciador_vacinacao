@@ -1,27 +1,22 @@
-var windowHeight = $(window).height()
-console.log(windowHeight)
-$(window).scroll((event)=>{
-    var scrollY = $(window).scrollTop()
-    console.log(scrollY)
-    if(scrollY >= (windowHeight / 2))
-    {
-        $(".funcionalidades").animate({
-            opacity: '1',
-            left: '0px',
-        }, 1000)
+//pega o tamanho da página
+const containers = Array.from($('[data-anime]'))
+const animationClass = "animate"
 
-        $('.image').animate({
-            opacity: '1',
-            left: '0px',
-        },1000) 
 
-    }
-
-    if(scrollY >= 800)
-    {
-        $('.informations-cards').animate({
-            opacity: '1',
-            top: '0px'
-        }, 1000)
-    }
+$(window).scroll(()=>{
+    let scrollY = $(window).scrollTop()
+    animation(scrollY)
 })
+
+
+const animation = (windowPosition) => {
+        //calculo para pegar +- 3/4 da tela
+    windowPosition += (window.innerHeight * 0.70)
+
+    containers.forEach(element => {
+        if(windowPosition > element.offsetTop)
+            element.classList.add(animationClass)
+        else
+            element.classList.remove(animationClass)
+    });
+}

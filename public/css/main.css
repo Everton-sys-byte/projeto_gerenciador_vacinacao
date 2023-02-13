@@ -211,18 +211,34 @@
 /*------------ FUNCIONALIDADES --------*/
 
 /*------------ PROFISSIONAL ---------*/
-.profissional-funcionalidades > .image {
-    position: relative;
+[data-anime] {
+    transition: .5s;
     opacity: 0;
-    left: -20px;
 }
 
-.funcionalidades {
-    width: 100%;
+[data-anime="left"] {
+    transform: translateX(-20px);
+}
+
+[data-anime="right"] {
+    transform: translateX(20px);
+}
+
+[data-anime="top"] {
+    transform: translateY(-20px);
+}
+
+.profissional-funcionalidades {
+    height: 430px;
+}
+
+.profissional-funcionalidades > .funcionalidades {
     color: var(--bs-blue);
-    position: relative;
-    opacity: 0;
-    left:20px
+}
+
+[data-anime].animate {
+    opacity: 1;
+    transform: translateX(0px);
 }
 
 /*------------ INFORMATION CARDS ---------*/
@@ -244,17 +260,6 @@
     height: 200px
 }
 
-@keyframes doctors {
-    from {
-        opacity: 0;
-        transform: translateX(-20px) ;
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0px) ;
-    }
-}
 
 /*------------ PERFIL PAGE ---------- */
 

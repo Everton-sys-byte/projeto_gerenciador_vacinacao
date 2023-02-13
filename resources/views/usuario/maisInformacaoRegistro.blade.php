@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="information container-fluid px-5">
-        <x-titles.default-title title="Mais informações" />
+        <x-titles.default-title title="Mais informações" class="text-center" />
         {{-- HORIZONTAL NAV BAR --}}
         @include('template.horizontalNavBar.registro_maisInformacao')
         <div class="more-information d-flex flex-column flex-md-row gap-2">
