@@ -44,7 +44,7 @@
     overflow: hidden;
 }
 
-.user-image > img {
+.user-image>img {
     width: 100%;
     height: 100%;
 }
@@ -217,22 +217,22 @@
 }
 
 [data-anime="left"] {
-    transform: translateX(-20px);
+    transform: translateX(-30px);
 }
 
 [data-anime="right"] {
-    transform: translateX(20px);
+    transform: translateX(30px);
 }
 
 [data-anime="top"] {
-    transform: translateY(-20px);
+    transform: translateY(-30px);
 }
 
 .profissional-funcionalidades {
     height: 430px;
 }
 
-.profissional-funcionalidades > .funcionalidades {
+.profissional-funcionalidades>.funcionalidades {
     color: var(--bs-blue);
 }
 
@@ -245,18 +245,15 @@
 
 .informations-cards {
     height: 550px;
-    position: relative;
-    top: -20px;
-    opacity: 0;
 }
 
-.informations-cards > .card {
+.informations-cards>.card {
     width: 100%;
     height: 400px;
     padding: 10px;
 }
 
-.informations-cards > .card > img{
+.informations-cards>.card>img {
     height: 200px
 }
 
@@ -290,11 +287,11 @@
     .home-banner>.wrapper>.home-information {
         width: 50%;
     }
-    
+
     .funcionalidades {
         width: 600px;
     }
-    
+
     .informations-cards .card {
         width: 350px;
     }
