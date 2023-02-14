@@ -31,13 +31,12 @@
             </div>
         </div>
         <div class="container-fluid">
-            <div
-                class="profissional-funcionalidades d-flex flex-row flex-wrap align-items-center justify-content-around">
+            <div class="profissional-funcionalidades d-flex flex-row flex-wrap align-items-center justify-content-around">
                 <div class="doctors-image" data-anime="left">
                     <img src="{{ @asset('Images/svgs/Illustrations/doctors.svg') }}" alt="medical care" width="600"
                         class="doctors d-none d-xl-block position-relative">
                 </div>
-                <div class="funcionalidades px-2 h-100 d-flex flex-column justify-content-center" data-anime="right"> 
+                <div class="funcionalidades px-2 h-100 d-flex flex-column justify-content-center" data-anime="right">
                     <x-titles.default-title title="Para o profissional de saúde" />
                     <p class="text-dark">Nossa plataforma facilita o serviço, ela fornece
                         o gerenciamento das vacinas e dos lotes atrelados a ela e até mesmo de registro de vacinação, também
@@ -56,7 +55,7 @@
                     <img src="{{ @asset('Images/svgs/Illustrations/developers.svg') }}" alt="developers">
                     <div class="card-content px-2 mt-2">
                         <h3 class="title">Equipe</h3>
-                        <p>Possuimos uma equipe de pessoas que possuem vasto conhecimento na área de programação, 
+                        <p>Possuimos uma equipe de pessoas que possuem vasto conhecimento na área de programação,
                             também contamos com profissionais que atuam na área de saúde.</p>
                     </div>
                 </div>

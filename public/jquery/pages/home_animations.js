@@ -4,17 +4,16 @@ const animationClass = "animate"
 
 
 $(window).scroll(()=>{
-    let scrollY = $(window).scrollTop()
-    animation(scrollY)
+    animation()
 })
 
 
-const animation = (windowPosition) => {
+const animation = () => {
+    let scrollY = $(window).scrollTop()
         //calculo para pegar +- 3/4 da tela
-    windowPosition += (window.innerHeight * 0.70)
-
+    scrollY += (window.innerHeight * 0.65)
     containers.forEach(element => {
-        if(windowPosition > element.offsetTop)
+        if(scrollY > element.offsetTop)
             element.classList.add(animationClass)
         else
             element.classList.remove(animationClass)
