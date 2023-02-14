@@ -7,30 +7,16 @@
         <div class="home-banner w-100 min-vh-100 mx-auto position-relative">
             <div class="wrapper h-100 d-flex flex-row justify-content px-5">
                 <div class="home-information container align-self-center text-light">
-                    <x-titles.default-title title="Bem vindo" />
-                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, asperiores quibusdam! Nemo
-                        excepturi
-                        molestiae vel, omnis assumenda facere placeat blanditiis eos harum suscipit non voluptatum, magnam
-                        quibusdam error quisquam ipsum?
-                        Nihil aut nobis amet pariatur magnam perspiciatis quam consequatur quisquam aperiam, corrupti
-                        placeat
-                        voluptas reprehenderit id voluptatum omnis eos praesentium laborum. At porro dolores quod corporis
-                        reprehenderit quidem cum laboriosam.
-                        Placeat ratione porro excepturi sed dolorum! Unde tempora doloribus molestiae et! Modi cum
-                        recusandae
-                        nemo facere, necessitatibus aut maxime cumque nulla quas dicta, facilis nostrum possimus distinctio
-                        accusamus eius dolorem.
-                        Harum dolore deleniti pariatur consectetur nisi, corporis quibusdam consequuntur fugit, aliquam
-                        porro
-                        nesciunt odio. Magnam doloribus recusandae, alias error sequi officia animi pariatur distinctio.
-                        Similique est molestias quidem eveniet vero.</p>
+                    <x-titles.default-title title="Para o usuário" />
+                    <p> Aqui você pode visualizar com mais transparência e velocidade informações como vacinas tomadas
+                        junto com o lote, vacinas disponíveis e o profissional que efetuou a aplicação e onde a mesma foi feita.</p>
                     <a href="#" class="btn btn-light text-primary">Saiba mais</a>
                 </div>
                 <img id="Home_Banner_Illustration" src="{{ @asset('Images/svgs/Illustrations/Goingoffline.svg') }}"
                     alt="" width="600" height="600" class="d-none d-xl-block" />
             </div>
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid px-5">
             <div class="profissional-funcionalidades d-flex flex-row flex-wrap align-items-center justify-content-around">
                 <div class="doctors-image" data-anime="left">
                     <img src="{{ @asset('Images/svgs/Illustrations/doctors.svg') }}" alt="medical care" width="600"
