@@ -24,6 +24,7 @@
     {{-- SCRIPTS --}}
     @stack('scripts')
     <script src="{{@asset('jquery/pages/home_animations.js')}}" defer></script>
+    <script src="{{@asset('jquery/cards/btn_excluir.js')}}" defer></script>
     <script src="{{@asset('jquery/sidebar/sidebar.js')}}" defer></script>
     <script src="{{@asset('jquery/apis/via_cep.js')}}" defer></script>
     <script src="{{@asset('jquery/forms/changeRoleSelect.js')}}" defer></script>

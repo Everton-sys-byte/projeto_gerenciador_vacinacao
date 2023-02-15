@@ -1,12 +1,11 @@
 //pega o tamanho da página
-const containers = Array.from($('[data-anime]'))
+const containers = Array.from($('[data-anime-container]'))
 const animationClass = "animate"
 
-
+// pagina home animações
 $(window).scroll(()=>{
     animation()
 })
-
 
 const animation = () => {
     let scrollY = $(window).scrollTop()
@@ -19,3 +18,7 @@ const animation = () => {
             element.classList.remove(animationClass)
     });
 }
+
+
+
+

@@ -25,8 +25,13 @@
 
             @if (session()->get('role') == 'admin')
                 @can('excluir-vacina')
-                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#excluirVacina"
-                        vacina_id="{{ $vacina->id }}" vacina_nome="{{ $vacina->nome }}">Excluir</button>
+                    <x-button-message.btn-mensagem 
+                        :contador="$vacina->lotes()->count()" 
+                        mensagem="Vacina possui lotes atrelados a ela"
+                        :identificador="$vacina->id"
+                        :nome="$vacina->nome"
+                        tipo="vacina"
+                         />
                 @endcan
             @endif
         @endif

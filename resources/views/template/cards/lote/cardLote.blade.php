@@ -16,8 +16,12 @@
 
         @if (session()->get('role') == 'admin')
             @can('excluir-lote')
-                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#excluirLote"
-                    lote_id="{{ $lote->id }}" lote_codigo="{{ $lote->codigo }}">Excluir</button>
+                <x-button-message.btn-mensagem 
+                    :contador="$lote->registros()->count()"
+                    :identificador="$lote->id" 
+                    :nome="$lote->codigo" 
+                    mensagem="Lote possui registros atrelados a ele"
+                    tipo="lote"/>
             @endcan
         @endif
     </x-slot>

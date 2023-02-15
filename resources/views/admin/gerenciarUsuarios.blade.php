@@ -6,7 +6,7 @@
         <button class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#criarUsuario">Criar usuario</button>
         @include('template.defaultSessionAlert.alert')
         <table class="table">
-            <thead class="table-primary">
+            <thead>
                 <tr>
                     <th>#</th>
                     <th>Avatar</th>
@@ -39,21 +39,19 @@
                         </td>
                         <td>{{ $user->status }}</td>
                         <td>
-                            <div>
-                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="/images/svgs/dropdown/threedots.svg" alt="Tres pontinhos">
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/images/svgs/dropdown/threedots.svg" alt="Tres pontinhos">
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                        data-bs-target="#maisInformacoes" user="{{ $user }}">
+                                        Mais informações</a></li>
+                                @if (!$user->hasRole('admin'))
                                     <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                            data-bs-target="#maisInformacoes" user="{{ $user }}">
-                                            Mais informações</a></li>
-                                    @if (!$user->hasRole('admin'))
-                                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#editUser" user="{{ $user }}">Editar</a></li>
-                                    @endif
-                                </ul>
-                            </div>
+                                            data-bs-target="#editUser" user="{{ $user }}">Editar</a></li>
+                                @endif
+                            </ul>
                         </td>
                     </tr>
 
@@ -65,7 +63,7 @@
         </table>
     </div>
 
-    @can('criar-usuario'/*  || 'editar-usuario' */)
+    @can('criar-usuario' /* || 'editar-usuario' */)
         @include('admin.modais.user.createUser')
         @include('admin.modais.user.editUser')
     @endcan

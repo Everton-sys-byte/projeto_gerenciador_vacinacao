@@ -1,3 +1,6 @@
+/* importando um arquivo CSS dentro de outro */
+@import url('animations.css');
+
 /* --- INFORMATION CONTAINER --- */
 .page {
     background-color: white;
@@ -81,23 +84,6 @@
     display: none;
 }
 
-@keyframes animateDropDownUserMenu {
-    0% {
-        transform: translateY(0px);
-        opacity: .3;
-    }
-
-    50% {
-        transform: translateY(1px);
-        opacity: .5;
-    }
-
-    100% {
-        transform: translateY(3px);
-        opacity: 1
-    }
-}
-
 /* ----------- SIDE BAR --------- */
 .side-bar {
     z-index: 100;
@@ -133,6 +119,16 @@
     overflow: auto;
 }
 
+[btn-delete] {
+    z-index: 10;
+}
+
+/* ----------- Alert box --------- */
+.alert-box{
+    width: 250px;
+    z-index: 1;
+    bottom: -110%;
+}
 
 /*------------ HOME PAGE ---------- */
 
@@ -165,17 +161,6 @@
     width: 100%;
 }
 
-@keyframes animateWave {
-    from {
-        transform: translateX(0%);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
-}
-
-
 
 /*------------ ILLUSTRATION ---- */
 
@@ -185,7 +170,7 @@
         animateIllustrationInfinite 2s ease-in-out 1.2s infinite alternate;
 }
 
-@keyframes animateIllustration {
+/* @keyframes animateIllustration {
     from {
         opacity: 0;
         transform: translateX(30px);
@@ -206,12 +191,12 @@
         transform: translateY(10px);
     }
 }
-
+ */
 
 /*------------ FUNCIONALIDADES --------*/
 
 /*------------ PROFISSIONAL ---------*/
-[data-anime] {
+/* [data-anime] {
     transition: .5s;
     opacity: 0;
 }
@@ -226,7 +211,7 @@
 
 [data-anime="top"] {
     transform: translateY(-30px);
-}
+} */
 
 .profissional-funcionalidades {
     height: 430px;
