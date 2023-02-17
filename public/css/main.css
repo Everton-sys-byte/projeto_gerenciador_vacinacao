@@ -4,6 +4,7 @@
 /* --- INFORMATION CONTAINER --- */
 .page {
     background-color: white;
+    overflow-x: ;
 }
 
 /* --- HEADER --- */
@@ -22,8 +23,6 @@
 
 /* --- USER IMAGE AND DROP DOWN MENU --- */
 .user-container {
-    /*  width: 55px; */
-    /*  height: 55px;  */
     overflow: hidden;
 }
 
