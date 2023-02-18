@@ -37,6 +37,9 @@
                     </ul>
                 </td>
             </tr>
+            @php
+                $contador += 1
+            @endphp
         @endforeach
     </x-slot>
 </x-table.table>
