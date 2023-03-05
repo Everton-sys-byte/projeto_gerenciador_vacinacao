@@ -33,7 +33,12 @@ class VacinaController extends Controller
     }
 
     public function delete(Request $request){
-        Vacina::find($request->delete_vacina_id)->delete();
+        $vacina = Vacina::find($request->delete_vacina_id);
+
+        if($vacina->lotes()->count() > 0)
+            return back()->with('errors','Não foi possível excluir a vacina pois há lotes atrelados a ela');
+
+        $vacina->delete(); 
         return redirect()->route('vaccines.available')->with('message','Vacina excluida com sucesso');
     }
 }

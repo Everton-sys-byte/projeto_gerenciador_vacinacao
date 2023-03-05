@@ -4,6 +4,7 @@ use App\Http\Controllers\Address\EnderecoController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\auth\CadastrarController;
 use App\Http\Controllers\auth\AutenticarController;
+use App\Http\Controllers\auth\RecuperarSenhaController;
 use App\Http\Controllers\batchs\LoteController;
 use App\Http\Controllers\profissional\RegistroController;
 use App\Http\Controllers\user\UserController;
@@ -34,6 +35,15 @@ Route::view('/cadastrar', 'authentication/cadastrar')->name('cadastrar');
 //--------------------- FORMS SUBMIT --------------------//
 Route::post('/user/cadastrar', [CadastrarController::class, 'store'])->name('user.cadastrar');
 Route::post('/user/logar', [AutenticarController::class, 'autenticar'])->name('user.autenticar');
+
+/* -------------------- RECUPERAR SENHA -----------------*/
+Route::view('recuperar-senha','authentication/senha/recuperar_senha')->name('password.recovery');
+/* rota para o usuário informar o email da conta */
+Route::post('recuperar-senha',[RecuperarSenhaController::class, 'sendEmail'])->name('send.password.recovery.email');
+/* rota que pega o token que vem via URL e renderiza o formulário com este token em um input hidden */
+Route::get('resetar-senha/{token}/{email}', [RecuperarSenhaController::class, 'renderFormPasswordReset'])->name('password.reset');
+/* resetar a senha */
+Route::post('resetar-senha', [RecuperarSenhaController::class, 'resetPassword'])->name('recover.account');
 
 //--------------------- USER (COMUM) -------------//
 Route::middleware(['auth'])->prefix('usuario')->name('user.')->group(function () {

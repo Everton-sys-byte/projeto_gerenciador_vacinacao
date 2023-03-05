@@ -29,7 +29,12 @@ class LoteController extends Controller
    }
 
    public function delete(Request $request){
-      Lote::find($request->delete_lote_id)->delete();
+      $lote = Lote::find($request->delete_lote_id);
+
+      if($lote->registros()->count() > 0)
+         return back()->with('errors', 'Lote possui registros atrelados a ele');
+
+      $lote->delete();   
       return redirect()->back()->with('message', 'Lote excluido com sucesso');
    }
 }
