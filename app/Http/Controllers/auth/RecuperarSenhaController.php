@@ -20,8 +20,9 @@ class RecuperarSenhaController extends Controller
         $status = Password::sendResetLink($request->only('email'));
 
         return $status === Password::RESET_LINK_SENT
-                            ? back()->with('status', __($status))
+                            ? back()->with('message', 'Email enviado para recuperação de senha')
                             : back()->withInput($request->only('email'))
+                                    /* já manda com o error  */
                                     ->withErrors(['email' => __($status)]);
     }          
     
