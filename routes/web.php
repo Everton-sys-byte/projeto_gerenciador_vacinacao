@@ -32,7 +32,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LoginController::class, 'view'])->name('logar');
 Route::view('/cadastrar', 'authentication/cadastrar')->name('cadastrar');
 
-//--------------------- FORMS SUBMIT --------------------//
+//--------------------- FORMS AUTHENTICATE --------------------//
 Route::post('/user/cadastrar', [CadastrarController::class, 'store'])->name('user.cadastrar');
 Route::post('/user/logar', [AutenticarController::class, 'autenticar'])->name('user.autenticar');
 

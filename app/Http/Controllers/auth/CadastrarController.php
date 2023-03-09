@@ -4,6 +4,7 @@ namespace App\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserCreateRequest;
+use Illuminate\Support\Facades\Log;
 use App\Models\User;
 
 class CadastrarController extends Controller
@@ -18,6 +19,7 @@ class CadastrarController extends Controller
         else
             $user->roles()->attach($request->role);
 
+        Log::channel('create_account')->info('O usuário de email: '.$user->email.' efetuou cadastro no sistema');
         return back()->with('message','Sucesso');
     }
 }

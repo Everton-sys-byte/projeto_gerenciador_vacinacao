@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class RecuperarSenhaController extends Controller
@@ -19,11 +20,14 @@ class RecuperarSenhaController extends Controller
 
         $status = Password::sendResetLink($request->only('email'));
 
-        return $status === Password::RESET_LINK_SENT
-                            ? back()->with('message', 'Email enviado para recuperação de senha')
-                            : back()->withInput($request->only('email'))
-                                    /* já manda com o error  */
-                                    ->withErrors(['email' => __($status)]);
+        if($status === Password::RESET_LINK_SENT){
+            Log::channel('password_reset')->info('Foi enviado um email para '. request('email') . ' em tentativa de recuperar sua senha');
+            return back()->with('message', 'Email enviado para recuperação de senha');
+        }
+        else {
+            Log::channel('password_reset')->warning('Não foi possível enviar o email para '. request('email') . ' em tentativa de recuperar sua senha, status: '. __($status));
+            return back()->withErrors(['email' => __($status)]);
+        }
     }          
     
     public function renderFormPasswordReset($token,$email){
@@ -54,8 +58,12 @@ class RecuperarSenhaController extends Controller
             }
         );
 
-        return $status === Password::PASSWORD_RESET 
-                    ? redirect()->route('logar')
-                    : back()->withErrors('errors', 'Não foi possível realizar sua ação');
+        if($status === Password::PASSWORD_RESET){
+            Log::channel('password_reset')->info('O usuário de email: '.request('email').' teve êxito ao resetar a senha');
+            return redirect()->route('logar');
+        }else {
+            Log::channel('password_reset')->warning('O usuário de email: '.request('email').' não obteve êxito em resetar a senha, status: '.__($status));
+            return back()->withErrors('status', __($status));
+        }
     }
 }
