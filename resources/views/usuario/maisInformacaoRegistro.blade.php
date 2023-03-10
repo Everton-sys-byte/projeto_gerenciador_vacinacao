@@ -6,6 +6,11 @@
         <x-titles.default-title title="Mais informações" class="text-center" />
         {{-- HORIZONTAL NAV BAR --}}
         @include('template.horizontalNavBar.registro_maisInformacao')
+        <a href="{{@route('user.register.generate.pdf', ['registro' => $registro->uuid])}}" class="btn btn-primary d-flex align-items-center gap-2"
+             target="_blank" style="width: 150px">
+            <img src="{{@asset('images/svgs/list/pdf.svg')}}" alt="PDF ICON">
+            Gerar PDF
+        </a>
         <div class="more-information d-flex flex-column flex-md-row gap-2">
             <div class="vaccination-information d-flex flex-column gap-2" style="width: 80%">
                 <div class="vacina d-flex flex-column rounded shadow-lg py-2">

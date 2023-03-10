@@ -14,6 +14,7 @@ use App\Http\Controllers\views\AplicarVacinacaoController;
 use App\Http\Controllers\views\GerenciarUsuariosController;
 use App\Http\Controllers\views\LotesController;
 use App\Http\Controllers\views\VisualizarHistoricoController;
+use App\Models\Registro;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,16 +48,28 @@ Route::post('resetar-senha', [RecuperarSenhaController::class, 'resetPassword'])
 
 //--------------------- USER (COMUM) -------------//
 Route::middleware(['auth'])->prefix('usuario')->name('user.')->group(function () {
+    /* PÁGINA HOME */
     Route::view('/home', 'usuario.home')->name('home');
+    
+    /* CARTEIRINHA E REGISTRO */
+    Route::get('/carteirinha',[RegistroController::class, 'view'])->name('register');
+    Route::get('/carteirinha/registro/{registro}',[RegistroController::class, 'moreInformation'])->name('register.more.information');
+    Route::get('/carteirinha/registro/{registro}/imprimir', [RegistroController::class,'generatePDF'])->name('register.generate.pdf');
+
+    /* PERFIL */
+    /* VER INFORMAÇÕES */
     Route::view('/perfil', 'usuario.perfil')->name('profile');
     Route::view('/configurar/perfil', 'usuario.configurarPerfil')->name('configuration.profile');
     Route::view('/configurar/endereco', 'usuario.configurarEndereco')->name('configuration.address');
     Route::view('/configurar/senha', 'usuario.configurarSenha')->name('configuration.password');
-    Route::get('/carteirinha',[RegistroController::class, 'view'])->name('register');
-    Route::get('/carteirinha/registro/{registro}',[RegistroController::class, 'moreInformation'])->name('register.more.information');
+
+    /* EDITAR INFORMAÇÕES */
     Route::put('/editar/perfil', [UserController::class, 'update'])->name('update.profile');
     Route::put('/editar/endereco', [EnderecoController::class, 'store'])->name('update.address');
     Route::put('/editar/senha', [UserController::class, 'updatePassword'])->name('update.password');
+    /* --------------------------------------------------------------------------------------------- */
+
+    /* SAIR */
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 });
 
