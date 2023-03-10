@@ -149,6 +149,18 @@ return [
             'path' => storage_path('logs/batches/main.log'),
             'level' => 'debug',
         ],
+
+        'registros' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/registros/main.log'),
+            'level' => 'debug'
+        ],
+
+        'admin' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/admin/main.log'),
+            'level' => 'debug',
+        ]
     ],
 
 ];

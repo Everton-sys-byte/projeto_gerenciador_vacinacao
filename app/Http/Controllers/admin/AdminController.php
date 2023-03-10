@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\admin\AdminCreateUserRequest;
 use App\Http\Requests\admin\AdminUpdateUserRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 
 class AdminController extends Controller
 {
@@ -24,13 +25,15 @@ class AdminController extends Controller
         if(request('role') == 'profissional')
             $user->roles()->attach(2);
 
+        Log::channel('admin')->info('O administrador de cpf '.auth()->user()->cpf.' criou o usuário de ID '.$user->id);
         return redirect()->route('admin.manage.users')->with('message','Usuário criado com sucesso');
     }
 
     public function editUser(AdminUpdateUserRequest $request){
 
         $user = User::find($request->id);
-
+        $oldUser = $user;
+        
         $user->update([
             'nome_completo' => request("e_nome_completo"),
             'data_nascimento' => request("e_data_nascimento"),
@@ -47,8 +50,7 @@ class AdminController extends Controller
                 'cns' => null
             ]);
         }
-    
-
+        Log::channel('admin')->info('O administrador de cpf '.auth()->user()->cpf.' editou o usuário de ID '.$user->id/* .' com as informações '. $oldUser . ' para '. $user */);
         return redirect()->route('admin.manage.users')->with('message','Usuário atualizado com sucesso');
     }
 }

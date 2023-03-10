@@ -10,6 +10,7 @@ use Illuminate\Support\Arr;
 use App\Models\Registro;
 use App\Models\User;
 use App\Models\Lote;
+use Illuminate\Support\Facades\Log;
 
 class RegistroController extends Controller
 {
@@ -59,7 +60,10 @@ class RegistroController extends Controller
         //salvando o registro no banco de dados
         $registrated = $registro->save();
 
+        /* relacionado a eventos */
         UserVaccinated::dispatchIf($registrated, $lote);
+
+        Log::channel('registros')->info('O profissional de CPF '.auth()->user()->cpf.' vacinou o usuário de CPF '. $imunizado->cpf . ' com a vacina ' . $lote->vacina);
 
         return redirect()->route('professional.apply.vacination')->with('message', 'Registro de vacinação salvo com sucesso');
     }
