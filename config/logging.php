@@ -117,6 +117,50 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        /* CANAIS CRIADOS POR MIM */
+        /* AUTHENTICATE */
+        'create_account' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/auth/create_account/main.log'),
+            'level' => 'debug',
+        ],
+
+        'login' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/auth/login/main.log'),
+            'level' => 'debug',
+        ],
+
+        'password_reset' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/auth/password_reset/main.log'),
+            'level' => 'debug',
+        ],
+
+        'vaccines' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/vaccines/main.log'),
+            'level' => 'debug',
+        ],
+
+        'batches' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/batches/main.log'),
+            'level' => 'debug',
+        ],
+
+        'registros' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/registros/main.log'),
+            'level' => 'debug'
+        ],
+
+        'admin' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/admin/main.log'),
+            'level' => 'debug',
+        ]
     ],
 
 ];

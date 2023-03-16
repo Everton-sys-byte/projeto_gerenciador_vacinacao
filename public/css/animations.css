@@ -1,0 +1,59 @@
+/* ANIMAÇÃO DO MENU DE USUÁRIO  */
+@keyframes animateDropDownUserMenu {
+    0% {
+        transform: translateY(0px);
+        opacity: .3;
+    }
+
+    50% {
+        transform: translateY(1px);
+        opacity: .5;
+    }
+
+    100% {
+        transform: translateY(3px);
+        opacity: 1
+    }
+}
+
+/* ANIMAÇÃO DA ILUSTRAÇÃO DA PAGINA HOME */
+@keyframes animateIllustration {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes animateIllustrationInfinite {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(10px);
+    }
+}
+
+
+/* ANIMAÇÃO DO CONTAINER DA PÁGINA HOME E DO BOTÃO DE DELETAR DOS CARDS */
+[data-anime] {
+    transition: .5s;
+    opacity: 0;
+}
+
+[data-anime="left"] {
+    transform: translateX(-30px);
+}
+
+[data-anime="right"] {
+    transform: translateX(30px);
+}
+
+[data-anime="top"] {
+    transform: translateY(-30px);
+}

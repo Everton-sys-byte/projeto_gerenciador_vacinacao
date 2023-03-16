@@ -1,0 +1,282 @@
+/* importando um arquivo CSS dentro de outro */
+@import url('animations.css');
+
+/* --- INFORMATION CONTAINER --- */
+.page {
+    background-color: white;
+    overflow-x: ;
+}
+
+/* --- HEADER --- */
+
+/* --- BURGUER BUTTON --- */
+.burger-button {
+    width: 40px;
+    height: 40px;
+    z-index: 10;
+}
+
+.burger-button>.linha {
+    width: 100%;
+    height: 2px;
+}
+
+/* --- USER IMAGE AND DROP DOWN MENU --- */
+.user-container {
+    overflow: hidden;
+}
+
+.user-container:hover {
+    overflow: visible;
+}
+
+/* ANIMANDO O DROP DOWN MENU */
+.user-container:hover .drop-down-user-menu {
+    animation: animateDropDownUserMenu .5s ease-in forwards;
+}
+
+.user-container:hover .drop-down-user-menu::before {
+    display: block;
+}
+
+.user-image {
+    width: 55px;
+    height: 55px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.user-image>img {
+    width: 100%;
+    height: 100%;
+}
+
+.user-container>.drop-down-user-menu {
+    top: 100%;
+    width: 100%;
+}
+
+.user-container>.drop-down-user-menu>ul>li:hover {
+    background: var(--bs-blue);
+}
+
+.user-container>.drop-down-user-menu>ul>li:hover a {
+    color: white;
+}
+
+.user-container>.drop-down-user-menu>ul>li>a>img {
+    width: 25px;
+    height: 25px;
+}
+
+.user-container>.drop-down-user-menu::before {
+    content: "";
+    display: block;
+    position: absolute;
+    transform: rotate(45deg) translateX(-50%);
+    width: 10px;
+    height: 10px;
+    top: -2px;
+    left: 50%;
+    background-color: rgb(255, 255, 255);
+    z-index: -10;
+    display: none;
+}
+
+/* ----------- SIDE BAR --------- */
+.side-bar {
+    z-index: 100;
+    transition: all 1s;
+    transform: translateX(-100%);
+    width: 90%;
+}
+
+.side-bar>ul>li>a>img {
+    width: 30px;
+    height: 30px;
+}
+
+.side-bar>ul>li:hover,
+.active {
+    background-color: rgba(128, 128, 128, 0.425);
+}
+
+.side-bar-active {
+    transform: translateX(0%);
+}
+
+/* ----------- CARD --------- */
+
+.card {
+    /* min-width: 500px; */
+    height: 200px;
+    box-shadow: 2px 2px 3px 1px rgba(65, 64, 64, 0.534);
+}
+
+.card-description {
+    max-height: 70px;
+    overflow: auto;
+}
+
+[btn-delete] {
+    z-index: 10;
+}
+
+/* ----------- Alert box --------- */
+.alert-box{
+    width: 250px;
+    z-index: 1;
+    bottom: -110%;
+}
+
+/*------------ HOME PAGE ---------- */
+
+/*------------ BANNER --------- */
+
+.home-banner {
+    width: 100%;
+    overflow: hidden;
+    height: 600px;
+    position: relative;
+}
+
+.home-banner::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100vh;
+    height: 100vh;
+    background: var(--bs-blue);
+    border-radius: 50%;
+    transform-origin: bottom;
+    transform: translateX(-50%) scale(10);
+}
+
+.home-banner>.wrapper>.home-information {
+    z-index: 1;
+    max-height: 400px;
+    overflow: hidden;
+    width: 100%;
+}
+
+
+/*------------ ILLUSTRATION ---- */
+
+#Home_Banner_Illustration {
+    /* MULTIPLAS ANIMAÇÕES */
+    animation: animateIllustration 1s,
+        animateIllustrationInfinite 2s ease-in-out 1.2s infinite alternate;
+}
+
+/* @keyframes animateIllustration {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes animateIllustrationInfinite {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(10px);
+    }
+}
+ */
+
+/*------------ FUNCIONALIDADES --------*/
+
+/*------------ PROFISSIONAL ---------*/
+/* [data-anime] {
+    transition: .5s;
+    opacity: 0;
+}
+
+[data-anime="left"] {
+    transform: translateX(-30px);
+}
+
+[data-anime="right"] {
+    transform: translateX(30px);
+}
+
+[data-anime="top"] {
+    transform: translateY(-30px);
+} */
+
+.profissional-funcionalidades {
+    height: 430px;
+}
+
+.profissional-funcionalidades>.funcionalidades {
+    color: var(--bs-blue);
+}
+
+[data-anime].animate {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+/*------------ INFORMATION CARDS ---------*/
+
+.informations-cards {
+    height: 550px;
+}
+
+.informations-cards>.card {
+    width: 100%;
+    height: 400px;
+    padding: 10px;
+}
+
+.informations-cards>.card>img {
+    height: 200px
+}
+
+
+/*------------ PERFIL PAGE ---------- */
+
+/*------------ Tamanho da imagem SVG ---------- */
+.profile>img {
+    width: 30px;
+    height: 30px;
+}
+
+/*------------ Tamanho do with do button configurar ---------- */
+.profile>a {
+    width: fit-content;
+}
+
+/*------------ Avatar Image ------------*/
+/* .user_avatar {
+    width: 200px;
+    height: 200px;
+}
+ */
+/*------------ BREAKPOINTS ---------- */
+
+@media screen and (min-width: 1200px) {
+    .side-bar {
+        width: 20%;
+    }
+
+    .home-banner>.wrapper>.home-information {
+        width: 50%;
+    }
+
+    .funcionalidades {
+        width: 600px;
+    }
+
+    .informations-cards .card {
+        width: 350px;
+    }
+}

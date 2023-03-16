@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -18,9 +19,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'avatar',
+        'nome_completo',
+        'cns',
+        'cpf',
+        'celular',
+        'data_nascimento',
         'email',
         'password',
+        'status'
     ];
 
     /**
@@ -41,4 +48,30 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function roles(){
+        return $this->belongsToMany(Role::class);
+    } 
+
+    public function endereco(){
+        return $this->hasOne(Endereco::class);
+    }
+
+    public function registros(){
+        return $this->hasMany(Registro::class, 'imunizado_id', 'id');
+    }
+
+    public function hasRole($rolename){
+        foreach($this->roles()->get() as $role)
+        {
+            if($role->tipo == $rolename)
+                return true;
+        }
+        return false;
+    }
+
+    public function getDataNascimento(){
+        $data_formatada = \Carbon\Carbon::parse($this->data_nascimento)->format('d/m/Y');
+        return $data_formatada;
+    }
 }
