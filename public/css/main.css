@@ -4,7 +4,7 @@
 /* --- INFORMATION CONTAINER --- */
 .page {
     background-color: white;
-    overflow-x: ;
+    overflow-x:hidden ;
 }
 
 /* --- HEADER --- */
