@@ -41,7 +41,7 @@
                     @endif
                 </div>
             </div>
-            <div class="profissional-information d-flex flex-column rounded p-2 gap-2" style="height: 50%">
+            <div class="profissional-information d-flex flex-column rounded gap-2" style="height: 50%">
                 <h5>Informações do profissional</h5>
                 <img class="rounded-circle mx-auto" src="/images/avatar/{{ $registro->profissional->avatar }}"
                     width="100px" height="100px" />
