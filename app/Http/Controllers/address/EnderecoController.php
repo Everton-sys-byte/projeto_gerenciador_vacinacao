@@ -5,12 +5,13 @@ namespace App\Http\Controllers\address;
 use App\Http\Controllers\Controller;
 use App\Models\Cep;
 use App\Models\Endereco;
+use App\Http\Requests\endereco\EnderecoCreateRequest;
 use Illuminate\Http\Request;
 
 
 class EnderecoController extends Controller
 {
-    public function store(Request $request)
+    public function store(EnderecoCreateRequest $request)
     {
         $cep = Cep::firstOrCreate(
             ['cep' => request('cep')],
