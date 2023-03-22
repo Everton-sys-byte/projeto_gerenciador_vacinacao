@@ -1,7 +1,7 @@
 @extends('template.defaultPages.defaultPages')
 @section('title', 'Gerenciar Usuarios')
 @section('content')
-    <div class="information container-fluid px-5">
+    <div class="information container-fluid px-1 px-lg-5">
         <x-titles.default-title title="Gerenciar Usuários" class="text-center" />
 
         {{-- BUTTON PARA CHAMAR O MODAL DE CRIAR USUÁRIO --}}
