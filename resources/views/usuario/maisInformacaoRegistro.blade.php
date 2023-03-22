@@ -2,7 +2,7 @@
 @section('title', 'Mais informações')
 
 @section('content')
-    <div class="information container-fluid px-5">
+    <div class="information container-fluid px-1 px-lg-5">
         <x-titles.default-title title="Mais informações" class="text-center" />
         {{-- HORIZONTAL NAV BAR --}}
         @include('template.horizontalNavBar.registro_maisInformacao')
@@ -11,7 +11,7 @@
             <img src="{{@asset('images/svgs/list/pdf.svg')}}" alt="PDF ICON">
             Gerar PDF
         </a>
-        <div class="more-information d-flex flex-column flex-md-row gap-2">
+        <div class="more-information d-flex flex-column-reverse flex-md-row gap-2">
             <div class="vaccination-information d-flex flex-column gap-2" style="width: 80%">
                 <div class="vacina d-flex flex-column rounded py-2">
                     <h5>Informações da vacina</h5>
