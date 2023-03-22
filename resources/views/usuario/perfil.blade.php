@@ -2,7 +2,7 @@
 @section('title', 'Perfil')
 
 @section('content')
-    <div class="information profile container-fluid px-5">
+    <div class="information profile container-fluid px-1 px-lg-5">
         <x-titles.default-title title="Perfil" class="text-center" />
         @include('template.horizontalNavBar.perfil_configurar')
         <div class="row mt-3">
