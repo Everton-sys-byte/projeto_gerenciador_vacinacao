@@ -2,7 +2,7 @@
 @section('title', 'Configurar Perfil')
 
 @section('content')
-    <div class="information container-fluid px-5">
+    <div class="information container-fluid px-1 px-lg-5">
         <x-titles.default-title title="Configurar Perfil" class="text-center"/>
         <x-tags.tag-bar class="mt-3"/>
         @include('template.defaultSessionAlert.alert')
