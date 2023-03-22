@@ -7,6 +7,7 @@
 
         <x-form.default-form formAction="{{ @route('user.autenticar') }}" formMethod="POST" class="py-3 px-4"
             formId style="min-width: 300px">
+            <span class="fs-2 text-primary text-center">Efetuar login</span>
             <x-input.select labelName="Selecione o tipo de usuário" inputName="role">
                 <x-slot name="options">
                     @foreach ($roles as $role)

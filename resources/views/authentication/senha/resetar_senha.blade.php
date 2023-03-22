@@ -9,6 +9,7 @@
             style="min-width: 300px; max-width: 500px">
             {{-- DEFAULT ALERT --}}
             @include('template.defaultSessionAlert.alert')
+            <span class="fs-2 text-primary text-center">Resetar senha</span>
             <article>
                 Por favor, digite sua nova senha.
             </article>

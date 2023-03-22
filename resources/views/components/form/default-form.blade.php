@@ -1,7 +1,7 @@
-<form action="{{ $formAction }}" method="{{ $formMethod }}" id="{{$formId ? $formId : '' }}"
+<form action="{{ $formAction }}" method="{{ $formMethod }}" id="{{ $formId ? $formId : '' }}"
     @if ($formEncType) enctype="multipart/form-data" @endif
     {{ $attributes->merge([
-        'class' => 'bg-light rounded shadow-lg d-flex flex-column justify-content-center gap-3',
+        'class' => 'bg-light rounded d-flex flex-column gap-1',
     ]) }}>
     @csrf
     {{ $slot }}
