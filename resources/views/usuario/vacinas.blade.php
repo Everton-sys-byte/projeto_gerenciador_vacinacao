@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="information container-fluid px-1 px-lg-5">
-        <x-titles.default-title title="Vacinas Disponíveis" class="text-center" />
+        <x-titles.default-title title="Vacinas disponíveis" class="text-center" />
         @if (session()->get('role') == 'profissional')
             @can('adicionar-vacina')
                 <button class="btn btn-primary my-1" role="button" data-bs-toggle="modal" data-bs-target="#criarVacina">Registrar

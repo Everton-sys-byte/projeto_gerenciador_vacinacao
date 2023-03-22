@@ -5,8 +5,10 @@
     <div class="page container-fluid p-3 d-flex justify-content-center align-items-center"
         style="width:100%; height:100vh; background: var(--bs-blue); background-size: 100px 50px;">
 
-        <x-form.default-form formAction="{{ @route('user.cadastrar') }}" formMethod="POST" class="px-4 py-2"
+        <x-form.default-form formAction="{{ @route('user.cadastrar') }}" formMethod="POST" class="bg-light py-1 px-2"
             formId style="max-height:100%">
+            {{-- DEFAULT ALERT --}}
+            @include('template.defaultSessionAlert.alert')
             <span class="d-none d-lg-block fs-2 text-primary text-center">Efetuar cadastro</span>
             <x-form.form-group labelName="Nome completo" inputName="nome_completo" inputType="text"
                 :inputValue="@old('nome_completo')" />
@@ -29,10 +31,10 @@
             <p>Já possui uma conta?&nbsp;<a href="{{ route('logar') }}" class="text-decoration-none">Efetuar login</a></p>
         </x-form.default-form>
 
-        @if (Session::has('message'))
+        {{-- @if (Session::has('message'))
             <x-toast.toast title="Sucesso" info="conta cadastrada com sucesso" type="success" />
         @elseif($errors->any())
             <x-toast.toast title="Erro" info="Não foi possível cadastrar sua conta" type="error" />
-        @endif
+        @endif --}}
     </div>
 @endsection

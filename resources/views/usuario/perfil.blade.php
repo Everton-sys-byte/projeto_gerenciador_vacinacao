@@ -11,7 +11,7 @@
             </div>
             <div class="col">
                 <div class="wrapper">
-                    <div class="user-information bg-light mb-1 ps-1">
+                    <div class="user-information mb-1 ps-1">
                         <span class="fs-3 d-block">Informações Pessoais</span>
                         <div class="nome_completo"><strong>Nome completo:</strong> {{ auth()->user()->nome_completo }}</div>
                         <div class="cpf"><strong>CPF: </strong>{{ auth()->user()->cpf }}</div>
@@ -22,7 +22,7 @@
                         <div class="celular"><strong>Celular: </strong>{{ auth()->user()->celular }}</div>
                     </div>
                     @if (!is_null(auth()->user()->endereco))
-                        <div class="user-address bg-light mb-1 ps-1">
+                        <div class="user-address mb-1 ps-1">
                             <span class="fs-3 d-block">Endereço</span>
                             <div class="cep"><strong>CEP: </strong>{{ auth()->user()->endereco->cep->cep }}</div>
                             <div class="estado"><strong>Estado: </strong>{{ auth()->user()->endereco->cep->uf }}</div>
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                     @endif
-                    <div class="user-permissions bg-light ps-1">
+                    <div class="user-permissions ps-1">
                         <span class="fs-3 d-block">Permissões no sistema</span>
                         @foreach (auth()->user()->roles()->get() as $role)
                             <div class="{{ $role->tipo }}">{{ $role->tipo }}</div>
