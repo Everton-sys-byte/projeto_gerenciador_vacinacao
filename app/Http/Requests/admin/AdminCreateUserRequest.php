@@ -25,7 +25,7 @@ class AdminCreateUserRequest extends FormRequest
     {
         return [
             'nome_completo' => 'required',
-            'cpf' => 'required',
+            'cpf' => 'required|unique:users',
             'email' => 'required|unique:users|email',
             'role' => 'required',
             'cns' => 'required_if:role,=,profissional|nullable|unique:users',

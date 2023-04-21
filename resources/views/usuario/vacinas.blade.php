@@ -4,7 +4,7 @@
 @section('content')
     <div class="information container-fluid px-1 px-lg-5">
         <x-titles.default-title title="Vacinas disponíveis" class="text-center" />
-        @if (session()->get('role') == 'profissional')
+        @if (session()->get('role') != 'comum')
             @can('adicionar-vacina')
                 <button class="btn btn-primary my-1" role="button" data-bs-toggle="modal" data-bs-target="#criarVacina">Registrar
                     Vacina</button>
@@ -22,12 +22,14 @@
         </x-ListGroup.ListGroup>
     </div>
 
-    @if (session()->get('role') == 'profissional')
+    @if (session()->get('role') != 'comum')
         @can('adicionar-vacina')
             @include('profissional.modais.vacinas.createVacina')
             @include('profissional.modais.vacinas.editVacina')
         @endcan
-    @elseif(session()->get('role') == 'admin')
+    @endif
+
+    @if (session()->get('role') == 'admin')
         @can('excluir-vacina')
             @include('admin.modais.vacinas.deleteVacina')
         @endcan

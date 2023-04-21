@@ -28,25 +28,26 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        // GATES DO PROFISSIONAL //
+        // GATES DAS VACINAS //
 
-        //VACINAS
         Gate::define('adicionar-vacina', function (User $user) {
-            return $user->hasRole('profissional');
+            return ($user->hasRole('profissional') || $user->hasRole('admin'));
         });
 
         Gate::define('editar-vacina', function (User $user) {
-            return $user->hasRole('profissional');
-        });
+            return ($user->hasRole('profissional') || $user->hasRole('admin'));
+        }); 
 
-        //LOTES
+        // GATE DOS LOTES //
+
         Gate::define('adicionar-lote', function (User $user) {
-            return $user->hasRole('profissional');
+            return ($user->hasRole('profissional') || $user->hasRole('admin'));
         });
 
+        /* BUTTON EDITAR LOTE DO CARD LOTE */
         Gate::define('editar-lote', function (User $user) {
-            return $user->hasRole('profissional');
-        });
+            return ($user->hasRole('profissional') || $user->hasRole('admin'));
+        }); 
 
         // GATES DO ADMINISTRADOR //
         //USUÁRIOS

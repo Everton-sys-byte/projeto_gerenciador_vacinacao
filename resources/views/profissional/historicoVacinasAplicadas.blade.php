@@ -2,7 +2,7 @@
 @section('title', 'Histórico')
 @section('content')
     <div class="information container-fluid px-5">
-        <x-titles.default-title title="Histórico de vacinas aplicadas" />
+        <x-titles.default-title title="Histórico de vacinas aplicadas" class="text-center" />
 
         {{-- HORIZONTAL NAV BAR --}}
         @include('template.horizontalNavBar.vacinacao_historico')

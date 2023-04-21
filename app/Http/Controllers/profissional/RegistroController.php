@@ -75,6 +75,5 @@ class RegistroController extends Controller
             'registro' => $registro
         ]);
         return $pdf->stream();
-        /* return back(); */
     }
 }

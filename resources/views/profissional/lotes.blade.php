@@ -7,8 +7,8 @@
         {{-- HORIZONTAL NAV BAR --}}
         @include('template.horizontalNavBar.vacinas_lotes')
 
-        @if (session()->get('role') == 'profissional')
-            @can('adicionar-vacina')
+        @if (session()->get('role') != 'comum')
+            @can('adicionar-lote')
                 <button class="btn btn-primary my-1" role="button" data-bs-toggle="modal" data-bs-target="#criarLote">Registrar
                     Lotes </button>
             @endcan
@@ -25,16 +25,16 @@
         </x-list-group.list-group>
     </div>
 
-    @if (session()->get('role') == 'profissional')
+    @if (session()->get('role') != 'comum')
         @can('adicionar-lote')
             @include('profissional.modais.lotes.createLote')
             @include('profissional.modais.lotes.editLote')
         @endcan
     @endif
+    
     @if (session()->get('role') == 'admin')
         @can('excluir-lote')
             @include('admin.modais.lotes.deleteLote')
         @endcan
     @endif
-
 @endsection

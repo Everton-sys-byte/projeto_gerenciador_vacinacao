@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="information container-fluid px-1 px-lg-5">
-        <x-titles.default-title title="Configurar Senha" class="text-center" />
+        <x-titles.default-title title="Alterar senha" class="text-center" />
         <x-tags.tag-bar class="mt-3" />
         @include('template.defaultSessionAlert.alert')
         <x-form.default-form formAction="{{ @route('user.update.password') }}" formMethod="POST" class="mx-auto"

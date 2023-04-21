@@ -9,6 +9,7 @@
 
     {{-- bootstrap5 --}}
     @vite(['resources/js/app.js'])
+    <link rel="stylesheet" href="{{@asset('css/bootstrap.css')}}">
 
     {{-- Jquery --}}
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
@@ -18,7 +19,7 @@
     <script src="{{ @asset('jquery/forms/masks/mask.js') }}" defer></script>
 
     {{-- ESTILOS --}}
-    <link rel="stylesheet" href="{{@asset('css/main.css')}}">
+    <link rel="stylesheet" href="{{@asset('css/main.css')}}"> 
     @stack('style')
 
     {{-- SCRIPTS --}}

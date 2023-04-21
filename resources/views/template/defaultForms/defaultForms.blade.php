@@ -9,6 +9,8 @@
 
     {{-- bootstrap5 --}}
     @vite(['resources/js/app.js'])
+    {{-- mudando o tema padrão do boostrap --}}
+    <link rel="stylesheet" href="{{@asset('css/authentication.css')}}">
 
     {{-- Jquery --}}
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>

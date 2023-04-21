@@ -27,7 +27,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 //--------------------- FORMS VIEW ----------------------//
 Route::get('/', [LoginController::class, 'view'])->name('logar');
 Route::view('/cadastrar', 'authentication/cadastrar')->name('cadastrar');

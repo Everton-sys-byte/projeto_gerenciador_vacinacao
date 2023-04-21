@@ -109,12 +109,12 @@
 
 .card {
     /* min-width: 500px; */
-    height: 200px;
+    height: 230px;
     box-shadow: 2px 2px 3px 1px rgba(65, 64, 64, 0.534);
 }
 
 .card-description {
-    max-height: 70px;
+    height: 100px;
     overflow: auto;
 }
 
@@ -124,9 +124,9 @@
 
 /* ----------- Alert box --------- */
 .alert-box{
-    width: 250px;
+    width: 150px; 
     z-index: 1;
-    bottom: -110%;
+    bottom: -180%;
 }
 
 /*------------ HOME PAGE ---------- */
