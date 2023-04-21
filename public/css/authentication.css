@@ -1,0 +1,25 @@
+.system-information{
+    background: url('../images/background/circle-scatter-haikei.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+.system-information p {
+    max-width: 1000px;
+    font-size: 40px;
+}
+
+
+@media (max-width: 768px) {
+    .form-wrapper {
+        width: 100vw;
+    }
+}
+
+@media (max-width: 992px) {
+    .system-information p {
+        max-width: 500px;
+        font-size: 30px;
+    }
+}
