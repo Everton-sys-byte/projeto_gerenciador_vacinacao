@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\lote;
 
+use App\Rules\BatchDueDate;
 use Illuminate\Foundation\Http\FormRequest;
 
 class LoteCreateRequest extends FormRequest
@@ -27,7 +28,7 @@ class LoteCreateRequest extends FormRequest
             'codigo' => 'required|unique:lotes',
             'tecnologia' => 'required',
             'quantidade' => 'required|integer',
-            'data_vencimento' => 'required|date'
+            'data_vencimento' => ['required','date', new BatchDueDate]
         ];
     }
 }

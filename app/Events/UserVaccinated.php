@@ -15,7 +15,6 @@ class UserVaccinated
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-
     public $lote;
     /**
      * Create a new event instance.

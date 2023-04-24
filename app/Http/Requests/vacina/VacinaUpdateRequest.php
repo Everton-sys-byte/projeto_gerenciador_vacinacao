@@ -30,4 +30,14 @@ class VacinaUpdateRequest extends FormRequest
             'e_idade_minima' => 'nullable|integer'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'e_nome.required' => 'O campo nome é obrigatório.',
+            'e_laboratorio.required' => 'O campo laboratório é obrigatorio.',
+            'e_descricao.required' => 'O campo descricação é obrigatório.',
+            'e_idade_minima.integer' => 'O campo idade minima deve ser um inteiro.'
+        ];
+    }
 }
