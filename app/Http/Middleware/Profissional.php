@@ -19,6 +19,6 @@ class Profissional
         if(auth()->user()->hasRole('profissional'))
             return $next($request);
 
-        return abort(402,'Você não tem permissão para acessar esta rota');
+        return abort(401,'Você não tem permissão para acessar esta rota');
     }
 }

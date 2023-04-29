@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class Administrador
+class AdministradorProfissional
 {
     /**
      * Handle an incoming request.
@@ -16,9 +16,9 @@ class Administrador
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->hasRole('admin'))
+        if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('profissional'))
             return $next($request);
 
-        return abort(401, 'Você não tem permissão para acessar esta rota');
+        return abort(401,'você não possui autorização para acessar esta página');
     }
 }

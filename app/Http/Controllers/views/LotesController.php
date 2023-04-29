@@ -7,7 +7,7 @@ use App\Models\Vacina;
 
 class LotesController extends Controller
 {
-    public function view(Vacina $vacina) {
+    public function index(Vacina $vacina) {
 
         $lotes = $vacina->lotes()->get();
 

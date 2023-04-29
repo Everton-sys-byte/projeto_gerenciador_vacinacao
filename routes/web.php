@@ -50,7 +50,7 @@ Route::middleware(['auth'])->prefix('usuario')->name('user.')->group(function ()
     Route::view('/home', 'usuario.home')->name('home');
     
     /* CARTEIRINHA E REGISTRO */
-    Route::get('/carteirinha',[RegistroController::class, 'view'])->name('register');
+    Route::get('/carteirinha',[RegistroController::class, 'index'])->name('register');
     Route::get('/carteirinha/registro/{registro}',[RegistroController::class, 'moreInformation'])->name('register.more.information');
     Route::get('/carteirinha/registro/{registro}/imprimir', [RegistroController::class,'generatePDF'])->name('register.generate.pdf');
 
@@ -71,15 +71,26 @@ Route::middleware(['auth'])->prefix('usuario')->name('user.')->group(function ()
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 });
 
-//--------------------- USER (PROFISSIONAL) -------------//
-Route::middleware(['check.is.profissional'])->prefix('profissional')->name('professional.')->group(function () {
-    Route::post('/criar/vacina', [VacinaController::class, 'create'])->name('create.vaccine');
-    Route::put('/editar/vacina', [VacinaController::class, 'update'])->name('update.vaccine');
+//--------------------- USER (PROFISSIONAL ou ADMINISTRADOR) -------------//
 
-    //ROTA PARA O PROFISSIONAL APLICAR A VACINA
+//-------------------- ROTA PARA AS VACINAS --------------- //
+Route::middleware(['check.is.administrador.profissional'])->prefix('gerenciar')->name('professional.')->group(function () {
+    Route::post('/criar/vacina', [VacinaController::class, 'store'])->name('create.vaccine');
+    Route::put('/editar/vacina', [VacinaController::class, 'update'])->name('update.vaccine');
+});
+//-------------------- ROTA PARA OS LOTES --------------- //
+Route::middleware(['check.is.administrador.profissional'])->prefix('vacinas')->name('batch.')->controller(LotesController::class)
+    ->group(function () {
+        Route::get('/{vacina}/lotes', 'index')->name('available');
+        Route::post('{vacina}/criar/lote', [LoteController::class, 'store'])->name('create');
+        Route::put('/editar/lote', [LoteController::class,'update'])->name('update');
+});
+
+//ROTA PARA O PROFISSIONAL APLICAR A VACINA
+Route::middleware(['check.is.profissional'])->prefix('profissional')->name('professional.')->group(function() {
     Route::get('/aplicar/vacinacao', [AplicarVacinacaoController::class, 'view'])->name('apply.vacination');
     Route::post('/efetuar/registro', [RegistroController::class,'store'])->name('perform.register');
-    Route::get('/visualizar/historico',[VisualizarHistoricoController::class , 'view'])->name('view.historic');
+    Route::get('/visualizar/historico',[VisualizarHistoricoController::class , 'view'])->name('view.historic'); 
 });
 
 //--------------------- USER (ADMINISTRADOR) -------------//
@@ -93,13 +104,6 @@ Route::middleware(['check.is.administrador'])->prefix('administrador')->name('ad
 
 //-------------------- ROTA PARA AS VACINAS --------------- //
 Route::middleware(['auth'])->prefix('vacinas')->name('vaccines.')->controller(VacinaController::class)->group(function () {
-    Route::get('/disponiveis', 'view')->name('available');
+    Route::get('/disponiveis','index')->name('available');
 });
 
-//-------------------- ROTA PARA OS LOTES --------------- //
-Route::middleware(['check.is.profissional'])->prefix('vacinas')->name('batch.')->controller(LotesController::class)
-    ->group(function () {
-        Route::get('/{vacina}/lotes', 'view')->name('available');
-        Route::post('{vacina}/criar/lote', [LoteController::class, 'store'])->name('create');
-        Route::put('/editar/lote', [LoteController::class,'update'])->name('update');
-    });

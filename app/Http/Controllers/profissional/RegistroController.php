@@ -15,7 +15,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 class RegistroController extends Controller
 {
-    public function view()
+    public function index()
     {
         $registros = auth()->user()->registros()->with(['lote.vacina', 'profissional'])->get();
         return view('usuario.carteirinha', [

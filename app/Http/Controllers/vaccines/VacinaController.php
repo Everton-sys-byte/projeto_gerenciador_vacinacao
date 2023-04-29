@@ -11,13 +11,13 @@ use Illuminate\Support\Facades\Log;
 
 class VacinaController extends Controller
 {
-    public function view(){
+    public function index(){
         return view('usuario.vacinas',[
             "vacinas" => Vacina::all()
         ]);
     }
 
-    public function create(VacinaCreateRequest $request){
+    public function store(VacinaCreateRequest $request){
         $vacina = Vacina::create($request->all());
         Log::channel('vaccines')->info('O usuário de CPF: '.auth()->user()->cpf.' e email: '.auth()->user()->email.' registrou a vacina de ID: '. $vacina->id);
         return redirect()->route('vaccines.available')->with('message','Vacina registrada com sucesso');

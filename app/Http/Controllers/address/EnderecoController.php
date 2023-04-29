@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Cep;
 use App\Models\Endereco;
 use App\Http\Requests\endereco\EnderecoCreateRequest;
-use Illuminate\Http\Request;
 
 
 class EnderecoController extends Controller
