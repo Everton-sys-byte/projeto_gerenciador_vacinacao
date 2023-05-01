@@ -19,6 +19,7 @@
                 </x-input.select>
                 <x-form.form-group labelName="Email" inputName="email" inputType="text" :inputValue="@old('email')" />
                 <x-form.form-group labelName="Senha" inputName="password" inputType="password" />
+                <p class="text-danger" style="margin-bottom:0">{{session()->get('credentials')}}</p>
                 <input type="submit" class="btn btn-primary" value="Logar">
                 <div class="password-register">
                     Esqueceu a senha?&nbsp;<a href="{{ @route('password.recovery') }}" class="text-decoration-none">clique

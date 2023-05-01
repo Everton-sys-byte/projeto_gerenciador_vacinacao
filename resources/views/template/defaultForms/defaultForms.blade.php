@@ -24,9 +24,17 @@
 
     {{-- stack serve para enviar algo para o head antes da pagina ser renderizada --}}
     @stack('scripts')
+
+    <style>
+        body {
+            width: 100vw;
+            min-height: 100vh;
+            overflow-x: hidden
+        }
+    </style>
 </head>
 
-<body style="width: 100vw; min-height: 100vh">
+<body>
     @yield('content')
 </body>
 
