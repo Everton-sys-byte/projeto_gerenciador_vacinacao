@@ -8,9 +8,8 @@
             <div class="wrapper h-100 d-flex flex-row justify-content px-5">
                 <div class="home-information container align-self-center text-light">
                     <x-titles.default-title title="Para o usuário" />
-                    <p> Aqui você pode visualizar com mais transparência e velocidade informações como vacinas tomadas
-                        junto com o lote, vacinas disponíveis e o profissional que efetuou a aplicação e onde a mesma foi feita.</p>
-                    <a href="#" class="btn btn-light text-primary">Saiba mais</a>
+                    <p class="fs-5"> Aqui você pode visualizar com mais transparência e velocidade informações das vacinas tomadas
+                        junto do lote, vacinas disponíveis e o profissional que efetuou a vacinação.</p>
                 </div>
                 <img id="Home_Banner_Illustration" src="{{ @asset('images/svgs/illustrations/goingoffline.svg') }}"
                     alt="" width="600" height="600" class="d-none d-xl-block" />

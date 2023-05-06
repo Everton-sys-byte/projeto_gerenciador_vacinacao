@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\admin;
 
+use App\Rules\Birthday;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AdminUpdateUserRequest extends FormRequest
@@ -28,7 +29,7 @@ class AdminUpdateUserRequest extends FormRequest
             'e_role' => 'required',
             'e_cns' => 'required_if:e_role,=,profissional|nullable|unique:users,cns,'.request()->get('id'),
             'e_celular' => 'required',
-            'e_data_nascimento' => 'required',
+            'e_data_nascimento' => ['required', 'date', new Birthday],
             'e_status' => 'required'
         ];
     }

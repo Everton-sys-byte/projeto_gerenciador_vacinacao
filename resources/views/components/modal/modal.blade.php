@@ -16,7 +16,7 @@
                 @elseif($modalType == 'update')
                     <input type="submit" value="Salvar alterações" class="btn btn-primary" form="{{$modalFormId}}">
                 @elseif($modalType == 'delete')
-                    <input type="submit" value="Excluir" class="btn btn-danger" form="{{$modalFormId}}">
+                    <input type="submit" value="Confirmar" class="btn btn-danger" form="{{$modalFormId}}">
                 @endif
             </div>
         </div>

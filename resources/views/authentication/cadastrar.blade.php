@@ -10,16 +10,16 @@
                 {{-- DEFAULT ALERT --}}
                 @include('template.defaultSessionAlert.alert')
                 <span class="fs-2 text-primary text-center">Efetuar cadastro</span>
-                <x-form.form-group labelName="Nome completo" inputName="nome_completo" inputType="text" :inputValue="@old('nome_completo')" />
-                <x-form.form-group labelName="CPF" inputName="cpf" inputType="text" :inputValue="@old('cpf')" />
-                <x-form.form-group labelName="Email" inputName="email" inputType="email" :inputValue="@old('email')" />
-                <x-form.form-group labelName="Celular" inputName="celular" inputType="text" :inputValue="@old('celular')" />
-                <x-form.form-group labelName="Data de nascimento" inputName="data_nascimento" inputType="date"
+                <x-form.form-group labelName="Nome completo*" inputName="nome_completo" inputType="text" :inputValue="@old('nome_completo')" />
+                <x-form.form-group labelName="CPF*" inputName="cpf" inputType="text" :inputValue="@old('cpf')" />
+                <x-form.form-group labelName="Email*" inputName="email" inputType="email" :inputValue="@old('email')" />
+                <x-form.form-group labelName="Celular*" inputName="celular" inputType="text" :inputValue="@old('celular')" />
+                <x-form.form-group labelName="Data de nascimento*" inputName="data_nascimento" inputType="date"
                     :inputValue="@old('data_nascimento')" />
                 <div class="row row-cols-1 row-cols-md-2">
-                    <x-form.form-group labelName="Senha" inputName="password" inputType="password"
+                    <x-form.form-group labelName="Senha*" inputName="password" inputType="password"
                         inputValue="{{ @old('password') }}" />
-                    <x-form.form-group labelName="Confirmar Senha" inputName="c_password" inputType="password"
+                    <x-form.form-group labelName="Confirmar Senha*" inputName="c_password" inputType="password"
                         inputValue="{{ @old('c_password') }}" />
                 </div>
                 <div class="form-group">

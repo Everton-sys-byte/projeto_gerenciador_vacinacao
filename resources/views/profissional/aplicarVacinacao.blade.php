@@ -12,7 +12,7 @@
             formId style="max-width: 500px">
             <x-form.form-group labelName="CPF do imunizado*" inputType="text" inputName="cpf"
                 inputValue="{{ @old('cpf') }}" />
-            <x-input.select labelName="Selecione uma vacina" inputName="vacina">
+            <x-input.select labelName="Selecione uma vacina*" inputName="vacina">
                 <x-slot name="options">
                     <option value="">Selecione a vacina</option>
                     @foreach ($vacinas as $vacina)
@@ -20,7 +20,7 @@
                     @endforeach
                 </x-slot>
             </x-input.select>
-            <x-input.select labelName="Selecione um lote" inputName="lote">
+            <x-input.select labelName="Selecione um lote*" inputName="lote">
                 <x-slot name="options">
                 </x-slot>
             </x-input.select>

@@ -28,7 +28,7 @@ class LoteUpdateRequest extends FormRequest
             'e_codigo' => 'required|unique:lotes,codigo,'.request()->get('lote_id'),
             'e_tecnologia' => 'required',
             'e_quantidade' => 'required|integer',
-            'e_data_vencimento' => ['required','date', new BatchDueDate]
+            'e_data_vencimento' => ['required','date']
         ];
     }
 
