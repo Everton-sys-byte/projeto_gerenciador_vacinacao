@@ -1,11 +1,12 @@
 @extends('template.defaultForms.defaultForms')
-@section('title', 'efetuar login')
+@section('title', 'Login')
 
 @section('content')
-    <div class="container-fluid position-relative d-flex flex-row p-0 vh-100">
-        <div class="form-wrapper d-flex flex-column">
-            <img src="{{ @asset('images/logo/cvdlogo.png') }}" alt="cvd logo" width="150px" class="mx-auto">
-            <x-form.default-form formAction="{{ @route('user.autenticar') }}" formMethod="POST" class="py-3 px-4" formId
+    <div class="container-fluid p-0 d-flex flex-row align-items-center rounded shadow-lg bg-white"
+        style="width: 80%; height: 95vh">
+        <div class="content bg-login d-none d-xl-block" style="width:60%; height:100%"></div>
+        <div class="form-wrapper">
+            <x-form.default-form formAction="{{ @route('user.autenticar') }}" formMethod="POST" class="px-4" formId
                 style="min-width: 350px">
                 {{-- DEFAULT ALERT --}}
                 @include('template.defaultSessionAlert.alert')
@@ -19,7 +20,7 @@
                 </x-input.select>
                 <x-form.form-group labelName="Email" inputName="email" inputType="text" :inputValue="@old('email')" />
                 <x-form.form-group labelName="Senha" inputName="password" inputType="password" />
-                <p class="text-danger" style="margin-bottom:0">{{session()->get('credentials')}}</p>
+                <p class="text-danger" style="margin-bottom:0">{{ session()->get('credentials') }}</p>
                 <input type="submit" class="btn btn-primary" value="Logar">
                 <div class="password-register">
                     Esqueceu a senha?&nbsp;<a href="{{ @route('password.recovery') }}" class="text-decoration-none">clique
@@ -28,11 +29,6 @@
                     Não tem conta?&nbsp;<a href="{{ @route('cadastrar') }}" class="text-decoration-none">cadastre-se</a>
                 </div>
             </x-form.default-form>
-        </div>
-
-        <div class="system-information vh-100 d-flex flex-column justify-content-center d-none d-md-flex ">
-            <p class="fw-bold align-self-center"> Plataforma de saúde para os cidadãos e profissionais, uma maneira fácil e rápida de
-                visualizar sua carteirinha de vacinação digital.</p>
         </div>
     </div>
     @if (Session::has('permission'))

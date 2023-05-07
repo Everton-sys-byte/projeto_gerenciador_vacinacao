@@ -34,7 +34,7 @@
     </style>
 </head>
 
-<body>
+<body class="d-flex flex-row justify-content-center align-items-center bg-primary">
     @yield('content')
 </body>
 

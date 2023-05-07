@@ -10,8 +10,19 @@
     font-size: 40px;
 }
 
+.form-wrapper {
+    width: 40%;
+    max-height: 100%;
+    overflow-y:auto;
+}
 
-@media (max-width: 768px) {
+.bg-login{
+    background: url('../images/logo/cvdlogo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 1200px) {
     .form-wrapper {
         width: 100vw;
     }
