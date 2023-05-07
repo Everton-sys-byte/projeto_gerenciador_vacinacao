@@ -27,7 +27,7 @@ class AutenticarController extends Controller
             Log::channel('login')->info('O usuário de email: '.auth()->user()->email.' efetuou login como usuário '.request('role'));
 
             $request->session()->put('role', $request->role);
-            return redirect()->route('user.home');
+            return redirect()->route('home');
         }
         Log::channel('login')->warning('O usuário de email: '.request('email').' tentou efetuar login e falhou');
         return redirect()->route('logar')->with('credentials','Usuario ou senha inválidos.');

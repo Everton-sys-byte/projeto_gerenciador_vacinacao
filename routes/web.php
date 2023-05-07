@@ -26,10 +26,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//--------------------- PAGINA HOME ---------------------//
+Route::view('/','home')->name('home');
+
 
 //--------------------- FORMS VIEW ----------------------//
-Route::get('/', [LoginController::class, 'view'])->name('logar');
-Route::view('/cadastrar', 'authentication/cadastrar')->name('cadastrar');
+Route::middleware(['check.is.guest'])->group(function(){
+    Route::get('/login', [LoginController::class, 'view'])->name('logar');
+    Route::view('/cadastrar', 'authentication/cadastrar')->name('cadastrar');
+});
 
 //--------------------- FORMS AUTHENTICATE --------------------//
 Route::post('/user/cadastrar', [CadastrarController::class, 'store'])->name('user.cadastrar');
@@ -47,7 +52,7 @@ Route::post('resetar-senha', [RecuperarSenhaController::class, 'resetPassword'])
 //--------------------- USER (COMUM) -------------//
 Route::middleware(['auth'])->prefix('usuario')->name('user.')->group(function () {
     /* PÁGINA HOME */
-    Route::view('/home', 'usuario.home')->name('home');
+    //Route::view('/home', 'usuario.home')->name('home');
     
     /* CARTEIRINHA E REGISTRO */
     Route::get('/carteirinha',[RegistroController::class, 'index'])->name('register');

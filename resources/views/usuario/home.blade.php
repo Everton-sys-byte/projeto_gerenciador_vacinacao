@@ -8,7 +8,8 @@
             <div class="wrapper h-100 d-flex flex-row justify-content px-5">
                 <div class="home-information container align-self-center text-light">
                     <x-titles.default-title title="Para o usuário" />
-                    <p class="fs-5"> Aqui você pode visualizar com mais transparência e velocidade informações das vacinas tomadas
+                    <p class="fs-5"> Aqui você pode visualizar com mais transparência e velocidade informações das vacinas
+                        tomadas
                         junto do lote, vacinas disponíveis e o profissional que efetuou a vacinação.</p>
                 </div>
                 <img id="Home_Banner_Illustration" src="{{ @asset('images/svgs/illustrations/goingoffline.svg') }}"
@@ -22,7 +23,7 @@
                         class="doctors d-none d-xl-block position-relative">
                 </div>
                 <div class="funcionalidades px-2 h-100 d-flex flex-column justify-content-center" data-anime="right"
-                data-anime-container>
+                    data-anime-container>
                     <x-titles.default-title title="Para o profissional de saúde" />
                     <p class="text-dark">Nossa plataforma facilita o serviço, ela fornece
                         o gerenciamento das vacinas e dos lotes atrelados a ela e até mesmo de registro de vacinação, também
@@ -64,8 +65,5 @@
                 </div>
             </div>
         </div>
-    </div>
-
-
     </div>
 @endsection

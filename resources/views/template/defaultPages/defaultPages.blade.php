@@ -38,6 +38,7 @@
     <main class="page w-100 min-vh-100" id="page">
         @yield('content')
     </main>
+    <x-footer.footer/>
 </body>
 
 </html>

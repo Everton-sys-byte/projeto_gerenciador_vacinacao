@@ -4,5 +4,7 @@
         <div class="linha bg-white rounded"></div>
         <div class="linha bg-white rounded"></div>
     </div>
-    <x-user-menu.user-menu/>
+    @if(auth()->user())
+        <x-user-menu.user-menu/>
+    @endif
 </header>
