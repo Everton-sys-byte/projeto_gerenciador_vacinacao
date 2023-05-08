@@ -27,23 +27,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //--------------------- PAGINA HOME ---------------------//
-Route::view('/','home')->name('home');
+Route::view('/', 'home')->name('home');
 
 
 //--------------------- FORMS VIEW ----------------------//
-Route::middleware(['check.is.guest'])->group(function(){
+Route::middleware(['check.is.guest'])->group(function () {
     Route::get('/login', [LoginController::class, 'view'])->name('logar');
     Route::view('/cadastrar', 'authentication/cadastrar')->name('cadastrar');
+    /* -------------------- RECUPERAR SENHA -----------------*/
+    Route::view('recuperar-senha', 'authentication/senha/recuperar_senha')->name('password.recovery');
+    /* rota para o usuário informar o email da conta */
+    Route::post('recuperar-senha', [RecuperarSenhaController::class, 'sendEmail'])->name('send.password.recovery.email');
 });
 
 //--------------------- FORMS AUTHENTICATE --------------------//
 Route::post('/user/cadastrar', [CadastrarController::class, 'store'])->name('user.cadastrar');
 Route::post('/user/logar', [AutenticarController::class, 'autenticar'])->name('user.autenticar');
 
-/* -------------------- RECUPERAR SENHA -----------------*/
-Route::view('recuperar-senha','authentication/senha/recuperar_senha')->name('password.recovery');
-/* rota para o usuário informar o email da conta */
-Route::post('recuperar-senha',[RecuperarSenhaController::class, 'sendEmail'])->name('send.password.recovery.email');
 /* rota que pega o token que vem via URL e renderiza o formulário com este token em um input hidden */
 Route::get('resetar-senha/{token}/{email}', [RecuperarSenhaController::class, 'renderFormPasswordReset'])->name('password.reset');
 /* resetar a senha */
@@ -53,11 +53,11 @@ Route::post('resetar-senha', [RecuperarSenhaController::class, 'resetPassword'])
 Route::middleware(['auth'])->prefix('usuario')->name('user.')->group(function () {
     /* PÁGINA HOME */
     //Route::view('/home', 'usuario.home')->name('home');
-    
+
     /* CARTEIRINHA E REGISTRO */
-    Route::get('/carteirinha',[RegistroController::class, 'index'])->name('register');
-    Route::get('/carteirinha/registro/{registro}',[RegistroController::class, 'moreInformation'])->name('register.more.information');
-    Route::get('/carteirinha/registro/{registro}/imprimir', [RegistroController::class,'generatePDF'])->name('register.generate.pdf');
+    Route::get('/carteirinha', [RegistroController::class, 'index'])->name('register');
+    Route::get('/carteirinha/registro/{registro}', [RegistroController::class, 'moreInformation'])->name('register.more.information');
+    Route::get('/carteirinha/registro/{registro}/imprimir', [RegistroController::class, 'generatePDF'])->name('register.generate.pdf');
 
     /* PERFIL */
     /* VER INFORMAÇÕES */
@@ -88,14 +88,14 @@ Route::middleware(['check.is.administrador.profissional'])->prefix('vacinas')->n
     ->group(function () {
         Route::get('/{vacina}/lotes', 'index')->name('available');
         Route::post('{vacina}/criar/lote', [LoteController::class, 'store'])->name('create');
-        Route::put('/editar/lote', [LoteController::class,'update'])->name('update');
-});
+        Route::put('/editar/lote', [LoteController::class, 'update'])->name('update');
+    });
 
 //ROTA PARA O PROFISSIONAL APLICAR A VACINA
-Route::middleware(['check.is.profissional'])->prefix('profissional')->name('professional.')->group(function() {
+Route::middleware(['check.is.profissional'])->prefix('profissional')->name('professional.')->group(function () {
     Route::get('/aplicar/vacinacao', [AplicarVacinacaoController::class, 'view'])->name('apply.vacination');
-    Route::post('/efetuar/registro', [RegistroController::class,'store'])->name('perform.register');
-    Route::get('/visualizar/historico',[VisualizarHistoricoController::class , 'view'])->name('view.historic'); 
+    Route::post('/efetuar/registro', [RegistroController::class, 'store'])->name('perform.register');
+    Route::get('/visualizar/historico', [VisualizarHistoricoController::class, 'view'])->name('view.historic');
 });
 
 //--------------------- USER (ADMINISTRADOR) -------------//
@@ -104,11 +104,10 @@ Route::middleware(['check.is.administrador'])->prefix('administrador')->name('ad
     Route::post('/criar/usuario', [AdminController::class, 'createUser'])->name('create.user');
     Route::put('/editar/usuario', [AdminController::class, 'editUser'])->name('edit.user');
     Route::delete('/excluir/vacina', [VacinaController::class, 'delete'])->name('delete.vaccine');
-    Route::delete('/excluir/lote', [LoteController::class,'delete'])->name('delete.batch');
+    Route::delete('/excluir/lote', [LoteController::class, 'delete'])->name('delete.batch');
 });
 
 //-------------------- ROTA PARA AS VACINAS --------------- //
 Route::middleware(['auth'])->prefix('vacinas')->name('vaccines.')->controller(VacinaController::class)->group(function () {
-    Route::get('/disponiveis','index')->name('available');
+    Route::get('/disponiveis', 'index')->name('available');
 });
-
