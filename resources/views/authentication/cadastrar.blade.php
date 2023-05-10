@@ -2,8 +2,7 @@
 @section('title', 'Cadastro')
 
 @section('content')
-    <div class="container-fluid p-0 d-flex flex-row align-items-center rounded shadow-lg bg-white"
-        style="width: 80%; height: 95vh">
+    <div class="form-holder container-fluid p-0 d-flex flex-row align-items-center rounded shadow-lg bg-white">
         <div class="content bg-login d-none d-xl-block" style="width:60%; height:100%"></div>
         <div class="form-wrapper d-flex flex-column">
             <x-form.default-form formAction="{{ @route('user.cadastrar') }}" formMethod="POST" class="py-3 px-4" formId
