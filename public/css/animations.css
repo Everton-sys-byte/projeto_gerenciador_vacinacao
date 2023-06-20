@@ -57,3 +57,13 @@
 [data-anime="top"] {
     transform: translateY(-30px);
 }
+
+/* ANIMAÇÃO DA CARTEIRINHA DE VACINAÇÃO QUE ESTÁ DENTRO DA PÁGINA MAIS INFORMAÇÕES */
+
+[data-carta-animate] {
+    transition: all 1s;
+}
+
+[data-carta-animate="rotate"] {
+    transform: rotateY(180deg);
+}

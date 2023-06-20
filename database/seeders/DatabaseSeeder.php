@@ -26,6 +26,6 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
         ]);
         //criando dados aleatorios com o factory
-        \App\Models\Vacina::factory(100)->create();
+        //\App\Models\Vacina::factory(100)->create();
     }
 }
