@@ -11,11 +11,7 @@
         @include('template.defaultSessionAlert.alert')
 
         {{-- TABLE --}}
-        @include('template.tables.gerenciarUsuarios')
-            <table class="table">
-                <thead>
-            
-    
+        @include('template.tables.gerenciarUsuarios')           
     </div>
 
 
