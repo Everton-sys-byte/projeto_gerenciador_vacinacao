@@ -17,7 +17,7 @@
                     <h5>Informações da vacina</h5>
                     <span><strong>Nome:</strong> {{ $registro->lote->vacina->nome }}</span>
                     <span><strong>Laboratório:</strong> {{ $registro->lote->vacina->laboratorio }}</span>
-                    <span><strong>Idade minima:</strong> {{ $registro->lote->vacina->idade_minima }} anos</span>
+                    {{-- <span><strong>Idade minima:</strong> {{ $registro->lote->vacina->idade_minima }} anos</span> --}}
                 </div>
                 <div class="lote d-flex flex-column rounded py-2">
                     <h5>Informações do lote</h5>
